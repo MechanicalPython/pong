@@ -50,6 +50,7 @@ def move(pin1, pin2):
     discharge(pin1, pin2)
     t = charge_time(pin1, pin2)
     discharge(pin1, pin2)
+    GPIO.cleanup()
     return t
 
 
