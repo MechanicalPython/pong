@@ -1,3 +1,5 @@
+#! /usr/bin/python
+
 import RPi.GPIO as GPIO
 import time
 import math
@@ -67,3 +69,4 @@ def move_left():
 def move_right():
     return move(right1, right2)
 
+print(move_left())

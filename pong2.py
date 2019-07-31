@@ -1,3 +1,5 @@
+#! /usr/bin/python
+
 # Pong
 # Language - Python
 # Modules - pygame, sys, random, math
