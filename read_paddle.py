@@ -33,8 +33,6 @@ def charge_time(pin1, pin2):
     GPIO.output(pin1, True)
     t1 = time.time()
     while not GPIO.input(pin2):
-        if time.time() - t1 > 0.1:
-            return None
         pass
     t2 = time.time()
     return t2-t1
@@ -52,15 +50,7 @@ def move(pin1, pin2):
     discharge(pin1, pin2)
     t = charge_time(pin1, pin2)
     discharge(pin1, pin2)
-    if t is None:
-        GPIO.cleanup()
-        return None
-    if t > 0.069:  # Bigger therfore full left
-
-        return 'UP'
-    if t < 0.069:
-
-        return 'DOWN'
+    return t
 
 
 def move_left():
