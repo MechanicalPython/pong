@@ -263,4 +263,8 @@ def board():
         clock.tick(60)
 
 
-board()
+if __name__ == '__main__':
+    board()
+
+# todo - idle screen for when not used.
+# todo - menu screen for
