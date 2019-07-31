@@ -3,6 +3,15 @@ import time
 import math
 
 
+left1 = 14
+left2 = 15
+
+right1 = 23
+right2 = 24
+
+GPIO.setmode(GPIO.BCM)
+
+
 def switch(switch):
     if GPIO.input(switch) == GPIO.HIGH:
         print('ON')
@@ -29,8 +38,15 @@ def charge_time(pin1, pin2):
     return t2-t1
 
 
-def move(pin1, pin2): 
-    GPIO.setmode(GPIO.BCM)
+def move(pin1, pin2):
+    """
+    Return UP or DOWN.
+    Bigger charge time is full left on both (probably)
+
+    :param pin1:
+    :param pin2:
+    :return:
+    """
     discharge(pin1, pin2)
     t = charge_time(pin1, pin2)
     discharge(pin1, pin2)
@@ -38,12 +54,16 @@ def move(pin1, pin2):
         GPIO.cleanup()
         return None
     if t > 0.069:  # Bigger therfore full left
-        GPIO.cleanup()
+
         return 'UP'
     if t < 0.069:
-        GPIO.cleanup()
+
         return 'DOWN'
 
 
+def move_left():
+    return move(left1, left2)
 
+def move_right():
+    return move(right1, right2)
 
