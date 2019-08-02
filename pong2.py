@@ -12,7 +12,6 @@ import sys
 import random
 from math import *
 import time
-import os
 
 # import read_paddle
 
@@ -40,6 +39,9 @@ scoreRight = 0
 maxScore = 11
 
 font = pygame.freetype.Font('SF Atarian System Extended Bold.ttf', 60)
+point_score_sound = pygame.mixer.Sound("Point score.wav")
+hit_paddle_sound = pygame.mixer.Sound("Hit Paddle.wav")
+hit_wall_sound = pygame.mixer.Sound("Hit wall.wav")
 
 
 # Draw the Boundary of Board
@@ -114,21 +116,28 @@ class Ball:
         global scoreLeft, scoreRight
         self.x += self.speed * cos(radians(self.angle))
         self.y += self.speed * sin(radians(self.angle))
-        if self.x + self.r > width - margin:
+
+        if self.x + self.r > width - margin:  # Point left
             scoreLeft += 1
+            point_score_sound.play()
             self.angle = 180 - self.angle
-        if self.x < margin:
+        if self.x < margin:  # Point right
             scoreRight += 1
+            point_score_sound.play()
             self.angle = 180 - self.angle
+
         if self.y < margin:
             self.angle = - self.angle
+            hit_wall_sound.play()
         if self.y + self.r >= height - margin:
             self.angle = - self.angle
+            hit_wall_sound.play()
 
     # Check and Reflect the Ball when it hits the padddle
     def checkForPaddle(self):
         if self.x < width / 2:
             if leftPaddle.x < self.x < leftPaddle.x + leftPaddle.w:
+                hit_paddle_sound.play()
                 if leftPaddle.y < self.y < leftPaddle.y + 10 or leftPaddle.y < self.y + self.r < leftPaddle.y + 10:
                     self.angle = -45
                 if leftPaddle.y + 10 < self.y < leftPaddle.y + 20 or leftPaddle.y + 10 < self.y + self.r < leftPaddle.y + 20:
@@ -147,6 +156,7 @@ class Ball:
                     self.angle = 45
         else:
             if rightPaddle.x + rightPaddle.w > self.x + self.r > rightPaddle.x:
+                hit_paddle_sound.play()
                 if rightPaddle.y < self.y < leftPaddle.y + 10 or leftPaddle.y < self.y + self.r < leftPaddle.y + 10:
                     self.angle = -135
                 if rightPaddle.y + 10 < self.y < rightPaddle.y + 20 or rightPaddle.y + 10 < self.y + self.r < rightPaddle.y + 20:
@@ -239,10 +249,8 @@ def board():
                 if event.key == pygame.K_q:
                         close()
 
-        # left_paddle_event = read_paddle.PaddleMove('l').position()
-        # right_paddle_event = read_paddle.PaddleMove('r').position()
-        left_paddle_event = (height - leftPaddle.h) * 0.5
-        right_paddle_event = (height - rightPaddle.h) * 0.5
+        left_paddle_event = (height - leftPaddle.h) * 0.5 # read_paddle.PaddleMove('l').position()
+        right_paddle_event = (height - rightPaddle.h) * 0.5 # read_paddle.PaddleMove('r').position()
 
         if round(left_paddle_event, 1) == left_last_position:
             left_paddle_change_track += 1
@@ -286,6 +294,6 @@ def board():
 
 if __name__ == '__main__':
     board()
-
-# todo - idle screen for when not used.
-# todo - menu screen for
+# todo reset button
+# todo sound. Hit paddle, hit bottom/top, point score.
+# todo menu button. Quit to cmd line, Change volume, Change ball speed.
