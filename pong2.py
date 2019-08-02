@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/python3
 
 # Pong
 # Language - Python
@@ -261,6 +261,7 @@ def board():
         if left_paddle_change_track > 60*1:
             leftChange = auto_paddle(leftPaddle, 'left')
         else:
+            left_paddle_change_track = 0
             leftChange = left_paddle_event
 
         if right_paddle_change_track > 60*1:
@@ -268,6 +269,7 @@ def board():
 
         else:
             rightChange = right_paddle_event
+            right_paddle_change_track = 0
 
         left_last_position = round(left_paddle_event, 1)
         right_last_position = round(right_paddle_event, 1)
