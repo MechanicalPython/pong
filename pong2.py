@@ -39,8 +39,8 @@ scoreRight = 0
 maxScore = 11
 
 font = pygame.freetype.Font('SF Atarian System Extended Bold.ttf', 60)
-point_score_sound = pygame.mixer.Sound("Point score.wav")
-hit_paddle_sound = pygame.mixer.Sound("Hit Paddle.wav")
+point_score_sound = pygame.mixer.Sound("Point score.wav")  # Works
+hit_paddle_sound = pygame.mixer.Sound("Hit Paddle.wav")  # Works
 hit_wall_sound = pygame.mixer.Sound("Hit wall.wav")
 
 
