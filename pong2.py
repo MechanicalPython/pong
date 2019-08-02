@@ -11,9 +11,10 @@ import pygame.freetype
 import sys
 import random
 from math import *
+import time
 import os
 
-import read_paddle
+# import read_paddle
 
 pygame.init()
 
@@ -80,11 +81,11 @@ class Paddle:
 
     # Move the Paddle
     def move(self, ydir):
-        self.y += self.paddleSpeed * ydir
+        self.y = ydir
         if self.y < 0:
-            self.y -= self.paddleSpeed * ydir
+            self.y = 0
         elif self.y + self.h > height:
-            self.y -= self.paddleSpeed * ydir
+            self.y = height - self.h
 
 
 leftPaddle = Paddle(-1)
@@ -169,10 +170,12 @@ def showScore():
     font.render_to(display, ((width/4, 20)), str(scoreLeft), white)
     font.render_to(display, (((width / 4)*3, 20)), str(scoreRight), white)
 
+
 # Game Over
 def gameOver():
     if scoreLeft == maxScore or scoreRight == maxScore:
-        while True:
+        t = time.time()
+        while t+5 > time.time():
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     close()
@@ -183,6 +186,7 @@ def gameOver():
                         reset()
             font.render_to(display, (width / 2 - 185, height / 2), "GAME OVER", white)
             pygame.display.update()
+        reset()
 
 
 def reset():
@@ -205,14 +209,15 @@ def auto_paddle(paddle, side):
     elif side == 'right' and ball_angle < 90:
         move = True
     pc = paddle.y + (paddle.h/2)
-    bc = ball.y
-
-    if pc > bc and move:
-        return -1
-    elif pc < bc and move:
-        return 1
-    else:
-        return 0
+    move_distance = ball.speed
+    if move is True:
+        if abs(pc - ball.y) < 10:
+            move_distance = int(abs(pc - ball.y)/2)
+        if pc > ball.y:  # paddle further down
+            return paddle.y - move_distance
+        else:
+            return paddle.y + move_distance
+    return paddle.y
 
 
 def board():
@@ -224,26 +229,40 @@ def board():
     rightChange = 0
     global ball
     ball = Ball(white)
+    left_last_position = 0
+    right_last_position = 0
+    left_paddle_change_track = 0
+    right_paddle_change_track = 0
     while loop:
-        #left_paddle_event = read_paddle.move(18, 23)
-        #right_paddle_event = read_paddle.move(7, 8)
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                         close()
 
-        #if left_paddle_event == 'UP':
-        #    leftChange = 1
-        #elif left_paddle_event == 'DOWN':
-        #    leftChange = -1
-        #elif left_paddle_event is None:
-        leftChange = auto_paddle(leftPaddle, 'left')
-        #if right_paddle_event == 'UP':
-        #    rightChange = 1
-        #elif right_paddle_event == 'DOWN':
-        #    rightChange = -1
-        #elif right_paddle_event is None:
-        rightChange = auto_paddle(rightPaddle, 'right')
+        # left_paddle_event = read_paddle.PaddleMove('l').position()
+        # right_paddle_event = read_paddle.PaddleMove('r').position()
+        left_paddle_event = (height - leftPaddle.h) * 0.5
+        right_paddle_event = (height - rightPaddle.h) * 0.5
+
+        if round(left_paddle_event, 1) == left_last_position:
+            left_paddle_change_track += 1
+
+        if round(right_paddle_event, 1) == right_last_position:
+            right_paddle_change_track += 1
+
+        if left_paddle_change_track > 60*1:
+            leftChange = auto_paddle(leftPaddle, 'left')
+        else:
+            leftChange = left_paddle_event
+
+        if right_paddle_change_track > 60*1:
+            rightChange = auto_paddle(rightPaddle, 'right')
+
+        else:
+            rightChange = right_paddle_event
+
+        left_last_position = round(left_paddle_event, 1)
+        right_last_position = round(right_paddle_event, 1)
 
         leftPaddle.move(leftChange)
         rightPaddle.move(rightChange)
