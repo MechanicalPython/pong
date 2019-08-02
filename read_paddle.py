@@ -11,8 +11,6 @@ left2 = 15
 right1 = 23
 right2 = 24
 
-GPIO.setmode(GPIO.BCM)
-
 
 def switch(switch):
     if GPIO.input(switch) == GPIO.HIGH:
@@ -21,7 +19,6 @@ def switch(switch):
 
 
 def discharge(pin1, pin2):
-    GPIO.setmode(GPIO.BCM)
     GPIO.setup(pin1, GPIO.IN)
     GPIO.setup(pin2, GPIO.OUT)
     GPIO.output(pin2, False)
@@ -48,6 +45,7 @@ def move(pin1, pin2):
     :param pin2:
     :return:
     """
+    GPIO.setmode(GPIO.BCM)
     discharge(pin1, pin2)
     t = charge_time(pin1, pin2)
     discharge(pin1, pin2)
