@@ -60,4 +60,6 @@ def move_left():
 def move_right():
     return move(right1, right2)
 
-print(move_left())
+
+while True:
+    print(move_left())
