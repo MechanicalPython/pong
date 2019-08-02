@@ -21,6 +21,7 @@ def switch(switch):
 
 
 def discharge(pin1, pin2):
+    GPIO.setmode(GPIO.BCM)
     GPIO.setup(pin1, GPIO.IN)
     GPIO.setup(pin2, GPIO.OUT)
     GPIO.output(pin2, False)
@@ -60,4 +61,5 @@ def move_left():
 def move_right():
     return move(right1, right2)
 
-print(move_left())
+while True:
+    print(move_left())
