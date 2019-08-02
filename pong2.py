@@ -13,7 +13,7 @@ import random
 from math import *
 import time
 
-# import read_paddle
+import read_paddle
 
 pygame.init()
 
@@ -249,7 +249,7 @@ def board():
                 if event.key == pygame.K_q:
                         close()
 
-        left_paddle_event = (height - leftPaddle.h) * 0.5 # read_paddle.PaddleMove('l').position()
+        left_paddle_event = (height - leftPaddle.h) * read_paddle.PaddleMove('l').position()
         right_paddle_event = (height - rightPaddle.h) * 0.5 # read_paddle.PaddleMove('r').position()
 
         if round(left_paddle_event, 1) == left_last_position:
