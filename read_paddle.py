@@ -2,6 +2,7 @@
 
 import RPi.GPIO as GPIO
 import time
+import statistics as stats
 
 left1 = 14
 left2 = 15
@@ -52,6 +53,13 @@ class PaddleMove:
         GPIO.cleanup()
         total = total[80:120]
         return sum(total) / len(total)
+
+    def stability(self):
+        t = []
+        for x in range(60):
+            time.sleep(0.0000001)
+            t.append(self.avg_charge_time())
+        return stats.stdev(t), stats.mean(t)
 
     def position(self):
         """
