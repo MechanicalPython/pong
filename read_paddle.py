@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/python3
 
 import RPi.GPIO as GPIO
 import time
@@ -45,13 +45,12 @@ class PaddleMove:
         self.discharge()
         return t
 
-    def avg_charge_time(self, iters=100):
+    def avg_charge_time(self, iters=10):
         total = []
         GPIO.setmode(GPIO.BCM)
         for x in range(0, iters):
             total.append(self.exact_time())
         GPIO.cleanup()
-        total = total[80:120]
         return sum(total) / len(total)
 
     def stability(self):
