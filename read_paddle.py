@@ -62,8 +62,6 @@ class PaddleMove:
         :return:
         """
         t = self.avg_charge_time()
-        t = t *10000
+        t = t * 10000
         return round((t-0.21) / 0.60, 2)
 
-print(PaddleMove('l').position())
-print(PaddleMove('r').position())

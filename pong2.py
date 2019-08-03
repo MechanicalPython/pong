@@ -244,6 +244,7 @@ def board():
     left_paddle_change_track = 0
     right_paddle_change_track = 0
     read_left = read_paddle.PaddleMove('l')
+    read_right = read_paddle.PaddleMove('r')
     while loop:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
@@ -251,7 +252,7 @@ def board():
                         close()
 
         left_paddle_event = (height - leftPaddle.h) * read_left.position()
-        right_paddle_event = (height - rightPaddle.h) * read_paddle.PaddleMove('r').position()
+        right_paddle_event = (height - rightPaddle.h) * read_right.position()
 
         if round(left_paddle_event, 1) == left_last_position:
             left_paddle_change_track += 1
