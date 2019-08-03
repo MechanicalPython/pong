@@ -2,7 +2,6 @@
 
 import RPi.GPIO as GPIO
 import time
-import statistics
 
 left1 = 14
 left2 = 15
@@ -27,7 +26,7 @@ class PaddleMove:
         GPIO.setup(self.pin1, GPIO.IN)
         GPIO.setup(self.pin2, GPIO.OUT)
         GPIO.output(self.pin2, False)
-        time.sleep(0.01)
+        time.sleep(0.0000002)
 
     def charge_time(self):
         GPIO.setup(self.pin2, GPIO.IN)
@@ -40,18 +39,18 @@ class PaddleMove:
         return t2-t1
 
     def exact_time(self):  # Charge time for one capacitor
-        GPIO.setmode(GPIO.BCM)
         self.discharge()
         t = self.charge_time()
         self.discharge()
-        GPIO.cleanup()
         return t
 
-    def avg_charge_time(self, iters=10):
+    def avg_charge_time(self, iters=200):
         total = []
+        GPIO.setmode(GPIO.BCM)
         for x in range(0, iters):
             total.append(self.exact_time())
-        return statistics.mean(total)
+        GPIO.cleanup()
+        return sum(total) / iters
 
     def position(self):
         """
@@ -63,4 +62,8 @@ class PaddleMove:
         :return:
         """
         t = self.avg_charge_time()
-        return t
+        t = t *10000
+        return round((t-0.21) / 0.60, 2)
+
+print(PaddleMove('l').position())
+print(PaddleMove('r').position())
