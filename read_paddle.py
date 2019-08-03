@@ -10,6 +10,8 @@ left2 = 15
 right1 = 23
 right2 = 24
 
+# Time constant = resistance * capacitor
+
 
 def switch(switch):
     if GPIO.input(switch) == GPIO.HIGH:

@@ -293,7 +293,7 @@ def board():
         gameOver()
 
         pygame.display.update()
-        clock.tick(60)
+        clock.tick(30)
 
 
 if __name__ == '__main__':
