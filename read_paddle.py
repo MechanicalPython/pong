@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/python3
 
 import RPi.GPIO as GPIO
 import time
@@ -9,6 +9,7 @@ left2 = 15
 
 right1 = 23
 right2 = 24
+
 
 def switch(switch):
     if GPIO.input(switch) == GPIO.HIGH:
@@ -27,7 +28,8 @@ class PaddleMove:
         GPIO.setup(self.pin1, GPIO.IN)
         GPIO.setup(self.pin2, GPIO.OUT)
         GPIO.output(self.pin2, False)
-        time.sleep(0.00001)
+        while GPIO.input(self.pin1):
+            pass
 
     def charge_time(self):
         GPIO.setup(self.pin2, GPIO.IN)
@@ -59,7 +61,7 @@ class PaddleMove:
         for x in range(60):
             time.sleep(0.0000001)
             t.append(self.avg_charge_time())
-        return stats.stdev(t), stats.mean(t)
+        return stats.mean(t)
 
     def position(self):
         """
