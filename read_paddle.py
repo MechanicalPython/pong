@@ -17,6 +17,16 @@ def switch(switch):
         time.sleep(0.1)
 
 
+def timer(func):
+    def f(*args, **kwargs):
+        start = time.time()
+        rv = func(*args, **kwargs)
+        end = time.time()
+        print('Time taken', end - start, ' for ', func.__name__)
+        return rv
+    return f
+
+
 class PaddleMove:
     def __init__(self, side):
         if side == 'l':
@@ -24,13 +34,14 @@ class PaddleMove:
         if side == 'r':
             self.pin1, self.pin2 = right1, right2
 
+    @timer
     def discharge(self):
         GPIO.setup(self.pin1, GPIO.IN)
         GPIO.setup(self.pin2, GPIO.OUT)
         GPIO.output(self.pin2, False)
-        while GPIO.input(self.pin1):
-            pass
+        time.sleep(0.000001)
 
+    @timer
     def charge_time(self):
         GPIO.setup(self.pin2, GPIO.IN)
         GPIO.setup(self.pin1, GPIO.OUT)
@@ -41,38 +52,44 @@ class PaddleMove:
         t2 = time.time()
         return t2-t1
 
+    @timer
     def exact_time(self):  # Charge time for one capacitor
         self.discharge()
         t = self.charge_time()
         self.discharge()
         return t
 
+    @timer
     def avg_charge_time(self, iters=10):
         total = []
         GPIO.setmode(GPIO.BCM)
         for x in range(0, iters):
             total.append(self.exact_time())
         GPIO.cleanup()
-        return sum(total) / len(total)
+        total.sort()
+        total = total[int(iters/3):int(iters/3)*2]
+        t = sum(total) / len(total)
+        return round(t*1000000, 3)
 
     def stability(self):
-        t = []
-        for x in range(60):
-            time.sleep(0.0000001)
-            t.append(self.avg_charge_time())
-        return stats.mean(t)
+        GPIO.setmode(GPIO.BCM)
+        for x in range(100):
+            print(self.exact_time())
+        GPIO.cleanup()
 
+    @timer
     def position(self):
         """
         Return a number between 0 and 1. 1 is max left (down) and 0 is max right (up). Refelcts y axis on pygame.
         Bigger charge time is full left on both (probably)
         """
         t = self.avg_charge_time()
-        t = t * 10000
+        t = (t - 0.384) / (0.61 - 0.384) 
         return t
+t = time.time()
+print(PaddleMove('l').position())
+print(PaddleMove('r').position())
+print(time.time() -t)
 
-while True:
-    #print(PaddleMove('l').position())
-    print(PaddleMove('r').avg_charge_time())
 
 
