@@ -10,6 +10,8 @@ left2 = 15
 right1 = 23
 right2 = 24
 
+# Time constant = resistance * capacitor
+
 
 def switch(switch):
     if GPIO.input(switch) == GPIO.HIGH:
@@ -24,12 +26,11 @@ class PaddleMove:
         if side == 'r':
             self.pin1, self.pin2 = right1, right2
 
-    def discharge(self):
+    def discharge(self):  # Takes 5 time constants to discharge
         GPIO.setup(self.pin1, GPIO.IN)
         GPIO.setup(self.pin2, GPIO.OUT)
         GPIO.output(self.pin2, False)
-        while GPIO.input(self.pin1):
-            pass
+        time.sleep(0.0001)
 
     def charge_time(self):
         GPIO.setup(self.pin2, GPIO.IN)
