@@ -2,6 +2,7 @@
 
 import RPi.GPIO as GPIO
 import time
+import statistics
 
 left1 = 14
 left2 = 15
@@ -38,6 +39,20 @@ class PaddleMove:
         t2 = time.time()
         return t2-t1
 
+    def exact_time(self):  # Charge time for one capacitor
+        GPIO.setmode(GPIO.BCM)
+        self.discharge()
+        t = self.charge_time()
+        self.discharge()
+        GPIO.cleanup()
+        return t
+
+    def avg_charge_time(self, iters=10):
+        total = []
+        for x in range(0, iters):
+            total.append(self.exact_time())
+        return statistics.mean(total)
+
     def position(self):
         """
         Return a number between 0 and 1. 1 is max left (down) and 0 is max right (up). Refelcts y axis on pygame.
@@ -47,9 +62,5 @@ class PaddleMove:
         :param pin2:
         :return:
         """
-        GPIO.setmode(GPIO.BCM)
-        self.discharge()
-        t = self.charge_time()
-        self.discharge()
-        GPIO.cleanup()
-        return t/0.14
+        t = self.avg_charge_time()
+        return t

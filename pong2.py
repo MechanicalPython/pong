@@ -251,7 +251,7 @@ def board():
                         close()
 
         left_paddle_event = (height - leftPaddle.h) * read_left.position()
-        right_paddle_event = (height - rightPaddle.h) * 0.5 # read_paddle.PaddleMove('r').position()
+        right_paddle_event = (height - rightPaddle.h) * 0.5  # read_paddle.PaddleMove('r').position()
 
         if round(left_paddle_event, 1) == left_last_position:
             left_paddle_change_track += 1
@@ -300,3 +300,5 @@ if __name__ == '__main__':
 # todo reset button
 # todo sound. Hit paddle, hit bottom/top, point score.
 # todo menu button. Quit to cmd line, Change volume, Change ball speed.
+
+# todo problems. Very gittery at the bottom of the screen. Need some kind of averaging system. So faster capacitors.
