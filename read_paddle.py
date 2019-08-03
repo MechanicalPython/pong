@@ -26,15 +26,15 @@ class PaddleMove:
         if side == 'r':
             self.pin1, self.pin2 = right1, right2
 
+        GPIO.setup(self.pin1, GPIO.OUT)
+        GPIO.setup(self.pin2, GPIO.IN)
+
     def discharge(self):  # Takes 5 time constants to discharge
-        GPIO.setup(self.pin1, GPIO.IN)
-        GPIO.setup(self.pin2, GPIO.OUT)
+        GPIO.output(self.pin1, False)
         GPIO.output(self.pin2, False)
         time.sleep(0.0001)
 
     def charge_time(self):
-        GPIO.setup(self.pin2, GPIO.IN)
-        GPIO.setup(self.pin1, GPIO.OUT)
         GPIO.output(self.pin1, True)
         t1 = time.time()
         while not GPIO.input(self.pin2):
