@@ -26,7 +26,7 @@ class PaddleMove:
         GPIO.setup(self.pin1, GPIO.IN)
         GPIO.setup(self.pin2, GPIO.OUT)
         GPIO.output(self.pin2, False)
-        time.sleep(0.00007)
+        time.sleep(0.00001)
 
     def charge_time(self):
         GPIO.setup(self.pin2, GPIO.IN)
@@ -50,7 +50,8 @@ class PaddleMove:
         for x in range(0, iters):
             total.append(self.exact_time())
         GPIO.cleanup()
-        return sum(total) / iters
+        total = total[80:120]
+        return sum(total) / len(total)
 
     def position(self):
         """
@@ -60,8 +61,9 @@ class PaddleMove:
         t = self.avg_charge_time()
         t = t * 10000
         return t
+
 while True:
     #print(PaddleMove('l').position())
-    print(PaddleMove('r').position())
+    print(PaddleMove('r').avg_charge_time())
 
 
