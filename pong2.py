@@ -251,7 +251,7 @@ def board():
                         close()
 
         left_paddle_event = (height - leftPaddle.h) * read_left.position()
-        right_paddle_event = (height - rightPaddle.h) * 0.5  # read_paddle.PaddleMove('r').position()
+        right_paddle_event = (height - rightPaddle.h) * read_paddle.PaddleMove('r').position()
 
         if round(left_paddle_event, 1) == left_last_position:
             left_paddle_change_track += 1
