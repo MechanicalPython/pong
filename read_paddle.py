@@ -36,18 +36,18 @@ class PaddleMove:
         if side == 'r':
             self.pin1, self.pin2 = right1, right2
 
-    def discharge(self):
-        GPIO.setup(self.pin1, GPIO.IN)
-        GPIO.setup(self.pin2, GPIO.OUT)
-        GPIO.output(self.pin2, False)
-        time.sleep(0.00001)
+    def discharge(self):           # Total 0.000122  Actual is 3-10 times longer.
+        GPIO.setup(self.pin1, GPIO.IN)   # 0.00004
+        GPIO.setup(self.pin2, GPIO.OUT)  # 0.00004
+        GPIO.output(self.pin2, False)    # 0.000032
+        time.sleep(0.00001)              # 0.00001
 
-    def charge_time(self):
-        GPIO.setup(self.pin2, GPIO.IN)
-        GPIO.setup(self.pin1, GPIO.OUT)
-        GPIO.output(self.pin1, True)
+    def charge_time(self):         # Total 0.000113
+        GPIO.setup(self.pin2, GPIO.IN)   # 0.00004
+        GPIO.setup(self.pin1, GPIO.OUT)  # 0.00004
+        GPIO.output(self.pin1, True)     # 0.000033
         t1 = time.time()
-        while not GPIO.input(self.pin2):
+        while not GPIO.input(self.pin2):  # Charge time
             pass
         t2 = time.time()
         return t2 - t1
@@ -69,29 +69,12 @@ class PaddleMove:
         t = sum(total) / len(total)
         return round(t*1000000, 3)
 
-    def stability(self):
-        GPIO.setmode(GPIO.BCM)
-        for x in range(100):
-            print(self.exact_time())
-        GPIO.cleanup()
-
     def position(self):
         """
         Return a number between 0 and 1. 1 is max left (down) and 0 is max right (up). Refelcts y axis on pygame.
         Bigger charge time is full left on both (probably)
         """
         t = self.avg_charge_time()
-        t = (t - 0.384) / (0.61 - 0.384) 
         return t
-
-
-
-pl = PaddleMove('l')
-for x in range(0, 60*20):
-    print(pl.position())
-
-
-# print(PaddleMove('r').position())
-
 
 
