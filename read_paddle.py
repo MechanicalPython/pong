@@ -55,10 +55,10 @@ class PaddleMove:
     def exact_time(self):  # Charge time for one capacitor
         self.discharge()
         t = self.charge_time()
-        # self.discharge()
+        self.discharge()
         return t
 
-    def avg_charge_time(self, iters=10):
+    def avg_charge_time(self, iters=15):
         GPIO.setmode(GPIO.BCM)
         total = []
         for x in range(0, iters):
@@ -75,6 +75,5 @@ class PaddleMove:
         Bigger charge time is full left on both (probably)
         """
         t = self.avg_charge_time()
+        t = (t-35)/(275-35)
         return t
-
-
