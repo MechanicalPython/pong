@@ -69,17 +69,10 @@ class PaddleMove:
         t = sum(total) / len(total)
         return round(t*1000000, 3)
 
-    def stability(self):
-        GPIO.setmode(GPIO.BCM)
-        for x in range(100):
-            print(self.exact_time())
-        GPIO.cleanup()
-
     def position(self):
         """
         Return a number between 0 and 1. 1 is max left (down) and 0 is max right (up). Refelcts y axis on pygame.
         Bigger charge time is full left on both (probably)
         """
         t = self.avg_charge_time()
-        t = (t - 0.384) / (0.61 - 0.384) 
         return t
