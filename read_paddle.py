@@ -36,32 +36,31 @@ class PaddleMove:
         if side == 'r':
             self.pin1, self.pin2 = right1, right2
 
-
-    def discharge(self):  # Takes 5 time constants to discharge
-        GPIO.output(self.pin1, False)
+    def discharge(self):
+        GPIO.setup(self.pin1, GPIO.IN)
+        GPIO.setup(self.pin2, GPIO.OUT)
         GPIO.output(self.pin2, False)
-        time.sleep(0.000001)
+        time.sleep(0.00001)
 
-    @timer
     def charge_time(self):
+        GPIO.setup(self.pin2, GPIO.IN)
+        GPIO.setup(self.pin1, GPIO.OUT)
         GPIO.output(self.pin1, True)
         t1 = time.time()
         while not GPIO.input(self.pin2):
             pass
         t2 = time.time()
-        return t2-t1
+        return t2 - t1
 
-    @timer
     def exact_time(self):  # Charge time for one capacitor
         self.discharge()
         t = self.charge_time()
         # self.discharge()
         return t
 
-    @timer
     def avg_charge_time(self, iters=10):
-        total = []
         GPIO.setmode(GPIO.BCM)
+        total = []
         for x in range(0, iters):
             total.append(self.exact_time())
         GPIO.cleanup()
@@ -76,7 +75,6 @@ class PaddleMove:
             print(self.exact_time())
         GPIO.cleanup()
 
-    @timer
     def position(self):
         """
         Return a number between 0 and 1. 1 is max left (down) and 0 is max right (up). Refelcts y axis on pygame.
@@ -85,10 +83,15 @@ class PaddleMove:
         t = self.avg_charge_time()
         t = (t - 0.384) / (0.61 - 0.384) 
         return t
-t = time.time()
-print(PaddleMove('l').position())
-print(PaddleMove('r').position())
-print(time.time() -t)
+
+
+
+pl = PaddleMove('l')
+for x in range(0, 60*20):
+    print(pl.position())
+
+
+# print(PaddleMove('r').position())
 
 
 
