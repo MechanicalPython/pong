@@ -39,7 +39,6 @@ class PaddleMove:
 
     def discharge(self):  # Takes 5 time constants to discharge
         GPIO.output(self.pin1, False)
->>>>>>> c5f40ee4e7344d3a1223edcfa1734432ece74594
         GPIO.output(self.pin2, False)
         time.sleep(0.000001)
 
@@ -56,7 +55,7 @@ class PaddleMove:
     def exact_time(self):  # Charge time for one capacitor
         self.discharge()
         t = self.charge_time()
-        self.discharge()
+        # self.discharge()
         return t
 
     @timer
