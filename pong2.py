@@ -83,7 +83,12 @@ class Paddle:
 
     # Move the Paddle
     def move(self, ydir):
-        self.y = ydir
+        if self.y + self.paddleSpeed > ydir:  # Smoothing protocol
+            self.y -= self.paddleSpeed
+        elif self.y - self.paddleSpeed < ydir:
+            self.y += self.paddleSpeed
+        else:
+            self.y = ydir
         if self.y < 0:
             self.y = 0
         elif self.y + self.h > height:
