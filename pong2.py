@@ -13,7 +13,7 @@ import random
 from math import *
 import time
 
-import read_paddle
+# import read_paddle
 
 pygame.init()
 
@@ -83,7 +83,13 @@ class Paddle:
 
     # Move the Paddle
     def move(self, ydir):
-        self.y = ydir
+        # If self.y (current position) is more than paddleSpeed, add paddle
+        if self.y + self.paddleSpeed > ydir:  # Want to go up.
+            self.y -= self.paddleSpeed
+        elif self.y - self.paddleSpeed < ydir:
+            self.y += self.paddleSpeed
+        else:
+            self.y = ydir
         if self.y < 0:
             self.y = 0
         elif self.y + self.h > height:
@@ -230,6 +236,193 @@ def auto_paddle(paddle, side):
     return paddle.y
 
 
+paddle_spoof = ['0.995',
+ '0.970',
+ '0.959',
+ '0.999',
+ '0.935',
+ '0.989',
+ '0.966',
+ '0.922',
+ '0.950',
+ '0.951',
+ '0.919',
+ '0.946',
+ '0.899',
+ '0.936',
+ '0.892',
+ '0.913',
+ '0.877',
+ '0.864',
+ '0.886',
+ '0.866',
+ '0.865',
+ '0.846',
+ '0.827',
+ '0.836',
+ '0.836',
+ '0.811',
+ '0.855',
+ '0.789',
+ '0.818',
+ '0.800',
+ '0.810',
+ '0.816',
+ '0.811',
+ '0.781',
+ '0.775',
+ '0.769',
+ '0.746',
+ '0.737',
+ '0.721',
+ '0.763',
+ '0.719',
+ '0.738',
+ '0.701',
+ '0.728',
+ '0.723',
+ '0.700',
+ '0.694',
+ '0.704',
+ '0.688',
+ '0.669',
+ '0.676',
+ '0.640',
+ '0.646',
+ '0.646',
+ '0.636',
+ '0.618',
+ '0.609',
+ '0.599',
+ '0.596',
+ '0.590',
+ '0.603',
+ '0.616',
+ '0.593',
+ '0.607',
+ '0.589',
+ '0.544',
+ '0.548',
+ '0.593',
+ '0.547',
+ '0.546',
+ '0.557',
+ '0.542',
+ '0.524',
+ '0.519',
+ '0.504',
+ '0.511',
+ '0.497',
+ '0.508',
+ '0.466',
+ '0.460',
+ '0.429',
+ '0.468',
+ '0.442',
+ '0.435',
+ '0.425',
+ '0.416',
+ '0.411',
+ '0.428',
+ '0.414',
+ '0.385',
+ '0.387',
+ '0.368',
+ '0.378',
+ '0.361',
+ '0.344',
+ '0.343',
+ '0.342',
+ '0.340',
+ '0.313',
+ '0.337',
+ '0.311',
+ '0.334',
+ '0.315',
+ '0.301',
+ '0.285',
+ '0.286',
+ '0.289',
+ '0.289',
+ '0.300',
+ '0.262',
+ '0.284',
+ '0.264',
+ '0.264',
+ '0.242',
+ '0.247',
+ '0.250',
+ '0.245',
+ '0.248',
+ '0.227',
+ '0.206',
+ '0.211',
+ '0.210',
+ '0.204',
+ '0.186',
+ '0.199',
+ '0.189',
+ '0.158',
+ '0.168',
+ '0.160',
+ '0.164',
+ '0.153',
+ '0.152',
+ '0.145',
+ '0.125',
+ '0.118',
+ '0.114',
+ '0.108',
+ '0.098',
+ '0.067',
+ '0.069',
+ '0.061',
+ '0.069',
+ '0.063',
+ '0.060',
+ '0.056',
+ '0.062',
+ '0.031',
+ '0.017',
+ '0.035',
+ '0.010',
+ '0.017',
+ '0.008',
+ '0.011',
+ '0.000',
+ '0.008',
+ '0.012',
+ '0.005',
+ '0.008',
+ '0.009',
+ '0.006',
+ '0.010',
+ '0.007',
+ '0.015',
+ '0.013',
+ '0.005',
+ '0.008',
+ '0.008',
+ '0.008',
+ '0.011',
+ '0.010',
+ '0.012',
+ '0.005',
+ '0.006',
+ '0.007',
+ '0.006',
+ '0.005',
+ '0.008',
+ '0.011',
+ '0.006',
+ '0.008',
+ '0.015',
+ '0.011',
+ '0.011',
+ '0.010']
+paddle_spoof = [float(i) for i in paddle_spoof]
+
+
 def board():
     pygame.event.set_allowed([pygame.KEYDOWN])
     pygame.mouse.set_visible(False)
@@ -245,14 +438,22 @@ def board():
     right_paddle_change_track = 0
     read_left = read_paddle.PaddleMove('l')
     read_right = read_paddle.PaddleMove('r')
+    l_item = 92
     while loop:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                         close()
 
-        left_paddle_event = (height - leftPaddle.h) * read_left.position()
-        right_paddle_event = (height - rightPaddle.h) * read_right.position()
+        # left_paddle_event = (height - leftPaddle.h) *  #read_left.position()
+        # right_paddle_event = (height - rightPaddle.h) * 0.5#read_right.position()
+
+        if l_item == len(paddle_spoof):
+            l_item = 0
+        print(paddle_spoof[l_item])
+        left_paddle_event = int((height - leftPaddle.h) * paddle_spoof[l_item])
+        right_paddle_event = int((height - leftPaddle.h) * paddle_spoof[l_item])
+        l_item += 1
 
         if round(left_paddle_event, 1) == left_last_position:
             left_paddle_change_track += 1
