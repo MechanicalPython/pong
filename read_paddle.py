@@ -76,3 +76,5 @@ class PaddleMove:
         """
         t = self.avg_charge_time()
         return t
+
+
