@@ -12,9 +12,10 @@ import sys
 import random
 from math import *
 import time
+import pot_cap
+import pigpio
 
-import read_paddle
-
+pi = pigpio.pi()
 pygame.init()
 
 width = 900
@@ -245,16 +246,19 @@ def board():
     right_last_position = 0
     left_paddle_change_track = 0
     right_paddle_change_track = 0
-    read_left = read_paddle.PaddleMove('l')
-    read_right = read_paddle.PaddleMove('r')
+    pl = pot_cap.reader(pi, 23)
+    pr = pot_cap.reader(pi, 24)
     while loop:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
+                        pl.cancel()
+                        pr.cancel()
+                        pi.stop()
                         close()
-
-        left_paddle_event = (height - leftPaddle.h) * read_left.position()
-        right_paddle_event = (height - rightPaddle.h) * read_right.position()
+        print(pl.read())
+        left_paddle_event = (height - leftPaddle.h) * round((pl.read()[1]-10)/340, 2)  # Returns Reading status (T/F), the reading and the range
+        right_paddle_event = (height - rightPaddle.h) * round((pr.read()[1]-10)/340, 2)
 
         if round(left_paddle_event, 1) == left_last_position:
             left_paddle_change_track += 1

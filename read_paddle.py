@@ -1,8 +1,8 @@
 #! /usr/bin/python3
 
-import RPi.GPIO as GPIO
 import time
 import statistics as stats
+import pigpio
 
 left1 = 14
 left2 = 15
@@ -28,6 +28,7 @@ def timer(func):
         return rv
     return f
 
+pi = pigpio.pi()
 
 class PaddleMove:
     def __init__(self, side):
@@ -37,17 +38,17 @@ class PaddleMove:
             self.pin1, self.pin2 = right1, right2
 
     def discharge(self):           # Total 0.000122  Actual is 3-10 times longer.
-        GPIO.setup(self.pin1, GPIO.IN)   # 0.00004
-        GPIO.setup(self.pin2, GPIO.OUT)  # 0.00004
-        GPIO.output(self.pin2, False)    # 0.000032
+        pi.set_mode(self.pin1, pigpio.INPUT)   # 0.00004
+        pi.set_mode(self.pin2, pigpio.OUTPUT)  # 0.00004
+        pi.write(self.pin2, 0)    # 0.000032
         time.sleep(0.00001)              # 0.00001
 
     def charge_time(self):         # Total 0.000113
-        GPIO.setup(self.pin2, GPIO.IN)   # 0.00004
-        GPIO.setup(self.pin1, GPIO.OUT)  # 0.00004
-        GPIO.output(self.pin1, True)     # 0.000033
+        pi.set_mode(self.pin2, pigpio.INPUT)   # 0.00004
+        pi.set_mode(self.pin1, pigpio.OUTPUT)  # 0.00004
+        pi.write(self.pin1, 1)     # 0.000033
         t1 = time.time()
-        while not GPIO.input(self.pin2):  # Charge time
+        while pi.read(self.pin2) != 1:  # Charge time
             pass
         t2 = time.time()
         return t2 - t1
@@ -55,19 +56,19 @@ class PaddleMove:
     def exact_time(self):  # Charge time for one capacitor
         self.discharge()
         t = self.charge_time()
-        self.discharge()
+        # self.discharge()
         return t
 
-    def avg_charge_time(self, iters=15):
-        GPIO.setmode(GPIO.BCM)
+    def avg_charge_time(self, iters=30):
+        # Max is 250, min is 50
+        # Convert to decimal by having (x*4)/1000
         total = []
         for x in range(0, iters):
             total.append(self.exact_time())
-        GPIO.cleanup()
-        total.sort()
-        total = total[int(iters/3):int(iters/3)*2]
-        t = sum(total) / len(total)
-        return round(t*1000000, 3)
+        total = [round(int(i*1000000), -1) for i in total]
+        total = max(set(total), key=total.count)
+        total = ((total-50)*5)/1000
+        return round(total, 2) 
 
     def position(self):
         """
@@ -75,5 +76,16 @@ class PaddleMove:
         Bigger charge time is full left on both (probably)
         """
         t = self.avg_charge_time()
-        t = (t-35)/(275-35)
         return t
+
+print(PaddleMove('l').exact_time())
+#import collections
+#t= []
+#for x in range(0, 1000):
+#    t1 = time.time()
+#    (PaddleMove('l').position())
+#    PaddleMove('r').position()
+#    t.append(time.time() - t1)
+
+#print(sum(t)/len(t))
+#print(collections.Counter(t))
