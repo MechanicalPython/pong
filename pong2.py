@@ -12,7 +12,6 @@ import sys
 import random
 from math import *
 import time
-
 import read_paddle
 
 pygame.init()
@@ -76,6 +75,7 @@ class Paddle:
             self.x = width - 1.5 * margin - self.w
 
         self.y = height / 2 - self.h / 2
+        self.moving_avg = []
 
     # Show the Paddle
     def show(self):
@@ -83,7 +83,15 @@ class Paddle:
 
     # Move the Paddle
     def move(self, ydir):
-        self.y = ydir
+        self.moving_avg.append(ydir)
+        ydir = int(sum(self.moving_avg)/len(self.moving_avg))
+        if abs(self.y - ydir) < 40:
+            self.y = self.y + (self.y - ydir)
+        else:
+            self.y = ydir
+        if len(self.moving_avg) > 10:
+            self.moving_avg.pop(0)
+
         
         # Collision controll
         if self.y < 0:
@@ -253,19 +261,22 @@ def board():
                 if event.key == pygame.K_q:
                         close()
 
-        left_paddle_event = (height - leftPaddle.h) * read_left.position()
-        right_paddle_event = (height - rightPaddle.h) * read_right.position()
+        left_paddle_event = int((height - leftPaddle.h) * read_left.position())
+        right_paddle_event = int((height - rightPaddle.h) * read_right.position())
 
-        if round(left_paddle_event, 1) == left_last_position:
+        if str(left_paddle_event)[0] == left_last_position:
             left_paddle_change_track += 1
+        else:
+            left_paddle_change_track = 0
 
-        if round(right_paddle_event, 1) == right_last_position:
+        if str(right_paddle_event)[0] == right_last_position:
             right_paddle_change_track += 1
+        else:
+            right_paddle_event_track = 0
 
         if left_paddle_change_track > 60*1:
             leftChange = auto_paddle(leftPaddle, 'left')
         else:
-            left_paddle_change_track = 0
             leftChange = left_paddle_event
 
         if right_paddle_change_track > 60*1:
@@ -273,10 +284,9 @@ def board():
 
         else:
             rightChange = right_paddle_event
-            right_paddle_change_track = 0
 
-        left_last_position = round(left_paddle_event, 1)
-        right_last_position = round(right_paddle_event, 1)
+        left_last_position = str(left_paddle_event)[0]
+        right_last_position = str(right_paddle_event)[0]
 
         leftPaddle.move(leftChange)
         rightPaddle.move(rightChange)
@@ -295,7 +305,7 @@ def board():
         gameOver()
 
         pygame.display.update()
-        clock.tick(30)
+        clock.tick(60)
 
 
 if __name__ == '__main__':
