@@ -24,6 +24,7 @@ clock = pygame.time.Clock()
 
 background = (0, 0, 0)
 white = (236, 240, 241)
+gray = (128, 128, 128)
 
 top = white
 bottom = white
@@ -94,7 +95,7 @@ class Paddle:
         if len(self.last_minute) > 30*60:
             self.last_minute.pop(0)
 
-        # Collision controll
+        # Collision control
         if self.y < 0:
             self.y = 0
         elif self.y + self.h > height:
@@ -148,7 +149,7 @@ class Ball:
             self.angle = - self.angle
             hit_wall_sound.play()
 
-    # Check and Reflect the Ball when it hits the padddle
+    # Check and Reflect the Ball when it hits the paddle
     def checkForPaddle(self):
         if self.x < width / 2:
             if leftPaddle.x < self.x < leftPaddle.x + leftPaddle.w:
@@ -250,14 +251,8 @@ def board():
     pygame.mouse.set_visible(False)
     display.set_alpha(None)
     loop = True
-    leftChange = 0
-    rightChange = 0
     global ball
     ball = Ball(white)
-    left_last_position = 0
-    right_last_position = 0
-    left_paddle_change_track = 0
-    right_paddle_change_track = 0
     read_left = read_paddle.PaddleMove('l')
     read_right = read_paddle.PaddleMove('r')
     while loop:
@@ -266,14 +261,21 @@ def board():
                 if event.key == pygame.K_q:
                         close()
 
-        leftChange = int((height - leftPaddle.h) * read_left.position())
-        rightChange = int((height - rightPaddle.h) * read_right.position())
+        left_event = int((height - leftPaddle.h) * read_left.position())
+        right_event = int((height - rightPaddle.h) * read_right.position())
         
         if len(leftPaddle.last_minute) >= 30*60 and abs(max(leftPaddle.last_minute) - min(leftPaddle.last_minute)) < 100:
             leftChange = auto_paddle(leftPaddle, 'left')
+            leftPaddle.colour = gray
+        else:
+            leftChange = left_event
+            leftPaddle.colour = white
         if len(rightPaddle.last_minute) >= 30*60 and abs(max(rightPaddle.last_minute) - min(rightPaddle.last_minute)) < 100:
             rightChange = auto_paddle(rightPaddle, 'right')
-
+            rightPaddle.colour = gray
+        else:
+            rightChange = right_event
+            rightPaddle.colour = white
 
         leftPaddle.move(leftChange)
         rightPaddle.move(rightChange)
@@ -292,7 +294,7 @@ def board():
         gameOver()
 
         pygame.display.update()
-        clock.tick(30)
+        clock.tick(60)
 
 
 if __name__ == '__main__':
