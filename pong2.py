@@ -4,7 +4,6 @@
 # Language - Python
 # Modules - pygame, sys, random, math
 #
-# Controls - Arrow Keys for Right Paddle and WASD Keys for Left Paddle
 
 import pygame
 import pygame.freetype
@@ -71,28 +70,30 @@ class Paddle:
 
         if position == -1:
             self.x = 1.5 * margin
+            self.side = 'l'
         else:
             self.x = width - 1.5 * margin - self.w
+            self.side = 'r'
 
         self.y = height / 2 - self.h / 2
         self.moving_avg = []
+        self.last_minute = []
 
     # Show the Paddle
     def show(self):
         pygame.draw.rect(display, white, (self.x, self.y, self.w, self.h))
 
     # Move the Paddle
-    def move(self, ydir):
+    def move(self, ydir):  # ydir is the raw value given by read_paddle.position()
         self.moving_avg.append(ydir)
+        self.last_minute.append(ydir)
         ydir = int(sum(self.moving_avg)/len(self.moving_avg))
-        if abs(self.y - ydir) < 40:
-            self.y = self.y + (self.y - ydir)
-        else:
-            self.y = ydir
-        if len(self.moving_avg) > 10:
+        self.y = ydir
+        if len(self.moving_avg) > 10:  # 1/3 of a second. 
             self.moving_avg.pop(0)
+        if len(self.last_minute) > 30*60:
+            self.last_minute.pop(0)
 
-        
         # Collision controll
         if self.y < 0:
             self.y = 0
@@ -115,7 +116,7 @@ class Ball:
         if random.randint(0, 1):
             self.angle += 180
 
-        self.speed = 12
+        self.speed = 10
 
     # Show the Ball
     def show(self):
@@ -127,14 +128,18 @@ class Ball:
         self.x += self.speed * cos(radians(self.angle))
         self.y += self.speed * sin(radians(self.angle))
 
-        if self.x + self.r > width - margin:  # Point left
-            scoreLeft += 1
-            point_score_sound.play()
+        if self.x + self.r > width - margin:
             self.angle = 180 - self.angle
+            if leftPaddle.y < ball.x < leftPaddle.y + leftPaddle.h:  # Point left, so hit right side. 
+                scoreLeft += 1
+                self.speed += 1
+                point_score_sound.play()
         if self.x < margin:  # Point right
-            scoreRight += 1
-            point_score_sound.play()
             self.angle = 180 - self.angle
+            if rightPaddle.y < ball.x < rightPaddle.y + leftPaddle.h:
+                scoreRight += 1
+                self.speed += 1
+                point_score_sound.play()
 
         if self.y < margin:
             self.angle = - self.angle
@@ -261,32 +266,14 @@ def board():
                 if event.key == pygame.K_q:
                         close()
 
-        left_paddle_event = int((height - leftPaddle.h) * read_left.position())
-        right_paddle_event = int((height - rightPaddle.h) * read_right.position())
-
-        if str(left_paddle_event)[0] == left_last_position:
-            left_paddle_change_track += 1
-        else:
-            left_paddle_change_track = 0
-
-        if str(right_paddle_event)[0] == right_last_position:
-            right_paddle_change_track += 1
-        else:
-            right_paddle_event_track = 0
-
-        if left_paddle_change_track > 60*1:
+        leftChange = int((height - leftPaddle.h) * read_left.position())
+        rightChange = int((height - rightPaddle.h) * read_right.position())
+        
+        if len(leftPaddle.last_minute) >= 30*60 and abs(max(leftPaddle.last_minute) - min(leftPaddle.last_minute)) < 100:
             leftChange = auto_paddle(leftPaddle, 'left')
-        else:
-            leftChange = left_paddle_event
-
-        if right_paddle_change_track > 60*1:
+        if len(rightPaddle.last_minute) >= 30*60 and abs(max(rightPaddle.last_minute) - min(rightPaddle.last_minute)) < 100:
             rightChange = auto_paddle(rightPaddle, 'right')
 
-        else:
-            rightChange = right_paddle_event
-
-        left_last_position = str(left_paddle_event)[0]
-        right_last_position = str(right_paddle_event)[0]
 
         leftPaddle.move(leftChange)
         rightPaddle.move(rightChange)
@@ -305,7 +292,7 @@ def board():
         gameOver()
 
         pygame.display.update()
-        clock.tick(60)
+        clock.tick(30)
 
 
 if __name__ == '__main__':
