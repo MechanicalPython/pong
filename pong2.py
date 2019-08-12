@@ -255,11 +255,16 @@ def board():
     ball = Ball(white)
     read_left = read_paddle.PaddleMove('l')
     read_right = read_paddle.PaddleMove('r')
+
+    reset = read_paddle.Switch(7)
     while loop:
         for event in pygame.event.get():
+            if reset.is_pressed() is True:
+                close()
+
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
-                        close()
+                    close()
 
         left_event = int((height - leftPaddle.h) * read_left.position())
         right_event = int((height - rightPaddle.h) * read_right.position())
