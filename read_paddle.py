@@ -22,15 +22,16 @@ right2 = 24  # Pin2
 # Time constant = resistance * capacitor
 
 
-class Switch:
-    def __init__(self, input_pin):
-        GPIO.setmode(GPIO.BCM)
-        self.input_pin = input_pin
-        GPIO.setup(self.input_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+def switch_is_pressed(input_pin):
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(input_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-    def is_pressed(self):
-        if GPIO.input(self.input_pin) == GPIO.HIGH:
-            return True
+    if GPIO.input(input_pin) == GPIO.HIGH:
+        GPIO.cleanup()
+        return True
+    else:
+        GPIO.cleanup()
+        return False
 
 
 def timer(func):
