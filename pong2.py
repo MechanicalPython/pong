@@ -137,7 +137,7 @@ class Ball:
                 point_score_sound.play()
         if self.x < margin:  # Point right
             self.angle = 180 - self.angle
-            if rightPaddle.y < ball.x < rightPaddle.y + leftPaddle.h:
+            if rightPaddle.y < ball.x < rightPaddle.y + rightPaddle.h:
                 scoreRight += 1
                 self.speed += 1
                 point_score_sound.play()
