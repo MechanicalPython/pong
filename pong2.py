@@ -131,15 +131,13 @@ class Ball:
 
         if self.x + self.r > width - margin:
             self.angle = 180 - self.angle
-            if leftPaddle.y < ball.x < leftPaddle.y + leftPaddle.h:  # Point left, so hit right side. 
+            if not leftPaddle.y < ball.x < leftPaddle.y + leftPaddle.h:  # Point left, so hit right side. 
                 scoreLeft += 1
-                self.speed += 1
                 point_score_sound.play()
         if self.x < margin:  # Point right
             self.angle = 180 - self.angle
-            if rightPaddle.y < ball.x < rightPaddle.y + rightPaddle.h:
+            if not rightPaddle.y < ball.x < rightPaddle.y + rightPaddle.h:
                 scoreRight += 1
-                self.speed += 1
                 point_score_sound.play()
 
         if self.y < margin:
@@ -257,6 +255,7 @@ def board():
     read_right = read_paddle.PaddleMove('r')
 
     while loop:
+        t = time.time()
         for event in pygame.event.get():
             if read_paddle.switch_is_pressed(7) is True:
                 close()
@@ -298,7 +297,8 @@ def board():
         gameOver()
 
         pygame.display.update()
-        clock.tick(60)
+        clock.tick(30)
+        print(t - time.time())
 
 
 if __name__ == '__main__':
