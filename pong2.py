@@ -256,10 +256,9 @@ def board():
     read_left = read_paddle.PaddleMove('l')
     read_right = read_paddle.PaddleMove('r')
 
-    reset = read_paddle.Switch(7)
     while loop:
         for event in pygame.event.get():
-            if reset.is_pressed() is True:
+            if read_paddle.switch_is_pressed(7) is True:
                 close()
 
             if event.type == pygame.KEYDOWN:
