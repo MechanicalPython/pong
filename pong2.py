@@ -43,6 +43,16 @@ hit_paddle_sound = pygame.mixer.Sound("Hit Paddle.wav")  # Works
 hit_wall_sound = pygame.mixer.Sound("Hit wall.wav")
 
 
+def timer(func):
+    def f(*args, **kwargs):
+        start = time.time()
+        rv = func(*args, **kwargs)
+        end = time.time()
+        print('Time taken', end - start, ' for ', func.__name__)
+        return rv
+    return f
+
+
 # Draw the Boundary of Board
 def boundary():
     global top, bottom, left, right
@@ -81,11 +91,11 @@ class Paddle:
         self.last_minute = []
 
     # Show the Paddle
-    def show(self):
+    def show_paddle(self):
         pygame.draw.rect(display, white, (self.x, self.y, self.w, self.h))
 
     # Move the Paddle
-    def move(self, ydir):  # ydir is the raw value given by read_paddle.position()
+    def move_paddle(self, ydir):  # ydir is the raw value given by read_paddle.position()
         self.moving_avg.append(ydir)
         self.last_minute.append(ydir)
         ydir = int(sum(self.moving_avg)/len(self.moving_avg))
@@ -120,11 +130,11 @@ class Ball:
         self.speed = 10
 
     # Show the Ball
-    def show(self):
+    def show_ball(self):
         pygame.draw.ellipse(display, self.color, (self.x, self.y, self.r, self.r))
 
     # Move the Ball
-    def move(self):
+    def move_ball(self):
         global scoreLeft, scoreRight
         self.x += self.speed * cos(radians(self.angle))
         self.y += self.speed * sin(radians(self.angle))
@@ -224,7 +234,6 @@ def close():
     pygame.quit()
     sys.exit()
 
-
 def auto_paddle(paddle, side):
     move = False
     ball_angle = abs(ball.angle)
@@ -257,16 +266,15 @@ def board():
     while loop:
         t = time.time()
         for event in pygame.event.get():
-            if read_paddle.switch_is_pressed(7) is True:
-                close()
-
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     close()
 
-        left_event = int((height - leftPaddle.h) * read_left.position())
-        right_event = int((height - rightPaddle.h) * read_right.position())
-        
+        if read_paddle.switch_is_pressed(7):
+            close()
+        left_event = int((height - leftPaddle.h) * read_left.position(20))
+        right_event = int((height - rightPaddle.h) * read_right.position(20))
+         
         if len(leftPaddle.last_minute) >= 30*60 and abs(max(leftPaddle.last_minute) - min(leftPaddle.last_minute)) < 100:
             leftChange = auto_paddle(leftPaddle, 'left')
             leftPaddle.colour = gray
@@ -280,17 +288,17 @@ def board():
             rightChange = right_event
             rightPaddle.colour = white
 
-        leftPaddle.move(leftChange)
-        rightPaddle.move(rightChange)
-        ball.move()
+        leftPaddle.move_paddle(leftChange)
+        rightPaddle.move_paddle(rightChange)
+        ball.move_ball()
         ball.checkForPaddle()
 
         display.fill(background)
         showScore()
 
-        ball.show()
-        leftPaddle.show()
-        rightPaddle.show()
+        ball.show_ball()
+        leftPaddle.show_paddle()
+        rightPaddle.show_paddle()
 
         boundary()
 
@@ -298,7 +306,7 @@ def board():
 
         pygame.display.update()
         clock.tick(30)
-        print(t - time.time())
+        print('total:', time.time() - t, '\n')
 
 
 if __name__ == '__main__':
