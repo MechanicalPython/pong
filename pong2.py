@@ -11,41 +11,36 @@ import sys
 import random
 from math import *
 import time
-import menu
 import read_paddle
 
+pygame.init()
 
-def init_screen():
-    global display, clock, background, white, gray, top, bottom, left, margin, right, scoreLeft, scoreRight, maxScore
-    global font, point_score_sound, hit_paddle_sound, hit_wall_sound, width, height
-    pygame.init()
+width = 900
+height = 1000
 
-    width = 900
-    height = 1000
+display = pygame.display.set_mode((width, height))
+pygame.display.set_caption("Pong!")
+clock = pygame.time.Clock()
 
-    display = pygame.display.set_mode((width, height))
-    pygame.display.set_caption("Pong!")
-    clock = pygame.time.Clock()
+background = (0, 0, 0)
+white = (236, 240, 241)
+gray = (128, 128, 128)
 
-    background = (0, 0, 0)
-    white = (236, 240, 241)
-    gray = (128, 128, 128)
+top = white
+bottom = white
+left = white
+right = white
 
-    top = white
-    bottom = white
-    left = white
-    right = white
+margin = 4
 
-    margin = 4
+scoreLeft = 0
+scoreRight = 0
+maxScore = 11
 
-    scoreLeft = 0
-    scoreRight = 0
-    maxScore = 11
-
-    font = pygame.freetype.Font('SF Atarian System Extended Bold.ttf', 60)
-    point_score_sound = pygame.mixer.Sound("Point score.wav")  # Works
-    hit_paddle_sound = pygame.mixer.Sound("Hit Paddle.wav")  # Works
-    hit_wall_sound = pygame.mixer.Sound("Hit wall.wav")
+font = pygame.freetype.Font('SF Atarian System Extended Bold.ttf', 60)
+point_score_sound = pygame.mixer.Sound("Point score.wav")  # Works
+hit_paddle_sound = pygame.mixer.Sound("Hit Paddle.wav")  # Works
+hit_wall_sound = pygame.mixer.Sound("Hit wall.wav")
 
 
 def timer(func):
@@ -229,7 +224,6 @@ def gameOver():
 
 
 def reset():
-    pygame.init()
     global scoreLeft, scoreRight
     scoreLeft = 0
     scoreRight = 0
@@ -260,8 +254,60 @@ def auto_paddle(paddle, side):
     return paddle.y
 
 
+class Dot:
+    def __init__(self, y):
+        self.x = (width / 2 - 50)
+        self.y = y
+        self.w = 20
+        self.h = 20
+
+    def show_dot(self):
+        pygame.draw.rect(display, white, (self.x, self.y, self.w, self.h))
+
+    def move(self, y):
+        self.y = y
+
+
+def menu(menu_items):
+    read_left = read_paddle.PaddleMove('l')
+
+    while True:
+        # p = False
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_q:
+                    pygame.quit()
+                    sys.exit()
+                # if event.key == pygame.K_n:
+                #     p = True
+
+        display.fill(background)
+
+        dot = Dot(110)
+        pos = read_left.position()
+        start = 100
+        for item in menu_items:
+            font.render_to(display, (width / 2, start), item, white)
+            start += 100
+
+        if pos < 0.5:
+            dot.move(110)
+            # if p:
+            if read_paddle.switch_is_pressed():
+                return 'Quit'
+
+        elif 0.5 < pos:
+            dot.move(210)
+            # if p:
+            if read_paddle.switch_is_pressed():
+                return 'Reset'
+
+        dot.show_dot()
+        pygame.display.update()
+        clock.tick(30)
+
+
 def board():
-    init_screen()
     pygame.event.set_allowed([pygame.KEYDOWN])
     pygame.mouse.set_visible(False)
     display.set_alpha(None)
@@ -278,7 +324,7 @@ def board():
             # if event.type == pygame.KEYDOWN:
             #     if event.key == pygame.K_m:
             #         menu_items = ['Quit', 'Reset']
-            #         event = menu.menu(menu_items)
+            #         event = menu(menu_items)
             #         if event == 'Quit':
             #             close()
             #         elif event == 'Reset':
@@ -289,7 +335,7 @@ def board():
                 time.sleep(0.1)
             time.sleep(0.1)
             menu_items = ['Quit', 'Reset']
-            event = menu.menu(menu_items)
+            event = menu(menu_items)
             if event == 'Quit':
                 close()
             elif event == 'Reset':
