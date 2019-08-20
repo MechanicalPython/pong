@@ -282,12 +282,13 @@ def board():
             menu_items = ['Quit', 'Reset']
             event = menu.menu(menu_items)
             if event == 'Quit':
+
                 close()
             elif event == 'Reset':
                 reset()
 
-        left_event = int((height - leftPaddle.h) * 0.5)  # read_left.position(5))
-        right_event = int((height - rightPaddle.h) * 0.5)  # read_right.position(5))
+        left_event = int((height - leftPaddle.h) * read_left.position(5))
+        right_event = int((height - rightPaddle.h) * read_right.position(5))
         leftChange = left_event
         rightChange = right_event
 
