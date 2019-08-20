@@ -14,34 +14,38 @@ import time
 import menu
 import read_paddle
 
-pygame.init()
 
-width = 900
-height = 1000
+def init_screen():
+    global display, clock, background, white, gray, top, bottom, left, margin, right, scoreLeft, scoreRight, maxScore
+    global font, point_score_sound, hit_paddle_sound, hit_wall_sound, width, height
+    pygame.init()
 
-display = pygame.display.set_mode((width, height))
-pygame.display.set_caption("Pong!")
-clock = pygame.time.Clock()
+    width = 900
+    height = 1000
 
-background = (0, 0, 0)
-white = (236, 240, 241)
-gray = (128, 128, 128)
+    display = pygame.display.set_mode((width, height))
+    pygame.display.set_caption("Pong!")
+    clock = pygame.time.Clock()
 
-top = white
-bottom = white
-left = white
-right = white
+    background = (0, 0, 0)
+    white = (236, 240, 241)
+    gray = (128, 128, 128)
 
-margin = 4
+    top = white
+    bottom = white
+    left = white
+    right = white
 
-scoreLeft = 0
-scoreRight = 0
-maxScore = 11
+    margin = 4
 
-font = pygame.freetype.Font('SF Atarian System Extended Bold.ttf', 60)
-point_score_sound = pygame.mixer.Sound("Point score.wav")  # Works
-hit_paddle_sound = pygame.mixer.Sound("Hit Paddle.wav")  # Works
-hit_wall_sound = pygame.mixer.Sound("Hit wall.wav")
+    scoreLeft = 0
+    scoreRight = 0
+    maxScore = 11
+
+    font = pygame.freetype.Font('SF Atarian System Extended Bold.ttf', 60)
+    point_score_sound = pygame.mixer.Sound("Point score.wav")  # Works
+    hit_paddle_sound = pygame.mixer.Sound("Hit Paddle.wav")  # Works
+    hit_wall_sound = pygame.mixer.Sound("Hit wall.wav")
 
 
 def timer(func):
@@ -225,6 +229,7 @@ def gameOver():
 
 
 def reset():
+    pygame.init()
     global scoreLeft, scoreRight
     scoreLeft = 0
     scoreRight = 0
@@ -256,6 +261,7 @@ def auto_paddle(paddle, side):
 
 
 def board():
+    init_screen()
     pygame.event.set_allowed([pygame.KEYDOWN])
     pygame.mouse.set_visible(False)
     display.set_alpha(None)
