@@ -11,6 +11,7 @@ import sys
 import random
 from math import *
 import time
+import menu
 import read_paddle
 
 pygame.init()
@@ -235,33 +236,6 @@ def close():
     sys.exit()
 
 
-def menu_screen():
-    read_left = read_paddle.PaddleMove('l')
-    dot = pygame.Rect((width/2 -50), 110, 20, 20)
-    time.sleep(1)
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                close()
-
-        pos = read_left.position()
-        font.render_to(display, (width / 2 - len("Quit")/2, 100), "Quit", white)
-        font.render_to(display, (width / 2 - len("Reset")/2, 200), "Reset", white)
-
-        if pos < 0.5:
-            dot.move((width/2 - 50), 110)
-            
-            if read_paddle.switch_is_pressed():
-                close()
-        elif 0.5 < pos:
-            dot.move((width/2 - 50), 210)
-            dot.show()
-            if read_paddle.switch_is_pressed():
-                reset()
-
-        pygame.display.update()
-
-
 def auto_paddle(paddle, side):
     move = False
     ball_angle = abs(ball.angle)
@@ -285,22 +259,35 @@ def board():
     pygame.event.set_allowed([pygame.KEYDOWN])
     pygame.mouse.set_visible(False)
     display.set_alpha(None)
-    loop = True
     global ball
     ball = Ball(white)
     read_left = read_paddle.PaddleMove('l')
     read_right = read_paddle.PaddleMove('r')
 
-    while loop:
+    while True:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     close()
-        if read_paddle.switch_is_pressed() is True:
-            menu_screen()
+            # if event.type == pygame.KEYDOWN:
+            #     if event.key == pygame.K_m:
+            #         menu_items = ['Quit', 'Reset']
+            #         event = menu.menu(menu_items)
+            #         if event == 'Quit':
+            #             close()
+            #         elif event == 'Reset':
+            #             reset()
 
-        left_event = int((height - leftPaddle.h) * read_left.position(5))
-        right_event = int((height - rightPaddle.h) * read_right.position(5))
+        if read_paddle.switch_is_pressed() is True:
+            menu_items = ['Quit', 'Reset']
+            event = menu.menu(menu_items)
+            if event == 'Quit':
+                close()
+            elif event == 'Reset':
+                reset()
+
+        left_event = int((height - leftPaddle.h) * 0.5)  # read_left.position(5))
+        right_event = int((height - rightPaddle.h) * 0.5)  # read_right.position(5))
         leftChange = left_event
         rightChange = right_event
 
