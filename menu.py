@@ -41,7 +41,6 @@ def menu(menu_items):
     pygame.mouse.set_visible(False)
     display.set_alpha(None)
     read_left = read_paddle.PaddleMove('l')
-    read_right = read_paddle.PaddleMove('r')
 
     while True:
         for event in pygame.event.get():
@@ -61,14 +60,13 @@ def menu(menu_items):
 
         if pos < 0.5:
             dot.move(110)
-            return 'Quit'
-            # if read_paddle.switch_is_pressed():
-            #     return
+            if read_paddle.switch_is_pressed():
+                return 'Quit'
+
         elif 0.5 < pos:
             dot.move(210)
-            return 'Reset'
-            # if read_paddle.switch_is_pressed():
-            #     reset()
+            if read_paddle.switch_is_pressed():
+                return 'Reset'
 
         dot.show_dot()
         pygame.display.update()
