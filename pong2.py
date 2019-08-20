@@ -279,6 +279,9 @@ def board():
             #             reset()
 
         if read_paddle.switch_is_pressed() is True:
+            while read_paddle.switch_is_pressed() is True:
+                time.sleep(0.1)
+            time.sleep(0.1)
             menu_items = ['Quit', 'Reset']
             event = menu.menu(menu_items)
             if event == 'Quit':
