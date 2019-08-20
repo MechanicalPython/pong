@@ -97,13 +97,13 @@ class Paddle:
     # Move the Paddle
     def move_paddle(self, ydir):  # ydir is the raw value given by read_paddle.position()
         self.moving_avg.append(ydir)
-        self.last_minute.append(ydir)
+        #self.last_minute.append(ydir)
         ydir = int(sum(self.moving_avg)/len(self.moving_avg))
         self.y = ydir
-        if len(self.moving_avg) > 10:  # 1/3 of a second. 
+        if len(self.moving_avg) > 15:  # 1/2 of a second. 
             self.moving_avg.pop(0)
-        if len(self.last_minute) > 30*60:
-            self.last_minute.pop(0)
+        #if len(self.last_minute) > 30*60:
+        #    self.last_minute.pop(0)
 
         # Collision control
         if self.y < 0:
@@ -236,23 +236,27 @@ def close():
 
 
 def menu_screen():
+    read_left = read_paddle.PaddleMove('l')
+    dot = pygame.Rect((width/2 -50), 110, 20, 20)
+    time.sleep(1)
     while True:
-        # read_left = read_paddle.PaddleMove('l')
-        read_left = 0.3
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 close()
 
+        pos = read_left.position()
         font.render_to(display, (width / 2 - len("Quit")/2, 100), "Quit", white)
         font.render_to(display, (width / 2 - len("Reset")/2, 200), "Reset", white)
 
-        if 0 < read_left < 0.5:
-            font.render_to(display, (width/2 - 50, 120), "-", white)
-            if read_paddle.switch_is_pressed(7):
+        if pos < 0.5:
+            dot.move((width/2 - 50), 110)
+            
+            if read_paddle.switch_is_pressed():
                 close()
-        elif 0.5 < read_left < 1:
-            font.render_to(display, (width / 2 - 10, 220), "-", white)
-            if read_paddle.switch_is_pressed(7):
+        elif 0.5 < pos:
+            dot.move((width/2 - 50), 210)
+            dot.show()
+            if read_paddle.switch_is_pressed():
                 reset()
 
         pygame.display.update()
@@ -288,31 +292,30 @@ def board():
     read_right = read_paddle.PaddleMove('r')
 
     while loop:
-        t = time.time()
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     close()
-
-        left_event = int((height - leftPaddle.h) * read_left.position())
-        right_event = int((height - rightPaddle.h) * read_right.position())
-         
-        if read_paddle.switch_is_pressed(7) is True:
+        if read_paddle.switch_is_pressed() is True:
             menu_screen()
 
+        left_event = int((height - leftPaddle.h) * read_left.position(5))
+        right_event = int((height - rightPaddle.h) * read_right.position(5))
+        leftChange = left_event
+        rightChange = right_event
 
-        if len(leftPaddle.last_minute) >= 30*60 and abs(max(leftPaddle.last_minute) - min(leftPaddle.last_minute)) < 100:
-            leftChange = auto_paddle(leftPaddle, 'left')
-            leftPaddle.colour = gray
-        else:
-            leftChange = left_event
-            leftPaddle.colour = white
-        if len(rightPaddle.last_minute) >= 30*60 and abs(max(rightPaddle.last_minute) - min(rightPaddle.last_minute)) < 100:
-            rightChange = auto_paddle(rightPaddle, 'right')
-            rightPaddle.colour = gray
-        else:
-            rightChange = right_event
-            rightPaddle.colour = white
+        #if len(leftPaddle.last_minute) >= 30*60 and abs(max(leftPaddle.last_minute) - min(leftPaddle.last_minute)) < 100:
+        #    leftChange = auto_paddle(leftPaddle, 'left')
+        #    leftPaddle.colour = gray
+        #else:
+        #    leftChange = left_event
+        #    leftPaddle.colour = white
+        #if len(rightPaddle.last_minute) >= 30*60 and abs(max(rightPaddle.last_minute) - min(rightPaddle.last_minute)) < 100:
+        #    rightChange = auto_paddle(rightPaddle, 'right')
+        #    rightPaddle.colour = gray
+        #else:
+        #    rightChange = right_event
+        #    rightPaddle.colour = white
 
         leftPaddle.move_paddle(leftChange)
         rightPaddle.move_paddle(rightChange)
@@ -332,7 +335,6 @@ def board():
 
         pygame.display.update()
         clock.tick(30)
-        print('total:', time.time() - t, '\n')
 
 
 if __name__ == '__main__':
