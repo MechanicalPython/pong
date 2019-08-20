@@ -294,12 +294,14 @@ def menu(menu_items):
             dot.move(110)
             # if p:
             if read_paddle.switch_is_pressed():
+                time.sleep(0.5)
                 return 'Quit'
 
         elif 0.5 < pos:
             dot.move(210)
             # if p:
             if read_paddle.switch_is_pressed():
+                time.sleep(0.5)
                 return 'Reset'
 
         dot.show_dot()
@@ -329,7 +331,6 @@ def board():
             #             close()
             #         elif event == 'Reset':
             #             reset()
-
         if read_paddle.switch_is_pressed() is True:
             while read_paddle.switch_is_pressed() is True:
                 time.sleep(0.1)
@@ -358,7 +359,6 @@ def board():
         #else:
         #    rightChange = right_event
         #    rightPaddle.colour = white
-
         leftPaddle.move_paddle(leftChange)
         rightPaddle.move_paddle(rightChange)
         ball.move_ball()
