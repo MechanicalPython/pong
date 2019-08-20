@@ -282,7 +282,6 @@ def board():
             menu_items = ['Quit', 'Reset']
             event = menu.menu(menu_items)
             if event == 'Quit':
-
                 close()
             elif event == 'Reset':
                 reset()

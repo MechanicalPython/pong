@@ -37,9 +37,11 @@ def switch_is_pressed(input_pin=7, power_pin=8):
 
     if GPIO.input(input_pin) == GPIO.HIGH:
         GPIO.cleanup()
+        time.sleep(0.03)
         return True
     else:
         GPIO.cleanup()
+        time.sleep(0.03)
         return False
 
 
