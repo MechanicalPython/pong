@@ -61,13 +61,13 @@ def menu(menu_items):
         if pos < 0.5:
             dot.move(110)
             if read_paddle.switch_is_pressed():
-                display.quit()
+                pygame.display.quit()
                 return 'Quit'
 
         elif 0.5 < pos:
             dot.move(210)
             if read_paddle.switch_is_pressed():
-                display.quit()
+                pygame.display.quit()
                 return 'Reset'
 
         dot.show_dot()
