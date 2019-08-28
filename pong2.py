@@ -4,7 +4,8 @@
 # Language - Python
 # Modules - pygame, sys, random, math
 #
-
+import os
+os.chdir('~/pong/')
 import pygame
 import pygame.freetype
 import sys
