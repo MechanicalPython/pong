@@ -10,6 +10,7 @@ import sys
 import random
 from math import *
 import time
+import os
 import read_paddle
 
 pygame.init()
@@ -36,10 +37,11 @@ scoreLeft = 0
 scoreRight = 0
 maxScore = 11
 
-font = pygame.freetype.Font('~/pong/SF Atarian System Extended Bold.ttf', 60)
-point_score_sound = pygame.mixer.Sound("~/pong/Point score.wav")  # Works
-hit_paddle_sound = pygame.mixer.Sound("~/pong/Hit Paddle.wav")  # Works
-hit_wall_sound = pygame.mixer.Sound("~/pong/Hit wall.wav")
+d = os.path.dirname(__file__)
+font = pygame.freetype.Font(f'{d}/SF Atarian System Extended Bold.ttf', 60)
+point_score_sound = pygame.mixer.Sound(f"{d}/Point score.wav")  # Works
+hit_paddle_sound = pygame.mixer.Sound(f"{d}/Hit Paddle.wav")  # Works
+hit_wall_sound = pygame.mixer.Sound(f"{d}/Hit wall.wav")
 
 
 def timer(func):
