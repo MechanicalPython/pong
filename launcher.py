@@ -4,9 +4,9 @@
 import RPi.GPIO as GPIO
 import time
 
-GPIO.setmode(GPIO.BCM)
 
 def switch_is_pressed(input_pin=7, power_pin=8):
+    GPIO.setmode(GPIO.BCM)
     GPIO.setup(input_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
     GPIO.setup(power_pin, GPIO.OUT)
     GPIO.output(power_pin, True)
