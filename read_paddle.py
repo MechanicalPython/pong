@@ -1,4 +1,4 @@
-#! /usr/bin/python3
+#! /usr/bin/env python3
 
 #  Pin1----- -------Paddle
 #                       |
@@ -82,8 +82,6 @@ class PaddleMove:
         t = round((t-50)/400, 5)
         return t
 
+
 if __name__ == '__main__':
-    lp = PaddleMove('l')
-    rp = PaddleMove('r')
-    print(lp.position())
-    print(rp.position())
+    pass
