@@ -382,8 +382,5 @@ def board():
 
 if __name__ == '__main__':
     board()
-# todo reset button
-# todo sound. Hit paddle, hit bottom/top, point score.
-# todo menu button. Quit to cmd line, Change volume, Change ball speed.
 
-# todo problems. Very gittery at the bottom of the screen. Need some kind of averaging system. So faster capacitors.
+# todo menu button. Quit to cmd line, Change volume, Change ball speed.
