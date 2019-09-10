@@ -1,4 +1,4 @@
-#! /usr/bin/python3
+#! /usr/bin/env python3
 
 #  Pin1----- -------Paddle
 #                       |
@@ -82,18 +82,6 @@ class PaddleMove:
         t = round((t-50)/430, 5)
         return t
 
+
 if __name__ == '__main__':
-    import sys
-    lp = PaddleMove('l')
-    rp = PaddleMove('r')
-    if len(sys.argv) > 1:
-        i = int(sys.argv[1])
-    else:
-        i = 20
-    print('Iters = ', i)
-    t = time.time()
-    print(lp.position(i))
-    print('Time taken: ', time.time() - t)
-    t = time.time()
-    print(rp.position(i))
-    print('Time taken: ', time.time() - t)
+    pass
