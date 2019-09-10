@@ -79,21 +79,11 @@ class PaddleMove:
         Bigger charge time is full left on both (probably)
         """
         t = self.avg_charge_time(iters)
-        t = round((t-50)/430, 5)
+        t = round((t-50)/400, 5)
         return t
 
 if __name__ == '__main__':
-    import sys
     lp = PaddleMove('l')
     rp = PaddleMove('r')
-    if len(sys.argv) > 1:
-        i = int(sys.argv[1])
-    else:
-        i = 20
-    print('Iters = ', i)
-    t = time.time()
-    print(lp.position(i))
-    print('Time taken: ', time.time() - t)
-    t = time.time()
-    print(rp.position(i))
-    print('Time taken: ', time.time() - t)
+    print(lp.position())
+    print(rp.position())
