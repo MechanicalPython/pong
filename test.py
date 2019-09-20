@@ -2,6 +2,7 @@
 
 
 import read_paddle as rp
+import pong.c_read_paddle as crp
 import time
 import statistics as stats
 import sys
@@ -16,6 +17,17 @@ def test_paddle_speed(paddle, iters):
         times.append(time.time() - t)
     avg = sum(times)/len(times)
     print('Avg time for ',iters, 'over 100 runs:', avg)
+    return avg
+
+def test_cpaddle_speed(paddle, iters):
+    paddle = crp.PaddleMove(paddle)
+    times = []
+    for x in range(100):
+        t = time.time()
+        paddle.position(iters=iters)
+        times.append(time.time() - t)
+    avg = sum(times)/len(times)
+    print('Avg time for cread ', iters, 'over 100 runs:', avg)
     return avg
 
 def test_paddle_stability(paddle, iters):
@@ -39,6 +51,7 @@ else:
 test_paddle_speed('l', iters)
 test_paddle_speed('r', iters)
 
+test_cpaddle_speed('l', iters)
+test_cpaddle_speed('r', iters)
 
-test_paddle_stability('l', iters)
-test_paddle_stability('r', iters)
+
