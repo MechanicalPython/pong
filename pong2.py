@@ -39,9 +39,9 @@ maxScore = 11
 
 d = os.path.dirname(__file__)
 font = pygame.freetype.Font(f'{d}/SF Atarian System Extended Bold.ttf', 60)
-point_score_sound = pygame.mixer.Sound(f"{d}/Point score.wav")  # Works
-hit_paddle_sound = pygame.mixer.Sound(f"{d}/Hit Paddle.wav")  # Works
-hit_wall_sound = pygame.mixer.Sound(f"{d}/Hit wall.wav")
+
+beep = pygame.mixer.Sound(f"{d}/beep.wav")
+boop = pygame.mixer.Sound(f"{d}/boop.wav")
 
 
 def timer(func):
@@ -132,7 +132,7 @@ class Ball:
 
     # Show the Ball
     def show_ball(self):
-        pygame.draw.ellipse(display, self.color, (self.x, self.y, self.r, self.r))
+        pygame.draw.rect(display, self.color, (self.x, self.y, self.r, self.r))
 
     # Move the Ball
     def move_ball(self):
@@ -141,62 +141,77 @@ class Ball:
         self.y += self.speed * sin(radians(self.angle))
 
         if self.x + self.r > width - margin:
+            beep.play()
             self.angle = 180 - self.angle
             if not leftPaddle.y < ball.x < leftPaddle.y + leftPaddle.h:  # Point left, so hit right side. 
                 scoreLeft += 1
-                point_score_sound.play()
+
         if self.x < margin:  # Point right
+            beep.play()
             self.angle = 180 - self.angle
             if not rightPaddle.y < ball.x < rightPaddle.y + rightPaddle.h:
                 scoreRight += 1
-                point_score_sound.play()
 
         if self.y < margin:
             self.angle = - self.angle
-            hit_wall_sound.play()
+            beep.play()
         if self.y + self.r >= height - margin:
             self.angle = - self.angle
-            hit_wall_sound.play()
+            beep.play()
 
     # Check and Reflect the Ball when it hits the paddle
     def checkForPaddle(self):
-        if self.x < width / 2:
-            if leftPaddle.x < self.x < leftPaddle.x + leftPaddle.w:
-                hit_paddle_sound.play()
+        if self.x < width / 2:  # If on left side
+            if leftPaddle.x < self.x < leftPaddle.x + leftPaddle.w:  # Ball is near the paddle (between paddle x and paddle x + 20
                 if leftPaddle.y < self.y < leftPaddle.y + 10 or leftPaddle.y < self.y + self.r < leftPaddle.y + 10:
+                    boop.play()
                     self.angle = -45
                 if leftPaddle.y + 10 < self.y < leftPaddle.y + 20 or leftPaddle.y + 10 < self.y + self.r < leftPaddle.y + 20:
+                    boop.play()
                     self.angle = -30
                 if leftPaddle.y + 20 < self.y < leftPaddle.y + 30 or leftPaddle.y + 20 < self.y + self.r < leftPaddle.y + 30:
+                    boop.play()
                     self.angle = -15
                 if leftPaddle.y + 30 < self.y < leftPaddle.y + 40 or leftPaddle.y + 30 < self.y + self.r < leftPaddle.y + 40:
+                    boop.play()
                     self.angle = -10
                 if leftPaddle.y + 40 < self.y < leftPaddle.y + 50 or leftPaddle.y + 40 < self.y + self.r < leftPaddle.y + 50:
+                    boop.play()
                     self.angle = 10
                 if leftPaddle.y + 50 < self.y < leftPaddle.y + 60 or leftPaddle.y + 50 < self.y + self.r < leftPaddle.y + 60:
+                    boop.play()
                     self.angle = 15
                 if leftPaddle.y + 60 < self.y < leftPaddle.y + 70 or leftPaddle.y + 60 < self.y + self.r < leftPaddle.y + 70:
+                    boop.play()
                     self.angle = 30
                 if leftPaddle.y + 70 < self.y < leftPaddle.y + 80 or leftPaddle.y + 70 < self.y + self.r < leftPaddle.y + 80:
+                    boop.play()
                     self.angle = 45
         else:
             if rightPaddle.x + rightPaddle.w > self.x + self.r > rightPaddle.x:
-                hit_paddle_sound.play()
                 if rightPaddle.y < self.y < leftPaddle.y + 10 or leftPaddle.y < self.y + self.r < leftPaddle.y + 10:
+                    boop.play()
                     self.angle = -135
                 if rightPaddle.y + 10 < self.y < rightPaddle.y + 20 or rightPaddle.y + 10 < self.y + self.r < rightPaddle.y + 20:
+                    boop.play()
                     self.angle = -150
                 if rightPaddle.y + 20 < self.y < rightPaddle.y + 30 or rightPaddle.y + 20 < self.y + self.r < rightPaddle.y + 30:
+                    boop.play()
                     self.angle = -165
                 if rightPaddle.y + 30 < self.y < rightPaddle.y + 40 or rightPaddle.y + 30 < self.y + self.r < rightPaddle.y + 40:
+                    boop.play()
                     self.angle = 170
                 if rightPaddle.y + 40 < self.y < rightPaddle.y + 50 or rightPaddle.y + 40 < self.y + self.r < rightPaddle.y + 50:
+                    boop.play()
                     self.angle = 190
                 if rightPaddle.y + 50 < self.y < rightPaddle.y + 60 or rightPaddle.y + 50 < self.y + self.r < rightPaddle.y + 60:
+                    boop.play()
                     self.angle = 165
                 if rightPaddle.y + 60 < self.y < rightPaddle.y + 70 or rightPaddle.y + 60 < self.y + self.r < rightPaddle.y + 70:
+                    boop.play()
                     self.angle = 150
                 if rightPaddle.y + 70 < self.y < rightPaddle.y + 80 or rightPaddle.y + 70 < self.y + self.r < rightPaddle.y + 80:
+                    boop.play()
                     self.angle = 135
 
 
@@ -271,7 +286,7 @@ class Dot:
 
 def menu(menu_items):
     read_left = read_paddle.PaddleMove('l')
-
+    n = len(menu_items)
     while True:
         # p = False
         for event in pygame.event.get():
@@ -279,31 +294,41 @@ def menu(menu_items):
                 if event.key == pygame.K_q:
                     pygame.quit()
                     sys.exit()
-                # if event.key == pygame.K_n:
-                #     p = True
 
         display.fill(background)
 
         dot = Dot(110)
         pos = read_left.position()
-        start = 100
+        start = 1
         for item in menu_items:
-            font.render_to(display, (width / 2, start), item, white)
-            start += 100
+            font.render_to(display, (width / 2, start*100), item, white)
+            if (start - 1)/n < pos < start/n:
+                dot.move(start*100 + 10)
+                if read_paddle.switch_is_pressed():
+                    time.sleep(0.5)
+                    return menu_items[start - 1]
+            start += 1
 
-        if pos < 0.5:
-            dot.move(110)
-            # if p:
-            if read_paddle.switch_is_pressed():
-                time.sleep(0.5)
-                return 'Quit'
-
-        elif 0.5 < pos:
-            dot.move(210)
-            # if p:
-            if read_paddle.switch_is_pressed():
-                time.sleep(0.5)
-                return 'Reset'
+        # if -1 < pos < :
+        #     dot.move(110)
+        #     if read_paddle.switch_is_pressed():
+        #         time.sleep(0.5)
+        #         return 'Quit'
+        #
+        # elif 0.3 < pos < 0.5:
+        #     dot.move(210)
+        #     if read_paddle.switch_is_pressed():
+        #         time.sleep(0.5)
+        #         return 'Reset'
+        #
+        # elif 0.6 < pos < 2:
+        #     dot.move(310)
+        #     if read_paddle.switch_is_pressed():
+        #         time.sleep(0.5)
+        #         return 'Continue'
+        #
+        # else:
+        #     dot.move(410)
 
         dot.show_dot()
         pygame.display.update()
@@ -324,14 +349,16 @@ def board():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     close()
-            # if event.type == pygame.KEYDOWN:
-            #     if event.key == pygame.K_m:
-            #         menu_items = ['Quit', 'Reset']
-            #         event = menu(menu_items)
-            #         if event == 'Quit':
-            #             close()
-            #         elif event == 'Reset':
-            #             reset()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_m:
+                    menu_items = ['Quit', 'Reset', 'Continue']
+                    event = menu(menu_items)
+                    if event == 'Quit':
+                        close()
+                    elif event == 'Reset':
+                        reset()
+                    elif event == 'Continue':
+                        pass
         if read_paddle.switch_is_pressed() is True:
             while read_paddle.switch_is_pressed() is True:
                 time.sleep(0.1)
@@ -383,6 +410,4 @@ def board():
 if __name__ == '__main__':
     board()
 
-# todo menu button. Quit to cmd line, Change volume, Change ball speed, continue button.
-# todo fix audio issues.
-# square ball.
+# todo menu button. Change ball speed?
