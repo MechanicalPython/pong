@@ -11,7 +11,7 @@ import random
 from math import *
 import time
 import os
-import read_paddle
+import c_read_paddle
 
 pygame.init()
 
