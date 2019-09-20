@@ -11,7 +11,7 @@ import random
 from math import *
 import time
 import os
-import pyprojects.pong.c_read_paddle as read_paddle
+import pong.c_read_paddle as read_paddle
 
 pygame.init()
 
@@ -370,8 +370,8 @@ def board():
             elif event == 'Reset':
                 reset()
 
-        left_event = int((height - leftPaddle.h) * read_left.position(5))
-        right_event = int((height - rightPaddle.h) * read_right.position(5))
+        left_event = int((height - leftPaddle.h) * read_left.position(10))
+        right_event = int((height - rightPaddle.h) * read_right.position(10))
         leftChange = left_event
         rightChange = right_event
 

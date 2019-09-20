@@ -3,12 +3,12 @@
 /* BEGIN: Cython Metadata
 {
     "distutils": {
-        "name": "pyprojects.pong.c_read_paddle",
+        "name": "pong.c_read_paddle",
         "sources": [
             "c_read_paddle.pyx"
         ]
     },
-    "module_name": "pyprojects.pong.c_read_paddle"
+    "module_name": "pong.c_read_paddle"
 }
 END: Cython Metadata */
 
@@ -602,8 +602,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__pyprojects__pong__c_read_paddle
-#define __PYX_HAVE_API__pyprojects__pong__c_read_paddle
+#define __PYX_HAVE__pong__c_read_paddle
+#define __PYX_HAVE_API__pong__c_read_paddle
 /* Early includes */
 #ifdef _OPENMP
 #include <omp.h>
@@ -817,16 +817,16 @@ static const char *__pyx_f[] = {
 };
 
 /*--- Type declarations ---*/
-struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer;
+struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer;
 
-/* "pyprojects/pong/c_read_paddle.pyx":21
+/* "pong/c_read_paddle.pyx":21
  * 
  * # Time constant = resistance * capacitor
  * def timer(func):             # <<<<<<<<<<<<<<
  *     def f(*args, **kwargs):
  *         start = time.time()
  */
-struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer {
+struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer {
   PyObject_HEAD
   PyObject *__pyx_v_func;
 };
@@ -1273,13 +1273,13 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
-/* Module declarations from 'pyprojects.pong.c_read_paddle' */
-static PyTypeObject *__pyx_ptype_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer = 0;
-#define __Pyx_MODULE_NAME "pyprojects.pong.c_read_paddle"
-extern int __pyx_module_is_main_pyprojects__pong__c_read_paddle;
-int __pyx_module_is_main_pyprojects__pong__c_read_paddle = 0;
+/* Module declarations from 'pong.c_read_paddle' */
+static PyTypeObject *__pyx_ptype_4pong_13c_read_paddle___pyx_scope_struct__timer = 0;
+#define __Pyx_MODULE_NAME "pong.c_read_paddle"
+extern int __pyx_module_is_main_pong__c_read_paddle;
+int __pyx_module_is_main_pong__c_read_paddle = 0;
 
-/* Implementation of 'pyprojects.pong.c_read_paddle' */
+/* Implementation of 'pong.c_read_paddle' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_round;
 static const char __pyx_k_f[] = "f";
@@ -1349,10 +1349,10 @@ static const char __pyx_k_PaddleMove___init[] = "PaddleMove.__init__";
 static const char __pyx_k_c_read_paddle_pyx[] = "c_read_paddle.pyx";
 static const char __pyx_k_switch_is_pressed[] = "switch_is_pressed";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
+static const char __pyx_k_pong_c_read_paddle[] = "pong.c_read_paddle";
 static const char __pyx_k_PaddleMove_position[] = "PaddleMove.position";
 static const char __pyx_k_PaddleMove_exact_time[] = "PaddleMove.exact_time";
 static const char __pyx_k_PaddleMove_avg_charge_time[] = "PaddleMove.avg_charge_time";
-static const char __pyx_k_pyprojects_pong_c_read_paddle[] = "pyprojects.pong.c_read_paddle";
 static PyObject *__pyx_n_s_BCM;
 static PyObject *__pyx_n_s_GPIO;
 static PyObject *__pyx_n_s_HIGH;
@@ -1396,12 +1396,12 @@ static PyObject *__pyx_n_s_module;
 static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_n_s_output;
 static PyObject *__pyx_n_s_pin;
+static PyObject *__pyx_n_s_pong_c_read_paddle;
 static PyObject *__pyx_n_s_position;
 static PyObject *__pyx_n_s_power_pin;
 static PyObject *__pyx_n_s_prepare;
 static PyObject *__pyx_n_s_print;
 static PyObject *__pyx_n_s_pull_up_down;
-static PyObject *__pyx_n_s_pyprojects_pong_c_read_paddle;
 static PyObject *__pyx_n_s_qualname;
 static PyObject *__pyx_n_s_r;
 static PyObject *__pyx_n_s_range;
@@ -1424,14 +1424,14 @@ static PyObject *__pyx_n_s_timer;
 static PyObject *__pyx_n_s_timer_locals_f;
 static PyObject *__pyx_n_s_total;
 static PyObject *__pyx_n_s_x;
-static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_5timer_f(PyObject *__pyx_self, PyObject *__pyx_v_args, PyObject *__pyx_v_kwargs); /* proto */
-static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_timer(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_func); /* proto */
-static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_2switch_is_pressed(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_input_pin, PyObject *__pyx_v_power_pin); /* proto */
-static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_side); /* proto */
-static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_2exact_time(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_4avg_charge_time(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_iters); /* proto */
-static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_6position(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_iters); /* proto */
-static PyObject *__pyx_tp_new_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_pf_4pong_13c_read_paddle_5timer_f(PyObject *__pyx_self, PyObject *__pyx_v_args, PyObject *__pyx_v_kwargs); /* proto */
+static PyObject *__pyx_pf_4pong_13c_read_paddle_timer(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_func); /* proto */
+static PyObject *__pyx_pf_4pong_13c_read_paddle_2switch_is_pressed(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_input_pin, PyObject *__pyx_v_power_pin); /* proto */
+static PyObject *__pyx_pf_4pong_13c_read_paddle_10PaddleMove___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_side); /* proto */
+static PyObject *__pyx_pf_4pong_13c_read_paddle_10PaddleMove_2exact_time(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_4pong_13c_read_paddle_10PaddleMove_4avg_charge_time(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_iters); /* proto */
+static PyObject *__pyx_pf_4pong_13c_read_paddle_10PaddleMove_6position(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_iters); /* proto */
+static PyObject *__pyx_tp_new_4pong_13c_read_paddle___pyx_scope_struct__timer(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_float_0_0001;
 static PyObject *__pyx_int_4;
 static PyObject *__pyx_int_5;
@@ -1460,7 +1460,7 @@ static PyObject *__pyx_codeobj__13;
 static PyObject *__pyx_codeobj__16;
 /* Late includes */
 
-/* "pyprojects/pong/c_read_paddle.pyx":21
+/* "pong/c_read_paddle.pyx":21
  * 
  * # Time constant = resistance * capacitor
  * def timer(func):             # <<<<<<<<<<<<<<
@@ -1469,20 +1469,20 @@ static PyObject *__pyx_codeobj__16;
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_1timer(PyObject *__pyx_self, PyObject *__pyx_v_func); /*proto*/
-static PyMethodDef __pyx_mdef_10pyprojects_4pong_13c_read_paddle_1timer = {"timer", (PyCFunction)__pyx_pw_10pyprojects_4pong_13c_read_paddle_1timer, METH_O, 0};
-static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_1timer(PyObject *__pyx_self, PyObject *__pyx_v_func) {
+static PyObject *__pyx_pw_4pong_13c_read_paddle_1timer(PyObject *__pyx_self, PyObject *__pyx_v_func); /*proto*/
+static PyMethodDef __pyx_mdef_4pong_13c_read_paddle_1timer = {"timer", (PyCFunction)__pyx_pw_4pong_13c_read_paddle_1timer, METH_O, 0};
+static PyObject *__pyx_pw_4pong_13c_read_paddle_1timer(PyObject *__pyx_self, PyObject *__pyx_v_func) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("timer (wrapper)", 0);
-  __pyx_r = __pyx_pf_10pyprojects_4pong_13c_read_paddle_timer(__pyx_self, ((PyObject *)__pyx_v_func));
+  __pyx_r = __pyx_pf_4pong_13c_read_paddle_timer(__pyx_self, ((PyObject *)__pyx_v_func));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "pyprojects/pong/c_read_paddle.pyx":22
+/* "pong/c_read_paddle.pyx":22
  * # Time constant = resistance * capacitor
  * def timer(func):
  *     def f(*args, **kwargs):             # <<<<<<<<<<<<<<
@@ -1491,9 +1491,9 @@ static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_1timer(PyObject *__
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_5timer_1f(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_10pyprojects_4pong_13c_read_paddle_5timer_1f = {"f", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10pyprojects_4pong_13c_read_paddle_5timer_1f, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_5timer_1f(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_4pong_13c_read_paddle_5timer_1f(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_4pong_13c_read_paddle_5timer_1f = {"f", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_4pong_13c_read_paddle_5timer_1f, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_4pong_13c_read_paddle_5timer_1f(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_args = 0;
   PyObject *__pyx_v_kwargs = 0;
   PyObject *__pyx_r = 0;
@@ -1508,7 +1508,7 @@ static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_5timer_1f(PyObject 
   }
   __Pyx_INCREF(__pyx_args);
   __pyx_v_args = __pyx_args;
-  __pyx_r = __pyx_pf_10pyprojects_4pong_13c_read_paddle_5timer_f(__pyx_self, __pyx_v_args, __pyx_v_kwargs);
+  __pyx_r = __pyx_pf_4pong_13c_read_paddle_5timer_f(__pyx_self, __pyx_v_args, __pyx_v_kwargs);
 
   /* function exit code */
   __Pyx_XDECREF(__pyx_v_args);
@@ -1517,9 +1517,9 @@ static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_5timer_1f(PyObject 
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_5timer_f(PyObject *__pyx_self, PyObject *__pyx_v_args, PyObject *__pyx_v_kwargs) {
-  struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer *__pyx_cur_scope;
-  struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer *__pyx_outer_scope;
+static PyObject *__pyx_pf_4pong_13c_read_paddle_5timer_f(PyObject *__pyx_self, PyObject *__pyx_v_args, PyObject *__pyx_v_kwargs) {
+  struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer *__pyx_cur_scope;
+  struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer *__pyx_outer_scope;
   PyObject *__pyx_v_start = NULL;
   PyObject *__pyx_v_rv = NULL;
   PyObject *__pyx_v_end = NULL;
@@ -1529,10 +1529,10 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_5timer_f(PyObject *
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("f", 0);
-  __pyx_outer_scope = (struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer *) __Pyx_CyFunction_GetClosure(__pyx_self);
+  __pyx_outer_scope = (struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":23
+  /* "pong/c_read_paddle.pyx":23
  * def timer(func):
  *     def f(*args, **kwargs):
  *         start = time.time()             # <<<<<<<<<<<<<<
@@ -1562,7 +1562,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_5timer_f(PyObject *
   __pyx_v_start = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":24
+  /* "pong/c_read_paddle.pyx":24
  *     def f(*args, **kwargs):
  *         start = time.time()
  *         rv = func(*args, **kwargs)             # <<<<<<<<<<<<<<
@@ -1575,7 +1575,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_5timer_f(PyObject *
   __pyx_v_rv = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":25
+  /* "pong/c_read_paddle.pyx":25
  *         start = time.time()
  *         rv = func(*args, **kwargs)
  *         end = time.time()             # <<<<<<<<<<<<<<
@@ -1605,7 +1605,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_5timer_f(PyObject *
   __pyx_v_end = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":26
+  /* "pong/c_read_paddle.pyx":26
  *         rv = func(*args, **kwargs)
  *         end = time.time()
  *         print('Time taken', end - start, ' for ', func.__name__)             # <<<<<<<<<<<<<<
@@ -1634,7 +1634,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_5timer_f(PyObject *
   if (__Pyx_PrintOne(0, __pyx_t_3) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":27
+  /* "pong/c_read_paddle.pyx":27
  *         end = time.time()
  *         print('Time taken', end - start, ' for ', func.__name__)
  *         return rv             # <<<<<<<<<<<<<<
@@ -1646,7 +1646,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_5timer_f(PyObject *
   __pyx_r = __pyx_v_rv;
   goto __pyx_L0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":22
+  /* "pong/c_read_paddle.pyx":22
  * # Time constant = resistance * capacitor
  * def timer(func):
  *     def f(*args, **kwargs):             # <<<<<<<<<<<<<<
@@ -1659,7 +1659,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_5timer_f(PyObject *
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pyprojects.pong.c_read_paddle.timer.f", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pong.c_read_paddle.timer.f", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_start);
@@ -1670,7 +1670,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_5timer_f(PyObject *
   return __pyx_r;
 }
 
-/* "pyprojects/pong/c_read_paddle.pyx":21
+/* "pong/c_read_paddle.pyx":21
  * 
  * # Time constant = resistance * capacitor
  * def timer(func):             # <<<<<<<<<<<<<<
@@ -1678,16 +1678,16 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_5timer_f(PyObject *
  *         start = time.time()
  */
 
-static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_timer(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_func) {
-  struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer *__pyx_cur_scope;
+static PyObject *__pyx_pf_4pong_13c_read_paddle_timer(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_func) {
+  struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer *__pyx_cur_scope;
   PyObject *__pyx_v_f = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("timer", 0);
-  __pyx_cur_scope = (struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer *)__pyx_tp_new_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer(__pyx_ptype_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer, __pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer *)__pyx_tp_new_4pong_13c_read_paddle___pyx_scope_struct__timer(__pyx_ptype_4pong_13c_read_paddle___pyx_scope_struct__timer, __pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer *)Py_None);
     __Pyx_INCREF(Py_None);
     __PYX_ERR(0, 21, __pyx_L1_error)
   } else {
@@ -1697,19 +1697,19 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_timer(CYTHON_UNUSED
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_func);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_func);
 
-  /* "pyprojects/pong/c_read_paddle.pyx":22
+  /* "pong/c_read_paddle.pyx":22
  * # Time constant = resistance * capacitor
  * def timer(func):
  *     def f(*args, **kwargs):             # <<<<<<<<<<<<<<
  *         start = time.time()
  *         rv = func(*args, **kwargs)
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_10pyprojects_4pong_13c_read_paddle_5timer_1f, 0, __pyx_n_s_timer_locals_f, ((PyObject*)__pyx_cur_scope), __pyx_n_s_pyprojects_pong_c_read_paddle, __pyx_d, ((PyObject *)__pyx_codeobj__2)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_4pong_13c_read_paddle_5timer_1f, 0, __pyx_n_s_timer_locals_f, ((PyObject*)__pyx_cur_scope), __pyx_n_s_pong_c_read_paddle, __pyx_d, ((PyObject *)__pyx_codeobj__2)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_f = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":28
+  /* "pong/c_read_paddle.pyx":28
  *         print('Time taken', end - start, ' for ', func.__name__)
  *         return rv
  *     return f             # <<<<<<<<<<<<<<
@@ -1721,7 +1721,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_timer(CYTHON_UNUSED
   __pyx_r = __pyx_v_f;
   goto __pyx_L0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":21
+  /* "pong/c_read_paddle.pyx":21
  * 
  * # Time constant = resistance * capacitor
  * def timer(func):             # <<<<<<<<<<<<<<
@@ -1732,7 +1732,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_timer(CYTHON_UNUSED
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pyprojects.pong.c_read_paddle.timer", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pong.c_read_paddle.timer", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_f);
@@ -1742,7 +1742,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_timer(CYTHON_UNUSED
   return __pyx_r;
 }
 
-/* "pyprojects/pong/c_read_paddle.pyx":31
+/* "pong/c_read_paddle.pyx":31
  * 
  * 
  * def switch_is_pressed(input_pin=7, power_pin=8):             # <<<<<<<<<<<<<<
@@ -1751,9 +1751,9 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_timer(CYTHON_UNUSED
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_3switch_is_pressed(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_10pyprojects_4pong_13c_read_paddle_3switch_is_pressed = {"switch_is_pressed", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10pyprojects_4pong_13c_read_paddle_3switch_is_pressed, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_3switch_is_pressed(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_4pong_13c_read_paddle_3switch_is_pressed(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_4pong_13c_read_paddle_3switch_is_pressed = {"switch_is_pressed", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_4pong_13c_read_paddle_3switch_is_pressed, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_4pong_13c_read_paddle_3switch_is_pressed(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_input_pin = 0;
   PyObject *__pyx_v_power_pin = 0;
   PyObject *__pyx_r = 0;
@@ -1809,18 +1809,18 @@ static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_3switch_is_pressed(
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("switch_is_pressed", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 31, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("pyprojects.pong.c_read_paddle.switch_is_pressed", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pong.c_read_paddle.switch_is_pressed", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pyprojects_4pong_13c_read_paddle_2switch_is_pressed(__pyx_self, __pyx_v_input_pin, __pyx_v_power_pin);
+  __pyx_r = __pyx_pf_4pong_13c_read_paddle_2switch_is_pressed(__pyx_self, __pyx_v_input_pin, __pyx_v_power_pin);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_2switch_is_pressed(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_input_pin, PyObject *__pyx_v_power_pin) {
+static PyObject *__pyx_pf_4pong_13c_read_paddle_2switch_is_pressed(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_input_pin, PyObject *__pyx_v_power_pin) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1832,7 +1832,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_2switch_is_pressed(
   int __pyx_t_7;
   __Pyx_RefNannySetupContext("switch_is_pressed", 0);
 
-  /* "pyprojects/pong/c_read_paddle.pyx":32
+  /* "pong/c_read_paddle.pyx":32
  * 
  * def switch_is_pressed(input_pin=7, power_pin=8):
  *     GPIO.setmode(GPIO.BCM)             # <<<<<<<<<<<<<<
@@ -1867,7 +1867,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_2switch_is_pressed(
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":33
+  /* "pong/c_read_paddle.pyx":33
  * def switch_is_pressed(input_pin=7, power_pin=8):
  *     GPIO.setmode(GPIO.BCM)
  *     GPIO.setup(input_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)             # <<<<<<<<<<<<<<
@@ -1908,7 +1908,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_2switch_is_pressed(
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":34
+  /* "pong/c_read_paddle.pyx":34
  *     GPIO.setmode(GPIO.BCM)
  *     GPIO.setup(input_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
  *     GPIO.setup(power_pin, GPIO.OUT)             # <<<<<<<<<<<<<<
@@ -1974,7 +1974,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_2switch_is_pressed(
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":35
+  /* "pong/c_read_paddle.pyx":35
  *     GPIO.setup(input_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
  *     GPIO.setup(power_pin, GPIO.OUT)
  *     GPIO.output(power_pin, True)             # <<<<<<<<<<<<<<
@@ -2033,7 +2033,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_2switch_is_pressed(
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":37
+  /* "pong/c_read_paddle.pyx":37
  *     GPIO.output(power_pin, True)
  * 
  *     if GPIO.input(input_pin) == GPIO.HIGH:             # <<<<<<<<<<<<<<
@@ -2072,7 +2072,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_2switch_is_pressed(
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_7) {
 
-    /* "pyprojects/pong/c_read_paddle.pyx":38
+    /* "pong/c_read_paddle.pyx":38
  * 
  *     if GPIO.input(input_pin) == GPIO.HIGH:
  *         GPIO.cleanup()             # <<<<<<<<<<<<<<
@@ -2101,7 +2101,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_2switch_is_pressed(
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "pyprojects/pong/c_read_paddle.pyx":39
+    /* "pong/c_read_paddle.pyx":39
  *     if GPIO.input(input_pin) == GPIO.HIGH:
  *         GPIO.cleanup()
  *         return True             # <<<<<<<<<<<<<<
@@ -2113,7 +2113,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_2switch_is_pressed(
     __pyx_r = Py_True;
     goto __pyx_L0;
 
-    /* "pyprojects/pong/c_read_paddle.pyx":37
+    /* "pong/c_read_paddle.pyx":37
  *     GPIO.output(power_pin, True)
  * 
  *     if GPIO.input(input_pin) == GPIO.HIGH:             # <<<<<<<<<<<<<<
@@ -2122,7 +2122,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_2switch_is_pressed(
  */
   }
 
-  /* "pyprojects/pong/c_read_paddle.pyx":41
+  /* "pong/c_read_paddle.pyx":41
  *         return True
  *     else:
  *         GPIO.cleanup()             # <<<<<<<<<<<<<<
@@ -2152,7 +2152,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_2switch_is_pressed(
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "pyprojects/pong/c_read_paddle.pyx":42
+    /* "pong/c_read_paddle.pyx":42
  *     else:
  *         GPIO.cleanup()
  *         return False             # <<<<<<<<<<<<<<
@@ -2165,7 +2165,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_2switch_is_pressed(
     goto __pyx_L0;
   }
 
-  /* "pyprojects/pong/c_read_paddle.pyx":31
+  /* "pong/c_read_paddle.pyx":31
  * 
  * 
  * def switch_is_pressed(input_pin=7, power_pin=8):             # <<<<<<<<<<<<<<
@@ -2180,7 +2180,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_2switch_is_pressed(
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("pyprojects.pong.c_read_paddle.switch_is_pressed", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pong.c_read_paddle.switch_is_pressed", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2188,7 +2188,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_2switch_is_pressed(
   return __pyx_r;
 }
 
-/* "pyprojects/pong/c_read_paddle.pyx":46
+/* "pong/c_read_paddle.pyx":46
  * 
  * class PaddleMove:
  *     def __init__(self, side):             # <<<<<<<<<<<<<<
@@ -2197,9 +2197,9 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_2switch_is_pressed(
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_10PaddleMove_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_10pyprojects_4pong_13c_read_paddle_10PaddleMove_1__init__ = {"__init__", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10pyprojects_4pong_13c_read_paddle_10PaddleMove_1__init__, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_10PaddleMove_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_4pong_13c_read_paddle_10PaddleMove_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_4pong_13c_read_paddle_10PaddleMove_1__init__ = {"__init__", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_4pong_13c_read_paddle_10PaddleMove_1__init__, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_4pong_13c_read_paddle_10PaddleMove_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_side = 0;
   PyObject *__pyx_r = 0;
@@ -2247,25 +2247,25 @@ static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_10PaddleMove_1__ini
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 46, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("pyprojects.pong.c_read_paddle.PaddleMove.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pong.c_read_paddle.PaddleMove.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove___init__(__pyx_self, __pyx_v_self, __pyx_v_side);
+  __pyx_r = __pyx_pf_4pong_13c_read_paddle_10PaddleMove___init__(__pyx_self, __pyx_v_self, __pyx_v_side);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_side) {
+static PyObject *__pyx_pf_4pong_13c_read_paddle_10PaddleMove___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_side) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "pyprojects/pong/c_read_paddle.pyx":47
+  /* "pong/c_read_paddle.pyx":47
  * class PaddleMove:
  *     def __init__(self, side):
  *         if side == 'l':             # <<<<<<<<<<<<<<
@@ -2275,7 +2275,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove___init
   __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_side, __pyx_n_s_l, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 47, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "pyprojects/pong/c_read_paddle.pyx":48
+    /* "pong/c_read_paddle.pyx":48
  *     def __init__(self, side):
  *         if side == 'l':
  *             self.pin = left             # <<<<<<<<<<<<<<
@@ -2287,7 +2287,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove___init
     if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_pin, __pyx_t_2) < 0) __PYX_ERR(0, 48, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "pyprojects/pong/c_read_paddle.pyx":47
+    /* "pong/c_read_paddle.pyx":47
  * class PaddleMove:
  *     def __init__(self, side):
  *         if side == 'l':             # <<<<<<<<<<<<<<
@@ -2296,7 +2296,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove___init
  */
   }
 
-  /* "pyprojects/pong/c_read_paddle.pyx":49
+  /* "pong/c_read_paddle.pyx":49
  *         if side == 'l':
  *             self.pin = left
  *         if side == 'r':             # <<<<<<<<<<<<<<
@@ -2306,7 +2306,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove___init
   __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_side, __pyx_n_s_r, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 49, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "pyprojects/pong/c_read_paddle.pyx":50
+    /* "pong/c_read_paddle.pyx":50
  *             self.pin = left
  *         if side == 'r':
  *             self.pin = right             # <<<<<<<<<<<<<<
@@ -2318,7 +2318,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove___init
     if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_pin, __pyx_t_2) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "pyprojects/pong/c_read_paddle.pyx":49
+    /* "pong/c_read_paddle.pyx":49
  *         if side == 'l':
  *             self.pin = left
  *         if side == 'r':             # <<<<<<<<<<<<<<
@@ -2327,7 +2327,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove___init
  */
   }
 
-  /* "pyprojects/pong/c_read_paddle.pyx":46
+  /* "pong/c_read_paddle.pyx":46
  * 
  * class PaddleMove:
  *     def __init__(self, side):             # <<<<<<<<<<<<<<
@@ -2340,7 +2340,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove___init
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("pyprojects.pong.c_read_paddle.PaddleMove.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pong.c_read_paddle.PaddleMove.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2348,7 +2348,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove___init
   return __pyx_r;
 }
 
-/* "pyprojects/pong/c_read_paddle.pyx":52
+/* "pong/c_read_paddle.pyx":52
  *             self.pin = right
  * 
  *     def exact_time(self):             # <<<<<<<<<<<<<<
@@ -2357,20 +2357,20 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove___init
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_10PaddleMove_3exact_time(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_10pyprojects_4pong_13c_read_paddle_10PaddleMove_3exact_time = {"exact_time", (PyCFunction)__pyx_pw_10pyprojects_4pong_13c_read_paddle_10PaddleMove_3exact_time, METH_O, 0};
-static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_10PaddleMove_3exact_time(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_4pong_13c_read_paddle_10PaddleMove_3exact_time(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_4pong_13c_read_paddle_10PaddleMove_3exact_time = {"exact_time", (PyCFunction)__pyx_pw_4pong_13c_read_paddle_10PaddleMove_3exact_time, METH_O, 0};
+static PyObject *__pyx_pw_4pong_13c_read_paddle_10PaddleMove_3exact_time(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("exact_time (wrapper)", 0);
-  __pyx_r = __pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_2exact_time(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_4pong_13c_read_paddle_10PaddleMove_2exact_time(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_2exact_time(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_4pong_13c_read_paddle_10PaddleMove_2exact_time(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_v_t = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -2384,7 +2384,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_2exact
   int __pyx_t_8;
   __Pyx_RefNannySetupContext("exact_time", 0);
 
-  /* "pyprojects/pong/c_read_paddle.pyx":53
+  /* "pong/c_read_paddle.pyx":53
  * 
  *     def exact_time(self):
  *         GPIO.setmode(GPIO.BCM)             # <<<<<<<<<<<<<<
@@ -2419,7 +2419,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_2exact
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":55
+  /* "pong/c_read_paddle.pyx":55
  *         GPIO.setmode(GPIO.BCM)
  *         # Discharge capacitor
  *         GPIO.setup(self.pin, GPIO.OUT)             # <<<<<<<<<<<<<<
@@ -2489,7 +2489,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_2exact
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":56
+  /* "pong/c_read_paddle.pyx":56
  *         # Discharge capacitor
  *         GPIO.setup(self.pin, GPIO.OUT)
  *         GPIO.output(self.pin, GPIO.LOW)             # <<<<<<<<<<<<<<
@@ -2559,7 +2559,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_2exact
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":57
+  /* "pong/c_read_paddle.pyx":57
  *         GPIO.setup(self.pin, GPIO.OUT)
  *         GPIO.output(self.pin, GPIO.LOW)
  *         time.sleep(0.0001)             # <<<<<<<<<<<<<<
@@ -2588,7 +2588,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_2exact
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":58
+  /* "pong/c_read_paddle.pyx":58
  *         GPIO.output(self.pin, GPIO.LOW)
  *         time.sleep(0.0001)
  *         GPIO.setup(self.pin, GPIO.IN)             # <<<<<<<<<<<<<<
@@ -2658,7 +2658,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_2exact
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":59
+  /* "pong/c_read_paddle.pyx":59
  *         time.sleep(0.0001)
  *         GPIO.setup(self.pin, GPIO.IN)
  *         t = time.time()             # <<<<<<<<<<<<<<
@@ -2688,7 +2688,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_2exact
   __pyx_v_t = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":60
+  /* "pong/c_read_paddle.pyx":60
  *         GPIO.setup(self.pin, GPIO.IN)
  *         t = time.time()
  *         while (GPIO.input(self.pin) == GPIO.LOW):             # <<<<<<<<<<<<<<
@@ -2732,7 +2732,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_2exact
     if (!__pyx_t_8) break;
   }
 
-  /* "pyprojects/pong/c_read_paddle.pyx":62
+  /* "pong/c_read_paddle.pyx":62
  *         while (GPIO.input(self.pin) == GPIO.LOW):
  *             pass
  *         t = time.time() - t             # <<<<<<<<<<<<<<
@@ -2765,7 +2765,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_2exact
   __Pyx_DECREF_SET(__pyx_v_t, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":63
+  /* "pong/c_read_paddle.pyx":63
  *             pass
  *         t = time.time() - t
  *         GPIO.cleanup()             # <<<<<<<<<<<<<<
@@ -2794,7 +2794,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_2exact
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":64
+  /* "pong/c_read_paddle.pyx":64
  *         t = time.time() - t
  *         GPIO.cleanup()
  *         return int(t*1000000)             # <<<<<<<<<<<<<<
@@ -2811,7 +2811,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_2exact
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":52
+  /* "pong/c_read_paddle.pyx":52
  *             self.pin = right
  * 
  *     def exact_time(self):             # <<<<<<<<<<<<<<
@@ -2827,7 +2827,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_2exact
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("pyprojects.pong.c_read_paddle.PaddleMove.exact_time", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pong.c_read_paddle.PaddleMove.exact_time", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_t);
@@ -2836,7 +2836,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_2exact
   return __pyx_r;
 }
 
-/* "pyprojects/pong/c_read_paddle.pyx":66
+/* "pong/c_read_paddle.pyx":66
  *         return int(t*1000000)
  * 
  *     def avg_charge_time(self, iters=20):             # <<<<<<<<<<<<<<
@@ -2845,9 +2845,9 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_2exact
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_10PaddleMove_5avg_charge_time(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_10pyprojects_4pong_13c_read_paddle_10PaddleMove_5avg_charge_time = {"avg_charge_time", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10pyprojects_4pong_13c_read_paddle_10PaddleMove_5avg_charge_time, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_10PaddleMove_5avg_charge_time(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_4pong_13c_read_paddle_10PaddleMove_5avg_charge_time(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_4pong_13c_read_paddle_10PaddleMove_5avg_charge_time = {"avg_charge_time", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_4pong_13c_read_paddle_10PaddleMove_5avg_charge_time, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_4pong_13c_read_paddle_10PaddleMove_5avg_charge_time(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_iters = 0;
   PyObject *__pyx_r = 0;
@@ -2899,18 +2899,18 @@ static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_10PaddleMove_5avg_c
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("avg_charge_time", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 66, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("pyprojects.pong.c_read_paddle.PaddleMove.avg_charge_time", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pong.c_read_paddle.PaddleMove.avg_charge_time", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_4avg_charge_time(__pyx_self, __pyx_v_self, __pyx_v_iters);
+  __pyx_r = __pyx_pf_4pong_13c_read_paddle_10PaddleMove_4avg_charge_time(__pyx_self, __pyx_v_self, __pyx_v_iters);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_4avg_charge_time(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_iters) {
+static PyObject *__pyx_pf_4pong_13c_read_paddle_10PaddleMove_4avg_charge_time(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_iters) {
   PyObject *__pyx_v_total = NULL;
   CYTHON_UNUSED PyObject *__pyx_v_x = NULL;
   PyObject *__pyx_r = NULL;
@@ -2924,7 +2924,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_4avg_c
   int __pyx_t_7;
   __Pyx_RefNannySetupContext("avg_charge_time", 0);
 
-  /* "pyprojects/pong/c_read_paddle.pyx":69
+  /* "pong/c_read_paddle.pyx":69
  *         # Max is 250, min is 50
  *         # Convert to decimal by having (x*4)/1000
  *         total = []             # <<<<<<<<<<<<<<
@@ -2936,7 +2936,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_4avg_c
   __pyx_v_total = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":70
+  /* "pong/c_read_paddle.pyx":70
  *         # Convert to decimal by having (x*4)/1000
  *         total = []
  *         for x in range(iters):             # <<<<<<<<<<<<<<
@@ -2988,7 +2988,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_4avg_c
     __Pyx_XDECREF_SET(__pyx_v_x, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "pyprojects/pong/c_read_paddle.pyx":71
+    /* "pong/c_read_paddle.pyx":71
  *         total = []
  *         for x in range(iters):
  *             total.append(self.exact_time())             # <<<<<<<<<<<<<<
@@ -3015,7 +3015,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_4avg_c
     __pyx_t_7 = __Pyx_PyObject_Append(__pyx_v_total, __pyx_t_1); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 71, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "pyprojects/pong/c_read_paddle.pyx":70
+    /* "pong/c_read_paddle.pyx":70
  *         # Convert to decimal by having (x*4)/1000
  *         total = []
  *         for x in range(iters):             # <<<<<<<<<<<<<<
@@ -3025,7 +3025,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_4avg_c
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":72
+  /* "pong/c_read_paddle.pyx":72
  *         for x in range(iters):
  *             total.append(self.exact_time())
  *         total = stats.median(total)             # <<<<<<<<<<<<<<
@@ -3055,7 +3055,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_4avg_c
   __Pyx_DECREF_SET(__pyx_v_total, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":73
+  /* "pong/c_read_paddle.pyx":73
  *             total.append(self.exact_time())
  *         total = stats.median(total)
  *         return total             # <<<<<<<<<<<<<<
@@ -3067,7 +3067,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_4avg_c
   __pyx_r = __pyx_v_total;
   goto __pyx_L0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":66
+  /* "pong/c_read_paddle.pyx":66
  *         return int(t*1000000)
  * 
  *     def avg_charge_time(self, iters=20):             # <<<<<<<<<<<<<<
@@ -3081,7 +3081,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_4avg_c
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("pyprojects.pong.c_read_paddle.PaddleMove.avg_charge_time", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pong.c_read_paddle.PaddleMove.avg_charge_time", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_total);
@@ -3091,7 +3091,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_4avg_c
   return __pyx_r;
 }
 
-/* "pyprojects/pong/c_read_paddle.pyx":75
+/* "pong/c_read_paddle.pyx":75
  *         return total
  * 
  *     def position(self, iters=20):             # <<<<<<<<<<<<<<
@@ -3100,10 +3100,10 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_4avg_c
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_10PaddleMove_7position(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_10pyprojects_4pong_13c_read_paddle_10PaddleMove_6position[] = "\n        Return a number between 0 and 1. 1 is max left (down) and 0 is max right (up). Refelcts y axis on pygame.\n        Bigger charge time is full left on both (probably)\n        ";
-static PyMethodDef __pyx_mdef_10pyprojects_4pong_13c_read_paddle_10PaddleMove_7position = {"position", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10pyprojects_4pong_13c_read_paddle_10PaddleMove_7position, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10pyprojects_4pong_13c_read_paddle_10PaddleMove_6position};
-static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_10PaddleMove_7position(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_4pong_13c_read_paddle_10PaddleMove_7position(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_4pong_13c_read_paddle_10PaddleMove_6position[] = "\n        Return a number between 0 and 1. 1 is max left (down) and 0 is max right (up). Refelcts y axis on pygame.\n        Bigger charge time is full left on both (probably)\n        ";
+static PyMethodDef __pyx_mdef_4pong_13c_read_paddle_10PaddleMove_7position = {"position", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_4pong_13c_read_paddle_10PaddleMove_7position, METH_VARARGS|METH_KEYWORDS, __pyx_doc_4pong_13c_read_paddle_10PaddleMove_6position};
+static PyObject *__pyx_pw_4pong_13c_read_paddle_10PaddleMove_7position(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_iters = 0;
   PyObject *__pyx_r = 0;
@@ -3155,18 +3155,18 @@ static PyObject *__pyx_pw_10pyprojects_4pong_13c_read_paddle_10PaddleMove_7posit
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("position", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 75, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("pyprojects.pong.c_read_paddle.PaddleMove.position", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pong.c_read_paddle.PaddleMove.position", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_6position(__pyx_self, __pyx_v_self, __pyx_v_iters);
+  __pyx_r = __pyx_pf_4pong_13c_read_paddle_10PaddleMove_6position(__pyx_self, __pyx_v_self, __pyx_v_iters);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_6position(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_iters) {
+static PyObject *__pyx_pf_4pong_13c_read_paddle_10PaddleMove_6position(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_iters) {
   PyObject *__pyx_v_t = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -3175,7 +3175,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_6posit
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("position", 0);
 
-  /* "pyprojects/pong/c_read_paddle.pyx":80
+  /* "pong/c_read_paddle.pyx":80
  *         Bigger charge time is full left on both (probably)
  *         """
  *         t = self.avg_charge_time(iters)             # <<<<<<<<<<<<<<
@@ -3202,7 +3202,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_6posit
   __pyx_v_t = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":81
+  /* "pong/c_read_paddle.pyx":81
  *         """
  *         t = self.avg_charge_time(iters)
  *         t = round((t-50)/400, 5)             # <<<<<<<<<<<<<<
@@ -3228,7 +3228,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_6posit
   __Pyx_DECREF_SET(__pyx_v_t, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":82
+  /* "pong/c_read_paddle.pyx":82
  *         t = self.avg_charge_time(iters)
  *         t = round((t-50)/400, 5)
  *         return t             # <<<<<<<<<<<<<<
@@ -3240,7 +3240,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_6posit
   __pyx_r = __pyx_v_t;
   goto __pyx_L0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":75
+  /* "pong/c_read_paddle.pyx":75
  *         return total
  * 
  *     def position(self, iters=20):             # <<<<<<<<<<<<<<
@@ -3253,7 +3253,7 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_6posit
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pyprojects.pong.c_read_paddle.PaddleMove.position", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pong.c_read_paddle.PaddleMove.position", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_t);
@@ -3262,14 +3262,14 @@ static PyObject *__pyx_pf_10pyprojects_4pong_13c_read_paddle_10PaddleMove_6posit
   return __pyx_r;
 }
 
-static struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer *__pyx_freelist_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer[8];
-static int __pyx_freecount_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer = 0;
+static struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer *__pyx_freelist_4pong_13c_read_paddle___pyx_scope_struct__timer[8];
+static int __pyx_freecount_4pong_13c_read_paddle___pyx_scope_struct__timer = 0;
 
-static PyObject *__pyx_tp_new_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_4pong_13c_read_paddle___pyx_scope_struct__timer(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
-  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer)))) {
-    o = (PyObject*)__pyx_freelist_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer[--__pyx_freecount_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer];
-    memset(o, 0, sizeof(struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer));
+  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_4pong_13c_read_paddle___pyx_scope_struct__timer > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer)))) {
+    o = (PyObject*)__pyx_freelist_4pong_13c_read_paddle___pyx_scope_struct__timer[--__pyx_freecount_4pong_13c_read_paddle___pyx_scope_struct__timer];
+    memset(o, 0, sizeof(struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else {
@@ -3279,41 +3279,41 @@ static PyObject *__pyx_tp_new_10pyprojects_4pong_13c_read_paddle___pyx_scope_str
   return o;
 }
 
-static void __pyx_tp_dealloc_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer(PyObject *o) {
-  struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer *p = (struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer *)o;
+static void __pyx_tp_dealloc_4pong_13c_read_paddle___pyx_scope_struct__timer(PyObject *o) {
+  struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer *p = (struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer *)o;
   PyObject_GC_UnTrack(o);
   Py_CLEAR(p->__pyx_v_func);
-  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer)))) {
-    __pyx_freelist_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer[__pyx_freecount_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer++] = ((struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer *)o);
+  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_4pong_13c_read_paddle___pyx_scope_struct__timer < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer)))) {
+    __pyx_freelist_4pong_13c_read_paddle___pyx_scope_struct__timer[__pyx_freecount_4pong_13c_read_paddle___pyx_scope_struct__timer++] = ((struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer *)o);
   } else {
     (*Py_TYPE(o)->tp_free)(o);
   }
 }
 
-static int __pyx_tp_traverse_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_4pong_13c_read_paddle___pyx_scope_struct__timer(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer *p = (struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer *)o;
+  struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer *p = (struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer *)o;
   if (p->__pyx_v_func) {
     e = (*v)(p->__pyx_v_func, a); if (e) return e;
   }
   return 0;
 }
 
-static int __pyx_tp_clear_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer(PyObject *o) {
+static int __pyx_tp_clear_4pong_13c_read_paddle___pyx_scope_struct__timer(PyObject *o) {
   PyObject* tmp;
-  struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer *p = (struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer *)o;
+  struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer *p = (struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer *)o;
   tmp = ((PyObject*)p->__pyx_v_func);
   p->__pyx_v_func = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   return 0;
 }
 
-static PyTypeObject __pyx_type_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer = {
+static PyTypeObject __pyx_type_4pong_13c_read_paddle___pyx_scope_struct__timer = {
   PyVarObject_HEAD_INIT(0, 0)
-  "pyprojects.pong.c_read_paddle.__pyx_scope_struct__timer", /*tp_name*/
-  sizeof(struct __pyx_obj_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer), /*tp_basicsize*/
+  "pong.c_read_paddle.__pyx_scope_struct__timer", /*tp_name*/
+  sizeof(struct __pyx_obj_4pong_13c_read_paddle___pyx_scope_struct__timer), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer, /*tp_dealloc*/
+  __pyx_tp_dealloc_4pong_13c_read_paddle___pyx_scope_struct__timer, /*tp_dealloc*/
   0, /*tp_print*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -3335,8 +3335,8 @@ static PyTypeObject __pyx_type_10pyprojects_4pong_13c_read_paddle___pyx_scope_st
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer, /*tp_traverse*/
-  __pyx_tp_clear_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer, /*tp_clear*/
+  __pyx_tp_traverse_4pong_13c_read_paddle___pyx_scope_struct__timer, /*tp_traverse*/
+  __pyx_tp_clear_4pong_13c_read_paddle___pyx_scope_struct__timer, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
@@ -3351,7 +3351,7 @@ static PyTypeObject __pyx_type_10pyprojects_4pong_13c_read_paddle___pyx_scope_st
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer, /*tp_new*/
+  __pyx_tp_new_4pong_13c_read_paddle___pyx_scope_struct__timer, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -3458,12 +3458,12 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
   {&__pyx_n_s_output, __pyx_k_output, sizeof(__pyx_k_output), 0, 0, 1, 1},
   {&__pyx_n_s_pin, __pyx_k_pin, sizeof(__pyx_k_pin), 0, 0, 1, 1},
+  {&__pyx_n_s_pong_c_read_paddle, __pyx_k_pong_c_read_paddle, sizeof(__pyx_k_pong_c_read_paddle), 0, 0, 1, 1},
   {&__pyx_n_s_position, __pyx_k_position, sizeof(__pyx_k_position), 0, 0, 1, 1},
   {&__pyx_n_s_power_pin, __pyx_k_power_pin, sizeof(__pyx_k_power_pin), 0, 0, 1, 1},
   {&__pyx_n_s_prepare, __pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 0, 1, 1},
   {&__pyx_n_s_print, __pyx_k_print, sizeof(__pyx_k_print), 0, 0, 1, 1},
   {&__pyx_n_s_pull_up_down, __pyx_k_pull_up_down, sizeof(__pyx_k_pull_up_down), 0, 0, 1, 1},
-  {&__pyx_n_s_pyprojects_pong_c_read_paddle, __pyx_k_pyprojects_pong_c_read_paddle, sizeof(__pyx_k_pyprojects_pong_c_read_paddle), 0, 0, 1, 1},
   {&__pyx_n_s_qualname, __pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 0, 1, 1},
   {&__pyx_n_s_r, __pyx_k_r, sizeof(__pyx_k_r), 0, 0, 1, 1},
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
@@ -3500,7 +3500,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "pyprojects/pong/c_read_paddle.pyx":22
+  /* "pong/c_read_paddle.pyx":22
  * # Time constant = resistance * capacitor
  * def timer(func):
  *     def f(*args, **kwargs):             # <<<<<<<<<<<<<<
@@ -3512,7 +3512,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple_);
   __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_c_read_paddle_pyx, __pyx_n_s_f, 22, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 22, __pyx_L1_error)
 
-  /* "pyprojects/pong/c_read_paddle.pyx":21
+  /* "pong/c_read_paddle.pyx":21
  * 
  * # Time constant = resistance * capacitor
  * def timer(func):             # <<<<<<<<<<<<<<
@@ -3524,7 +3524,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__4);
   __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_c_read_paddle_pyx, __pyx_n_s_timer, 21, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 21, __pyx_L1_error)
 
-  /* "pyprojects/pong/c_read_paddle.pyx":31
+  /* "pong/c_read_paddle.pyx":31
  * 
  * 
  * def switch_is_pressed(input_pin=7, power_pin=8):             # <<<<<<<<<<<<<<
@@ -3536,7 +3536,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__6);
   __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_c_read_paddle_pyx, __pyx_n_s_switch_is_pressed, 31, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(0, 31, __pyx_L1_error)
 
-  /* "pyprojects/pong/c_read_paddle.pyx":46
+  /* "pong/c_read_paddle.pyx":46
  * 
  * class PaddleMove:
  *     def __init__(self, side):             # <<<<<<<<<<<<<<
@@ -3548,7 +3548,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__8);
   __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_c_read_paddle_pyx, __pyx_n_s_init, 46, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(0, 46, __pyx_L1_error)
 
-  /* "pyprojects/pong/c_read_paddle.pyx":52
+  /* "pong/c_read_paddle.pyx":52
  *             self.pin = right
  * 
  *     def exact_time(self):             # <<<<<<<<<<<<<<
@@ -3560,7 +3560,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__10);
   __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_c_read_paddle_pyx, __pyx_n_s_exact_time, 52, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 52, __pyx_L1_error)
 
-  /* "pyprojects/pong/c_read_paddle.pyx":66
+  /* "pong/c_read_paddle.pyx":66
  *         return int(t*1000000)
  * 
  *     def avg_charge_time(self, iters=20):             # <<<<<<<<<<<<<<
@@ -3575,7 +3575,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__14);
   __Pyx_GIVEREF(__pyx_tuple__14);
 
-  /* "pyprojects/pong/c_read_paddle.pyx":75
+  /* "pong/c_read_paddle.pyx":75
  *         return total
  * 
  *     def position(self, iters=20):             # <<<<<<<<<<<<<<
@@ -3649,14 +3649,14 @@ static int __Pyx_modinit_type_init_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_4pong_13c_read_paddle___pyx_scope_struct__timer) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer.tp_print = 0;
+  __pyx_type_4pong_13c_read_paddle___pyx_scope_struct__timer.tp_print = 0;
   #endif
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer.tp_dictoffset && __pyx_type_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_4pong_13c_read_paddle___pyx_scope_struct__timer.tp_dictoffset && __pyx_type_4pong_13c_read_paddle___pyx_scope_struct__timer.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_4pong_13c_read_paddle___pyx_scope_struct__timer.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
-  __pyx_ptype_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer = &__pyx_type_10pyprojects_4pong_13c_read_paddle___pyx_scope_struct__timer;
+  __pyx_ptype_4pong_13c_read_paddle___pyx_scope_struct__timer = &__pyx_type_4pong_13c_read_paddle___pyx_scope_struct__timer;
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -3859,14 +3859,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_pyprojects__pong__c_read_paddle) {
+  if (__pyx_module_is_main_pong__c_read_paddle) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "pyprojects.pong.c_read_paddle")) {
-      if (unlikely(PyDict_SetItemString(modules, "pyprojects.pong.c_read_paddle", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "pong.c_read_paddle")) {
+      if (unlikely(PyDict_SetItemString(modules, "pong.c_read_paddle", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -3887,7 +3887,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "pyprojects/pong/c_read_paddle.pyx":11
+  /* "pong/c_read_paddle.pyx":11
  * 
  * 
  * import time             # <<<<<<<<<<<<<<
@@ -3899,7 +3899,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_time, __pyx_t_1) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":12
+  /* "pong/c_read_paddle.pyx":12
  * 
  * import time
  * import statistics as stats             # <<<<<<<<<<<<<<
@@ -3911,7 +3911,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_stats, __pyx_t_1) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":13
+  /* "pong/c_read_paddle.pyx":13
  * import time
  * import statistics as stats
  * import RPi.GPIO as GPIO             # <<<<<<<<<<<<<<
@@ -3929,7 +3929,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_GPIO, __pyx_t_2) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":15
+  /* "pong/c_read_paddle.pyx":15
  * import RPi.GPIO as GPIO
  * 
  * left = 4  # Pin1             # <<<<<<<<<<<<<<
@@ -3938,7 +3938,7 @@ if (!__Pyx_RefNanny) {
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_left, __pyx_int_4) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
 
-  /* "pyprojects/pong/c_read_paddle.pyx":17
+  /* "pong/c_read_paddle.pyx":17
  * left = 4  # Pin1
  * 
  * right = 24  # Pin1             # <<<<<<<<<<<<<<
@@ -3947,91 +3947,91 @@ if (!__Pyx_RefNanny) {
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_right, __pyx_int_24) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
 
-  /* "pyprojects/pong/c_read_paddle.pyx":21
+  /* "pong/c_read_paddle.pyx":21
  * 
  * # Time constant = resistance * capacitor
  * def timer(func):             # <<<<<<<<<<<<<<
  *     def f(*args, **kwargs):
  *         start = time.time()
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_10pyprojects_4pong_13c_read_paddle_1timer, NULL, __pyx_n_s_pyprojects_pong_c_read_paddle); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_4pong_13c_read_paddle_1timer, NULL, __pyx_n_s_pong_c_read_paddle); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_timer, __pyx_t_2) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":31
+  /* "pong/c_read_paddle.pyx":31
  * 
  * 
  * def switch_is_pressed(input_pin=7, power_pin=8):             # <<<<<<<<<<<<<<
  *     GPIO.setmode(GPIO.BCM)
  *     GPIO.setup(input_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_10pyprojects_4pong_13c_read_paddle_3switch_is_pressed, NULL, __pyx_n_s_pyprojects_pong_c_read_paddle); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_4pong_13c_read_paddle_3switch_is_pressed, NULL, __pyx_n_s_pong_c_read_paddle); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 31, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_switch_is_pressed, __pyx_t_2) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":45
+  /* "pong/c_read_paddle.pyx":45
  * 
  * 
  * class PaddleMove:             # <<<<<<<<<<<<<<
  *     def __init__(self, side):
  *         if side == 'l':
  */
-  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_PaddleMove, __pyx_n_s_PaddleMove, (PyObject *) NULL, __pyx_n_s_pyprojects_pong_c_read_paddle, (PyObject *) NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_PaddleMove, __pyx_n_s_PaddleMove, (PyObject *) NULL, __pyx_n_s_pong_c_read_paddle, (PyObject *) NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "pyprojects/pong/c_read_paddle.pyx":46
+  /* "pong/c_read_paddle.pyx":46
  * 
  * class PaddleMove:
  *     def __init__(self, side):             # <<<<<<<<<<<<<<
  *         if side == 'l':
  *             self.pin = left
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_10pyprojects_4pong_13c_read_paddle_10PaddleMove_1__init__, 0, __pyx_n_s_PaddleMove___init, NULL, __pyx_n_s_pyprojects_pong_c_read_paddle, __pyx_d, ((PyObject *)__pyx_codeobj__9)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_4pong_13c_read_paddle_10PaddleMove_1__init__, 0, __pyx_n_s_PaddleMove___init, NULL, __pyx_n_s_pong_c_read_paddle, __pyx_d, ((PyObject *)__pyx_codeobj__9)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_init, __pyx_t_1) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":52
+  /* "pong/c_read_paddle.pyx":52
  *             self.pin = right
  * 
  *     def exact_time(self):             # <<<<<<<<<<<<<<
  *         GPIO.setmode(GPIO.BCM)
  *         # Discharge capacitor
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_10pyprojects_4pong_13c_read_paddle_10PaddleMove_3exact_time, 0, __pyx_n_s_PaddleMove_exact_time, NULL, __pyx_n_s_pyprojects_pong_c_read_paddle, __pyx_d, ((PyObject *)__pyx_codeobj__11)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_4pong_13c_read_paddle_10PaddleMove_3exact_time, 0, __pyx_n_s_PaddleMove_exact_time, NULL, __pyx_n_s_pong_c_read_paddle, __pyx_d, ((PyObject *)__pyx_codeobj__11)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_exact_time, __pyx_t_1) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":66
+  /* "pong/c_read_paddle.pyx":66
  *         return int(t*1000000)
  * 
  *     def avg_charge_time(self, iters=20):             # <<<<<<<<<<<<<<
  *         # Max is 250, min is 50
  *         # Convert to decimal by having (x*4)/1000
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_10pyprojects_4pong_13c_read_paddle_10PaddleMove_5avg_charge_time, 0, __pyx_n_s_PaddleMove_avg_charge_time, NULL, __pyx_n_s_pyprojects_pong_c_read_paddle, __pyx_d, ((PyObject *)__pyx_codeobj__13)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_4pong_13c_read_paddle_10PaddleMove_5avg_charge_time, 0, __pyx_n_s_PaddleMove_avg_charge_time, NULL, __pyx_n_s_pong_c_read_paddle, __pyx_d, ((PyObject *)__pyx_codeobj__13)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_1, __pyx_tuple__14);
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_avg_charge_time, __pyx_t_1) < 0) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":75
+  /* "pong/c_read_paddle.pyx":75
  *         return total
  * 
  *     def position(self, iters=20):             # <<<<<<<<<<<<<<
  *         """
  *         Return a number between 0 and 1. 1 is max left (down) and 0 is max right (up). Refelcts y axis on pygame.
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_10pyprojects_4pong_13c_read_paddle_10PaddleMove_7position, 0, __pyx_n_s_PaddleMove_position, NULL, __pyx_n_s_pyprojects_pong_c_read_paddle, __pyx_d, ((PyObject *)__pyx_codeobj__16)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_4pong_13c_read_paddle_10PaddleMove_7position, 0, __pyx_n_s_PaddleMove_position, NULL, __pyx_n_s_pong_c_read_paddle, __pyx_d, ((PyObject *)__pyx_codeobj__16)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_1, __pyx_tuple__17);
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_position, __pyx_t_1) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":45
+  /* "pong/c_read_paddle.pyx":45
  * 
  * 
  * class PaddleMove:             # <<<<<<<<<<<<<<
@@ -4044,7 +4044,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprojects/pong/c_read_paddle.pyx":85
+  /* "pong/c_read_paddle.pyx":85
  * 
  * 
  * if __name__ == '__main__':             # <<<<<<<<<<<<<<
@@ -4057,7 +4057,7 @@ if (!__Pyx_RefNanny) {
   if (__pyx_t_3) {
   }
 
-  /* "pyprojects/pong/c_read_paddle.pyx":1
+  /* "pong/c_read_paddle.pyx":1
  * #! /usr/bin/env python3             # <<<<<<<<<<<<<<
  * 
  * #  Pin1----- -------Paddle
@@ -4075,11 +4075,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init pyprojects.pong.c_read_paddle", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init pong.c_read_paddle", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init pyprojects.pong.c_read_paddle");
+    PyErr_SetString(PyExc_ImportError, "init pong.c_read_paddle");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
