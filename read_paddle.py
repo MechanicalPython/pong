@@ -1,12 +1,11 @@
 #! /usr/bin/env python3
 
-#  Pin1----- -------Paddle
+#  power----- -------Paddle
 #                       |
 #                       |
 #  pin2 -- Capacitor-----  
 #            |
 # Ground ----         
-
 
 
 import time
@@ -50,15 +49,15 @@ class PaddleMove:
         if side == 'r':
             self.pin = right
 
-    def exact_time(self):  
+    def exact_time(self):
         GPIO.setmode(GPIO.BCM)
         # Discharge capacitor
-        GPIO.setup(self.pin, GPIO.OUT) 
-        GPIO.output(self.pin, GPIO.LOW) 
+        GPIO.setup(self.pin, GPIO.OUT)
+        GPIO.output(self.pin, GPIO.LOW)
         time.sleep(0.0001)
-        GPIO.setup(self.pin, GPIO.IN) 
+        GPIO.setup(self.pin, GPIO.IN)
         t = time.time()
-        while (GPIO.input(self.pin) == GPIO.LOW): 
+        while (GPIO.input(self.pin) == GPIO.LOW):
             pass
         t = time.time() - t
         GPIO.cleanup()

@@ -111,7 +111,7 @@ class Paddle:
             self.y = 0
         elif self.y + self.h > height:
             self.y = height - self.h
-        
+
 
 leftPaddle = Paddle(-1)
 rightPaddle = Paddle(1)
@@ -383,4 +383,6 @@ def board():
 if __name__ == '__main__':
     board()
 
-# todo menu button. Quit to cmd line, Change volume, Change ball speed.
+# todo menu button. Quit to cmd line, Change volume, Change ball speed, continue button.
+# todo fix audio issues.
+# square ball.
