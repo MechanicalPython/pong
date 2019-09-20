@@ -8,7 +8,6 @@
 # Ground ----         
 
 
-
 import time
 import statistics as stats
 import RPi.GPIO as GPIO
@@ -29,7 +28,7 @@ def timer(func):
     return f
 
 
-def switch_is_pressed(int input_pin=7, int power_pin=8):
+def switch_is_pressed(input_pin=7, power_pin=8):
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(input_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
     GPIO.setup(power_pin, GPIO.OUT)
@@ -43,14 +42,14 @@ def switch_is_pressed(int input_pin=7, int power_pin=8):
         return False
 
 
-cdef class PaddleMove:
+class PaddleMove:
     def __init__(self, side):
         if side == 'l':
             self.pin = left
         if side == 'r':
             self.pin = right
 
-    cpdef int exact_time(self):  
+    def exact_time(self):
         GPIO.setmode(GPIO.BCM)
         # Discharge capacitor
         GPIO.setup(self.pin, GPIO.OUT) 
@@ -64,11 +63,10 @@ cdef class PaddleMove:
         GPIO.cleanup()
         return int(t*1000000)
 
-    def avg_charge_time(self, int iters=20):
+    def avg_charge_time(self, iters=20):
         # Max is 250, min is 50
         # Convert to decimal by having (x*4)/1000 
         total = []
-        cdef int x
         for x in range(iters):
             total.append(self.exact_time())
         total = stats.median(total)
