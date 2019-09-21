@@ -40,6 +40,7 @@ maxScore = 11
 d = os.path.dirname(__file__)
 font = pygame.freetype.Font(f'{d}/SF Atarian System Extended Bold.ttf', 60)
 
+pygame.mixer.init(22100, -16, 2, 64)
 beep = pygame.mixer.Sound(f"{d}/beep.wav")
 boop = pygame.mixer.Sound(f"{d}/boop.wav")
 
@@ -407,4 +408,4 @@ def board():
 if __name__ == '__main__':
     board()
 
-# todo menu button. Change ball speed?
+# todo sound delay still there.
