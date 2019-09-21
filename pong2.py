@@ -40,7 +40,7 @@ maxScore = 11
 d = os.path.dirname(__file__)
 font = pygame.freetype.Font(f'{d}/SF Atarian System Extended Bold.ttf', 60)
 
-pygame.mixer.init(22100, -16, 2, 2)
+pygame.mixer.init(22100, -16, 2, 36)
 beep = pygame.mixer.Sound(f"{d}/beep.wav")
 boop = pygame.mixer.Sound(f"{d}/boop.wav")
 
@@ -154,39 +154,40 @@ class Ball:
                 scoreRight += 1
 
         if self.y < margin:
-            self.angle = - self.angle
             beep.play()
+            self.angle = - self.angle
         if self.y + self.r >= height - margin:
-            self.angle = - self.angle
             beep.play()
+            self.angle = - self.angle
 
     # Check and Reflect the Ball when it hits the paddle
     def checkForPaddle(self):
         if self.x < width / 2:  # If on left side
             if leftPaddle.x < self.x < leftPaddle.x + leftPaddle.w:  # Ball is near the paddle (between paddle x and paddle x + 20
+                boop.play()
                 if leftPaddle.y < self.y < leftPaddle.y + 10 or leftPaddle.y < self.y + self.r < leftPaddle.y + 10:
-                    boop.play()
+                    # boop.play()
                     self.angle = -45
                 if leftPaddle.y + 10 < self.y < leftPaddle.y + 20 or leftPaddle.y + 10 < self.y + self.r < leftPaddle.y + 20:
-                    boop.play()
+                    # boop.play()
                     self.angle = -30
                 if leftPaddle.y + 20 < self.y < leftPaddle.y + 30 or leftPaddle.y + 20 < self.y + self.r < leftPaddle.y + 30:
-                    boop.play()
+                    # boop.play()
                     self.angle = -15
                 if leftPaddle.y + 30 < self.y < leftPaddle.y + 40 or leftPaddle.y + 30 < self.y + self.r < leftPaddle.y + 40:
-                    boop.play()
+                    # boop.play()
                     self.angle = -10
                 if leftPaddle.y + 40 < self.y < leftPaddle.y + 50 or leftPaddle.y + 40 < self.y + self.r < leftPaddle.y + 50:
-                    boop.play()
+                    # boop.play()
                     self.angle = 10
                 if leftPaddle.y + 50 < self.y < leftPaddle.y + 60 or leftPaddle.y + 50 < self.y + self.r < leftPaddle.y + 60:
-                    boop.play()
+                    # boop.play()
                     self.angle = 15
                 if leftPaddle.y + 60 < self.y < leftPaddle.y + 70 or leftPaddle.y + 60 < self.y + self.r < leftPaddle.y + 70:
-                    boop.play()
+                    # boop.play()
                     self.angle = 30
                 if leftPaddle.y + 70 < self.y < leftPaddle.y + 80 or leftPaddle.y + 70 < self.y + self.r < leftPaddle.y + 80:
-                    boop.play()
+                    # boop.play()
                     self.angle = 45
         else:
             if rightPaddle.x + rightPaddle.w > self.x + self.r > rightPaddle.x:
