@@ -363,7 +363,7 @@ def board():
             elif event == 'Continue':
                 pass
             elif event == 'Ball Speed':
-                options = {'Slow': 6, 'Medium (Recommended)': 10, 'High': 14, 'Very High': 18, 'Insane': 22}
+                options = {'Slow': 6, 'Medium (Recommended)': 10, 'High': 14, 'Very High': 18, 'Insane': 26}
                 event = menu(list(options.keys()))
                 ball.speed = options[event]
 
