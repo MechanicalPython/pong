@@ -99,13 +99,13 @@ class Paddle:
     # Move the Paddle
     def move_paddle(self, ydir):  # ydir is the raw value given by read_paddle.position()
         self.moving_avg.append(ydir)
-        #self.last_minute.append(ydir)
+        self.last_minute.append(ydir)
         ydir = int(sum(self.moving_avg)/len(self.moving_avg))
         self.y = ydir
         if len(self.moving_avg) > 15:  # 1/2 of a second. 
             self.moving_avg.pop(0)
-        #if len(self.last_minute) > 30*60:
-        #    self.last_minute.pop(0)
+        if len(self.last_minute) > 30*60:
+           self.last_minute.pop(0)
 
         # Collision control
         if self.y < 0:
@@ -370,21 +370,21 @@ def board():
 
         left_event = int((height - leftPaddle.h) * read_left.position(10))
         right_event = int((height - rightPaddle.h) * read_right.position(10))
-        leftChange = left_event
-        rightChange = right_event
+        # leftChange = left_event
+        # rightChange = right_event
 
-        #if len(leftPaddle.last_minute) >= 30*60 and abs(max(leftPaddle.last_minute) - min(leftPaddle.last_minute)) < 100:
-        #    leftChange = auto_paddle(leftPaddle, 'left')
-        #    leftPaddle.colour = gray
-        #else:
-        #    leftChange = left_event
-        #    leftPaddle.colour = white
-        #if len(rightPaddle.last_minute) >= 30*60 and abs(max(rightPaddle.last_minute) - min(rightPaddle.last_minute)) < 100:
-        #    rightChange = auto_paddle(rightPaddle, 'right')
-        #    rightPaddle.colour = gray
-        #else:
-        #    rightChange = right_event
-        #    rightPaddle.colour = white
+        if len(leftPaddle.last_minute) >= 30*60 and abs(max(leftPaddle.last_minute) - min(leftPaddle.last_minute)) < 100:
+           leftChange = auto_paddle(leftPaddle, 'left')
+           leftPaddle.colour = gray
+        else:
+           leftChange = left_event
+           leftPaddle.colour = white
+        if len(rightPaddle.last_minute) >= 30*60 and abs(max(rightPaddle.last_minute) - min(rightPaddle.last_minute)) < 100:
+           rightChange = auto_paddle(rightPaddle, 'right')
+           rightPaddle.colour = gray
+        else:
+           rightChange = right_event
+           rightPaddle.colour = white
         leftPaddle.move_paddle(leftChange)
         rightPaddle.move_paddle(rightChange)
         ball.move_ball()
