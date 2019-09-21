@@ -40,7 +40,7 @@ maxScore = 11
 d = os.path.dirname(__file__)
 font = pygame.freetype.Font(f'{d}/SF Atarian System Extended Bold.ttf', 60)
 
-pygame.mixer.init(22100, -16, 2, 36)
+pygame.mixer.init(22100, -16, 2, 2)
 beep = pygame.mixer.Sound(f"{d}/beep.wav")
 boop = pygame.mixer.Sound(f"{d}/boop.wav")
 
