@@ -13,7 +13,7 @@ import time
 import os
 import pong.c_read_paddle as read_paddle
 
-pygame.mixer.init(22100, -16, 2, 36)
+pygame.mixer.init(22100, -16, 2, 64)
 pygame.init()
 
 width = 900
