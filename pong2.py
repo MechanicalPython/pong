@@ -349,26 +349,23 @@ def board():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     close()
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_m:
-                    menu_items = ['Quit', 'Reset', 'Continue']
-                    event = menu(menu_items)
-                    if event == 'Quit':
-                        close()
-                    elif event == 'Reset':
-                        reset()
-                    elif event == 'Continue':
-                        pass
+
         if read_paddle.switch_is_pressed() is True:
             while read_paddle.switch_is_pressed() is True:
                 time.sleep(0.1)
             time.sleep(0.1)
-            menu_items = ['Quit', 'Reset']
+            menu_items = ['Quit', 'Reset', 'Continue', 'Ball Speed']
             event = menu(menu_items)
             if event == 'Quit':
                 close()
             elif event == 'Reset':
                 reset()
+            elif event == 'Continue':
+                pass
+            elif event == 'Ball Speed':
+                options = {'Slow': 6, 'Medium (Recommended)': 10, 'High': 14, 'Very High': 18, 'Insane': 22}
+                event = menu(list(options.keys()))
+                ball.speed = options[event]
 
         left_event = int((height - leftPaddle.h) * read_left.position(10))
         right_event = int((height - rightPaddle.h) * read_right.position(10))
