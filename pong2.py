@@ -129,7 +129,7 @@ class Ball:
         if random.randint(0, 1):
             self.angle += 180
 
-        self.speed = 10
+        self.speed = 5
 
     # Show the Ball
     def show_ball(self):
@@ -260,7 +260,7 @@ def auto_paddle(paddle, side):
     elif side == 'right' and ball_angle < 90:
         move = True
     pc = paddle.y + (paddle.h/2)
-    move_distance = ball.speed
+    move_distance = ball.speed * 10 * iters
     if move is True:
         if abs(pc - ball.y) < 10:
             move_distance = int(abs(pc - ball.y)/2)
@@ -342,9 +342,11 @@ def board():
     display.set_alpha(None)
     global ball
     ball = Ball(white)
-    read_left = read_paddle.PaddleMove('l')
-    read_right = read_paddle.PaddleMove('r')
 
+    global iters
+    iters = 4
+    # read_left = read_paddle.PaddleMove('l')
+    # read_right = read_paddle.PaddleMove('r')
     while True:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
@@ -364,9 +366,9 @@ def board():
             elif event == 'Continue':
                 pass
             elif event == 'Ball Speed':
-                options = {'Slow': 6, 'Medium (Recommended)': 10, 'High': 14, 'Very High': 18, 'Insane': 26}
+                options = {'Slow': 2, 'Medium (Recommended)': 4, 'High': 6, 'Very High': 8, 'Insane': 10}
                 event = menu(list(options.keys()))
-                ball.speed = options[event]
+                iters = options[event]
 
         left_event = int((height - leftPaddle.h) * read_left.position(10))
         right_event = int((height - rightPaddle.h) * read_right.position(10))
@@ -387,8 +389,11 @@ def board():
         #    rightPaddle.colour = white
         leftPaddle.move_paddle(leftChange)
         rightPaddle.move_paddle(rightChange)
-        ball.move_ball()
-        ball.checkForPaddle()
+
+        for x in range(iters):
+            ball.move_ball()
+            ball.checkForPaddle()
+
 
         display.fill(background)
         showScore()
