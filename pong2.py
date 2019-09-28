@@ -345,8 +345,8 @@ def board():
 
     global iters
     iters = 4
-    # read_left = read_paddle.PaddleMove('l')
-    # read_right = read_paddle.PaddleMove('r')
+    read_left = read_paddle.PaddleMove('l')
+    read_right = read_paddle.PaddleMove('r')
     while True:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
