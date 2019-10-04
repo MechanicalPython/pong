@@ -146,12 +146,21 @@ class Ball:
             self.angle = 180 - self.angle
             if not leftPaddle.y < ball.x < leftPaddle.y + leftPaddle.h:  # Point left, so hit right side. 
                 scoreLeft += 1
+                time.sleep(0.5)
+                ball.x = width / 2 - self.r / 2
+                ball.y = height / 2 - self.r / 2
+                ball.angle = random.randint(-75, 75)
+                ball.angle += 180
 
         if self.x < margin:  # Point right
             beep.play()
             self.angle = 180 - self.angle
             if not rightPaddle.y < ball.x < rightPaddle.y + rightPaddle.h:
                 scoreRight += 1
+                time.sleep(0.5)
+                ball.x = width / 2 - self.r / 2
+                ball.y = height / 2 - self.r / 2
+                ball.angle = random.randint(-75, 75)
 
         if self.y < margin:
             beep.play()
@@ -309,28 +318,6 @@ def menu(menu_items):
                     time.sleep(0.5)
                     return menu_items[start - 1]
             start += 1
-
-        # if -1 < pos < :
-        #     dot.move(110)
-        #     if read_paddle.switch_is_pressed():
-        #         time.sleep(0.5)
-        #         return 'Quit'
-        #
-        # elif 0.3 < pos < 0.5:
-        #     dot.move(210)
-        #     if read_paddle.switch_is_pressed():
-        #         time.sleep(0.5)
-        #         return 'Reset'
-        #
-        # elif 0.6 < pos < 2:
-        #     dot.move(310)
-        #     if read_paddle.switch_is_pressed():
-        #         time.sleep(0.5)
-        #         return 'Continue'
-        #
-        # else:
-        #     dot.move(410)
-
         dot.show_dot()
         pygame.display.update()
         clock.tick(30)
@@ -374,6 +361,10 @@ def board():
         right_event = int((height - rightPaddle.h) * read_right.position(10))
         leftChange = left_event
         rightChange = right_event
+
+
+        # leftChange = auto_paddle(leftPaddle, 'left')
+        # rightChange = auto_paddle(rightPaddle, 'right')
 
         #if len(leftPaddle.last_minute) >= 30*60 and abs(max(leftPaddle.last_minute) - min(leftPaddle.last_minute)) < 100:
         #    leftChange = auto_paddle(leftPaddle, 'left')
