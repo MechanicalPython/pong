@@ -258,7 +258,6 @@ def reset():
 
 def close():
     pygame.quit()
-    sys.exit()
 
 
 def auto_paddle(paddle, side):

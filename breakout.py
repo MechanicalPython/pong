@@ -1,12 +1,65 @@
-import sys
+#! /usr/bin/env python3
 
+
+import sys
 import pygame
+from pygame import *
 from pygame.locals import *
+import c_read_paddle as read_paddle
+
+white = (236, 240, 241)
+background = (0, 0, 0)
+clock = pygame.time.Clock()
+
+width = 1000
+height = 600
+
+class Dot:
+    def __init__(self, y):
+        self.x = 200
+        self.y = y
+        self.w = 20
+        self.h = 20
+
+    def show_dot(self):
+        pygame.draw.rect(display, white, (self.x, self.y, self.w, self.h))
+
+    def move(self, y):
+        self.y = y
+
+
+def menu(menu_items):
+    read_left = read_paddle.PaddleMove('l')
+    n = len(menu_items)
+    while True:
+        # p = False
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_q:
+                    pygame.quit()
+                    sys.exit()
+
+        display.fill(background)
+
+        dot = Dot(110)
+        pos = read_left.position()
+        start = 1
+        for item in menu_items:
+            font.render_to(display, (width / 2, start*100), item, white)
+            if (start - 1)/n < pos < start/n:
+                dot.move(start*100 + 10)
+                if read_paddle.switch_is_pressed():
+                    time.sleep(0.5)
+                    return menu_items[start - 1]
+            start += 1
+        dot.show_dot()
+        pygame.display.update()
+        clock.tick(30)
 
 
 class Breakout:
     def __init__(self):
-        self.screen = pygame.display.set_mode((800, 600))
+        self.screen = pygame.display.set_mode((1000, 600))
         self.blocks = []
         self.paddle = [[pygame.Rect(300, 500, 20, 10), 120],
                        [pygame.Rect(320, 500, 20, 10), 100],
@@ -38,7 +91,7 @@ class Breakout:
         y = 50
         for __ in range(20):
             x = 50
-            for _ in range(42):
+            for _ in range(33):
                 block = pygame.Rect(x, y, 25, 10)
                 self.blocks.append(block)
                 x += 27
@@ -85,7 +138,8 @@ class Breakout:
 
     def paddleUpdate(self):
 
-        pos = pygame.mouse.get_pos()
+        pos = read_right.position(10) * 1000
+        # pos = pygame.mouse.get_pos()
         on = 0
         for p in self.paddle:
             p[0].x = pos[0] + 20 * on
@@ -95,11 +149,29 @@ class Breakout:
         pygame.mouse.set_visible(False)
         clock = pygame.time.Clock()
         self.createBlocks()
+        global read_right
+        read_right = read_paddle.PaddleMove('r')
+        speed = 60
         while True:
-            clock.tick(60)
+            clock.tick(speed)
             for event in pygame.event.get():
                 if event.type == QUIT:
                     sys.exit()
+            if read_paddle.switch_is_pressed() is True:
+                while read_paddle.switch_is_pressed() is True:
+                    time.sleep(0.1)
+                time.sleep(0.1)
+                menu_items = ['Quit', 'Continue', 'Ball Speed']
+                event = menu(menu_items)
+                if event == 'Quit':
+                    pygame.quit()
+                elif event == 'Continue':
+                    pass
+                elif event == 'Ball Speed':
+                    options = {'Slow': 30, 'Fast': 60}
+                    event = menu(list(options.keys()))
+                    speed = options[event]
+
             self.screen.fill((0, 0, 0))
             self.paddleUpdate()
             self.ballUpdate()
