@@ -5,6 +5,6 @@ import os
 
 
 def update():
-    process = subprocess.Popen(["git", "pull", "origin", "master"], stdout=subprocess.PIPE)
+    process = subprocess.Popen(["git", "pull", "github", "master"], stdout=subprocess.PIPE)
     output = process.communicate()[0]
 
