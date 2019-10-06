@@ -10,8 +10,6 @@ import sys
 import time
 import os
 import read_paddle as read_paddle
-import breakout
-import pong2
 
 pygame.mixer.init(22100, -16, 2, 2**7)
 pygame.init()
@@ -86,8 +84,10 @@ def main():
             menu_items = ['Pong', 'Breakout', 'Quit']
             event = menu(menu_items)
             if event == 'Pong':
+                import pong2
                 pong2.board()
             elif event == 'Breakout':
+                import breakout
                 breakout.Breakout().main()
             elif event == 'Quit':
                 sys.exit()
