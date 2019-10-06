@@ -5,7 +5,7 @@ import sys
 import pygame
 from pygame import *
 from pygame.locals import *
-import c_read_paddle as read_paddle
+import read_paddle as read_paddle
 
 white = (236, 240, 241)
 background = (0, 0, 0)

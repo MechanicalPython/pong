@@ -19,6 +19,7 @@ def test_paddle_speed(paddle, iters):
     print('Avg time for ',iters, 'over 100 runs:', avg)
     return avg
 
+
 def test_cpaddle_speed(paddle, iters):
     paddle = crp.PaddleMove(paddle)
     times = []
@@ -29,6 +30,7 @@ def test_cpaddle_speed(paddle, iters):
     avg = sum(times)/len(times)
     print('Avg time for cread ', iters, 'over 100 runs:', avg)
     return avg
+
 
 def test_paddle_stability(paddle, iters):
     paddle = rp.PaddleMove(paddle)
