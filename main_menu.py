@@ -9,7 +9,7 @@ import pygame.freetype
 import sys
 import time
 import os
-import c_read_paddle as read_paddle
+import read_paddle as read_paddle
 import breakout
 import pong2
 
