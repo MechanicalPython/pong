@@ -11,7 +11,7 @@ import random
 from math import *
 import time
 import os
-import pong.read_paddle as read_paddle
+import read_paddle as read_paddle
 
 pygame.mixer.init(22100, -16, 2, 2**7)
 pygame.init()
