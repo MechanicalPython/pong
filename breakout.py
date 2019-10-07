@@ -140,7 +140,7 @@ class Breakout:
 
     def paddleUpdate(self):
 
-        pos = int(read_right.position(10))
+        pos = (read_right.position(10) * 1000)
         # pos = pygame.mouse.get_pos()
         on = 0
         for p in self.paddle:
@@ -154,7 +154,8 @@ class Breakout:
         global read_right
         read_right = read_paddle.PaddleMove('r')
         speed = 60
-        while True:
+        cont = True
+        while cont:
             clock.tick(speed)
             for event in pygame.event.get():
                 if event.type == QUIT:
@@ -166,7 +167,7 @@ class Breakout:
                 menu_items = ['Quit', 'Continue', 'Ball Speed']
                 event = menu(menu_items)
                 if event == 'Quit':
-                    pygame.quit()
+                    cont = False
                 elif event == 'Continue':
                     pass
                 elif event == 'Ball Speed':
