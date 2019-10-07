@@ -342,7 +342,7 @@ def board():
             menu_items = ['Quit', 'Reset', 'Continue', 'Ball Speed']
             event = menu(menu_items)
             if event == 'Quit':
-                close()
+                a = False
             elif event == 'Reset':
                 reset()
             elif event == 'Continue':
