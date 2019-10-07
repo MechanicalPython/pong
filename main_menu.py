@@ -77,7 +77,6 @@ def main():
                 if event.key == pygame.K_q:
                     sys.exit()
 
-        if read_paddle.switch_is_pressed() is True:
             while read_paddle.switch_is_pressed() is True:
                 time.sleep(0.1)
             time.sleep(0.1)

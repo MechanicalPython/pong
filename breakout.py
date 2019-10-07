@@ -14,6 +14,7 @@ clock = pygame.time.Clock()
 width = 1000
 height = 600
 
+
 class Dot:
     def __init__(self, y):
         self.x = 200
