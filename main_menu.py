@@ -77,19 +77,19 @@ def main():
                 if event.key == pygame.K_q:
                     sys.exit()
 
-            while read_paddle.switch_is_pressed() is True:
-                time.sleep(0.1)
+        while read_paddle.switch_is_pressed() is True:
             time.sleep(0.1)
-            menu_items = ['Pong', 'Breakout', 'Quit']
-            event = menu(menu_items)
-            if event == 'Pong':
-                import pong2
-                pong2.board()
-            elif event == 'Breakout':
-                import breakout
-                breakout.Breakout().main()
-            elif event == 'Quit':
-                sys.exit()
+        time.sleep(0.1)
+        menu_items = ['Pong', 'Breakout', 'Quit']
+        event = menu(menu_items)
+        if event == 'Pong':
+            import pong2
+            pong2.board()
+        elif event == 'Breakout':
+            import breakout
+            breakout.Breakout().main()
+        elif event == 'Quit':
+            sys.exit()
 
 
 if __name__ == '__main__':
