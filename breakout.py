@@ -87,6 +87,7 @@ class Breakout:
         pygame.font.init()
         self.font = pygame.font.SysFont("Arial", 25)
         self.score = 0
+        self.moving_avg = []
 
     def createBlocks(self):
         self.blocks = []
@@ -140,7 +141,9 @@ class Breakout:
 
     def paddleUpdate(self):
 
-        pos = (read_left.position(20) * 1000)
+        self.moving_avg.append((read_left.position(20) * 1000))
+        pos = int(sum(self.moving_avg)/len(self.moving_avg))
+
         # pos = pygame.mouse.get_pos()
         on = 0
         for p in self.paddle:

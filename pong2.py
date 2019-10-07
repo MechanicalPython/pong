@@ -238,12 +238,11 @@ def gameOver():
         while t+5 > time.time():
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    close()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
-                        close()
-                    if event.key == pygame.K_r:
-                        reset()
+                        sys.exit()
+
             font.render_to(display, (width / 2 - 185, height / 2), "GAME OVER", white)
             pygame.display.update()
         reset()
