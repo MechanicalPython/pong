@@ -6,6 +6,7 @@ import pygame
 from pygame import *
 from pygame.locals import *
 import read_paddle as read_paddle
+import time
 
 white = (236, 240, 241)
 background = (0, 0, 0)
@@ -139,7 +140,7 @@ class Breakout:
 
     def paddleUpdate(self):
 
-        pos = int(read_right.position(10) * 1000)
+        pos = int(read_right.position(10))
         # pos = pygame.mouse.get_pos()
         on = 0
         for p in self.paddle:
