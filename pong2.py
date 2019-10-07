@@ -256,10 +256,6 @@ def reset():
     board()
 
 
-def close():
-    cont = False
-
-
 def auto_paddle(paddle, side):
     move = False
     ball_angle = abs(ball.angle)
@@ -333,13 +329,12 @@ def board():
     iters = 4
     read_left = read_paddle.PaddleMove('l')
     read_right = read_paddle.PaddleMove('r')
-    global cont
-    cont = True
-    while cont:
+    a = True
+    while a:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
-                    close()
+                    a = False
 
         if read_paddle.switch_is_pressed() is True:
             while read_paddle.switch_is_pressed() is True:
@@ -386,7 +381,6 @@ def board():
             ball.move_ball()
             ball.checkForPaddle()
 
-
         display.fill(background)
         showScore()
 
@@ -400,6 +394,7 @@ def board():
 
         pygame.display.update()
         clock.tick(30)
+    return None
 
 
 if __name__ == '__main__':

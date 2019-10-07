@@ -51,7 +51,6 @@ def menu(menu_items):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     pygame.quit()
-
         display.fill(background)
 
         dot = Dot(110)
