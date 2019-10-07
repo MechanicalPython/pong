@@ -139,11 +139,11 @@ class Breakout:
 
     def paddleUpdate(self):
 
-        pos = read_right.position(10) * 1000
+        pos = int(read_right.position(10) * 1000)
         # pos = pygame.mouse.get_pos()
         on = 0
         for p in self.paddle:
-            p[0].x = pos[0] + 20 * on
+            p[0].x = pos + 20 * on
             on += 1
 
     def main(self):

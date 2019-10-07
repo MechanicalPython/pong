@@ -257,7 +257,7 @@ def reset():
 
 
 def close():
-    pygame.quit()
+    cont = False
 
 
 def auto_paddle(paddle, side):
@@ -333,7 +333,9 @@ def board():
     iters = 4
     read_left = read_paddle.PaddleMove('l')
     read_right = read_paddle.PaddleMove('r')
-    while True:
+    global cont
+    cont = True
+    while cont:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
