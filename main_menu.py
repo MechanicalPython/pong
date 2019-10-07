@@ -80,14 +80,11 @@ def main():
         while read_paddle.switch_is_pressed() is True:
             time.sleep(0.1)
         time.sleep(0.1)
-        menu_items = ['Pong', 'Breakout', 'Quit']
+        menu_items = ['Pong', 'Quit']
         event = menu(menu_items)
         if event == 'Pong':
             import pong2
             pong2.board()
-        elif event == 'Breakout':
-            import breakout
-            breakout.Breakout().main()
         elif event == 'Quit':
             sys.exit()
 
