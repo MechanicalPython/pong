@@ -140,7 +140,7 @@ class Breakout:
 
     def paddleUpdate(self):
 
-        pos = (read_right.position(10) * 1000)
+        pos = (read_left.position(20) * 1000)
         # pos = pygame.mouse.get_pos()
         on = 0
         for p in self.paddle:
@@ -151,8 +151,8 @@ class Breakout:
         pygame.mouse.set_visible(False)
         clock = pygame.time.Clock()
         self.createBlocks()
-        global read_right
-        read_right = read_paddle.PaddleMove('r')
+        global read_left
+        read_left = read_paddle.PaddleMove('l')
         speed = 60
         cont = True
         while cont:
