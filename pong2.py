@@ -146,9 +146,9 @@ class Ball:
             self.angle = 180 - self.angle
             if not leftPaddle.y < ball.x < leftPaddle.y + leftPaddle.h:  # Point left, so hit right side. 
                 scoreLeft += 1
-                time.sleep(0.5)
+                time.sleep(2.5)
                 ball.x = width / 2 - self.r / 2
-                ball.y = height / 2 - self.r / 2
+                ball.y = random.randint(0, height)
                 ball.angle = random.randint(-75, 75)
                 ball.angle += 180
 
@@ -157,9 +157,9 @@ class Ball:
             self.angle = 180 - self.angle
             if not rightPaddle.y < ball.x < rightPaddle.y + rightPaddle.h:
                 scoreRight += 1
-                time.sleep(0.5)
+                time.sleep(2.5)
                 ball.x = width / 2 - self.r / 2
-                ball.y = height / 2 - self.r / 2
+                ball.y = random.randint(0, height)
                 ball.angle = random.randint(-75, 75)
 
         if self.y < margin:
@@ -334,26 +334,30 @@ def board():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     a = False
-
-        if read_paddle.switch_is_pressed() is True:
-            while read_paddle.switch_is_pressed() is True:
+        if read_paddle.auto is False:
+            if read_paddle.switch_is_pressed() is True:
+                while read_paddle.switch_is_pressed() is True:
+                    time.sleep(0.1)
                 time.sleep(0.1)
-            time.sleep(0.1)
-            menu_items = ['Quit', 'Reset', 'Continue', 'Ball Speed']
-            event = menu(menu_items)
-            if event == 'Quit':
-                a = False
-            elif event == 'Reset':
-                reset()
-            elif event == 'Continue':
-                pass
-            elif event == 'Ball Speed':
-                options = {'Slow': 2, 'Medium (Recommended)': 4, 'High': 6, 'Very High': 8, 'Insane': 10}
-                event = menu(list(options.keys()))
-                iters = options[event]
+                menu_items = ['Quit', 'Reset', 'Continue', 'Ball Speed']
+                event = menu(menu_items)
+                if event == 'Quit':
+                    a = False
+                elif event == 'Reset':
+                    reset()
+                elif event == 'Continue':
+                    pass
+                elif event == 'Ball Speed':
+                    options = {'Slow': 2, 'Medium (Recommended)': 4, 'High': 6, 'Very High': 8, 'Insane': 10}
+                    event = menu(list(options.keys()))
+                    iters = options[event]
 
-        left_event = int((height - leftPaddle.h) * read_left.position(10))
-        right_event = int((height - rightPaddle.h) * read_right.position(10))
+        if read_paddle.auto is True:
+            left_event = auto_paddle(leftPaddle, 'left')
+            right_event = auto_paddle(rightPaddle, 'right')
+        else:
+            left_event = int((height - leftPaddle.h) * read_left.position(10))
+            right_event = int((height - rightPaddle.h) * read_right.position(10))
         leftChange = left_event
         rightChange = right_event
 

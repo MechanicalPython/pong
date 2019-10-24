@@ -10,7 +10,15 @@
 
 import time
 import statistics as stats
-import RPi.GPIO as GPIO
+
+global auto
+try:
+    import RPi.GPIO as GPIO
+    auto = False
+except ImportError:
+
+    auto = True
+
 
 left = 4  # Pin1
 
