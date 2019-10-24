@@ -3,25 +3,26 @@
 # Pong
 # Language - Python
 # Modules - pygame, sys, random, math
-#
+# Splash screen at /usr/share/plymouth/themes/pix/splash.png
+
 import pygame
 import pygame.freetype
 import sys
 import time
 import os
-import read_paddle as read_paddle
+# import read_paddle as read_paddle
 
 pygame.mixer.init(22100, -16, 2, 2**7)
 pygame.init()
 
-width = 900
-height = 1000
+width = 1920
+height = 1080
 
 display = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Menu")
 clock = pygame.time.Clock()
 
-background = (0, 0, 0)
+black = (0, 0, 0)
 white = (236, 240, 241)
 gray = (128, 128, 128)
 
@@ -44,53 +45,47 @@ class Dot:
 
 
 def menu(menu_items):
-    read_left = read_paddle.PaddleMove('l')
+    # read_left = read_paddle.PaddleMove('l')
     n = len(menu_items)
+    background = pygame.image.load('background_image.png')
+
     while True:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     pygame.quit()
-        display.fill(background)
+
+        display.blit(background, [0, 0])
 
         dot = Dot(110)
-        pos = read_left.position()
+        # pos = read_left.position()
         start = 1
         for item in menu_items:
             font.render_to(display, (width / 2, start*100), item, white)
-            if (start - 1)/n < pos < start/n:
-                dot.move(start*100 + 10)
-                if read_paddle.switch_is_pressed():
-                    time.sleep(0.5)
-                    return menu_items[start - 1]
+            # if (start - 1)/n < pos < start/n:
+            #     dot.move(start*100 + 10)
+            #     if read_paddle.switch_is_pressed():
+            #         time.sleep(0.5)
+            #         return menu_items[start - 1]
             start += 1
         dot.show_dot()
-        pygame.display.update()
+        pygame.display.flip()
         clock.tick(30)
 
 
 def main():
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_q:
-                    sys.exit()
+    menu_items = ['Pong', 'Breakout', 'Update', 'Quit']
+    event = menu(menu_items)
+    if event == 'Pong':
+        import pong2
+        pong2.board()
+    elif event == 'Update':
+        import updater
+        updater.update()
+        updater.reboot()
 
-        while read_paddle.switch_is_pressed() is True:
-            time.sleep(0.1)
-        time.sleep(0.1)
-        menu_items = ['Pong', 'Update', 'Quit']
-        event = menu(menu_items)
-        if event == 'Pong':
-            import pong2
-            pong2.board()
-        elif event == 'Update':
-            import updater
-            updater.update()
-            updater.reboot()
-
-        elif event == 'Quit':
-            sys.exit()
+    elif event == 'Quit':
+        sys.exit()
 
 
 if __name__ == '__main__':
