@@ -47,7 +47,7 @@ class Dot:
 def menu(menu_items):
     read_left = read_paddle.PaddleMove('l')
     n = len(menu_items)
-    background = pygame.image.load('background_image.png')
+    background = pygame.image.load(f'{d}/background_image.png')
 
     while True:
         for event in pygame.event.get():
