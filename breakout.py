@@ -166,16 +166,13 @@ class Breakout:
                 while read_paddle.switch_is_pressed() is True:
                     time.sleep(0.1)
                 time.sleep(0.1)
-                menu_items = ['Quit', 'Continue', 'Ball Speed']
+                menu_items = ['Quit', 'Continue']
                 event = menu(menu_items)
                 if event == 'Quit':
                     cont = False
                 elif event == 'Continue':
                     pass
-                elif event == 'Ball Speed':
-                    options = {'Slow': 30, 'Fast': 60}
-                    event = menu(list(options.keys()))
-                    speed = options[event]
+
 
             self.screen.fill((0, 0, 0))
             self.paddleUpdate()
