@@ -10,4 +10,4 @@ def update():
 
 
 def reboot():
-    process = subprocess.Popen(["reboot"], stdout=subprocess.PIPE)
+    process = subprocess.Popen(["sudo", "reboot"], stdout=subprocess.PIPE)
