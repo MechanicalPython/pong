@@ -57,19 +57,22 @@ def menu(menu_items):
 
         display.blit(background, [0, 0])
 
-        dot = Dot(100, 260)
+        dot = Dot(100, 250)
         pos = read_left.position()
         item_x = 150
         item_y = 250
-        start = 1
+        item_number = 0
         for item in menu_items:
             font.render_to(display, (item_x, item_y), item, white)
-            if (start - 1)/n < pos < start/n:
-                dot.move(start*100 + 10)
+            if item_number/len(menu_items) < pos <= (item_number+1)/len(menu_items):
+
+                dot.move(item_y + 10)
                 if read_paddle.switch_is_pressed():
                     time.sleep(0.5)
-                    return menu_items[start - 1]
+                    return menu_items[item_number]
             item_y += 100
+            item_number += 1
+
         dot.show_dot()
         pygame.display.flip()
         clock.tick(30)
@@ -78,6 +81,8 @@ def menu(menu_items):
 def main():
     menu_items = ['Pong', 'Breakout', 'Update', 'Quit']
     event = menu(menu_items)
+    print(event)
+    quit()
     if event == 'Pong':
         import pong2
         pong2.board()

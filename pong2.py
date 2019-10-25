@@ -275,8 +275,8 @@ def auto_paddle(paddle, side):
 
 
 class Dot:
-    def __init__(self, y):
-        self.x = (width / 2 - 50)
+    def __init__(self, x, y):
+        self.x = x
         self.y = y
         self.w = 20
         self.h = 20
@@ -291,29 +291,34 @@ class Dot:
 def menu(menu_items):
     read_left = read_paddle.PaddleMove('l')
     n = len(menu_items)
+    background = pygame.image.load(f'{d}/background_image.png')
+
     while True:
-        # p = False
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     pygame.quit()
-                    sys.exit()
 
-        display.fill(background)
+        display.blit(background, [0, 0])
 
-        dot = Dot(110)
+        dot = Dot(100, 250)
         pos = read_left.position()
-        start = 1
+        item_x = 150
+        item_y = 250
+        item_number = 0
         for item in menu_items:
-            font.render_to(display, (width / 2, start*100), item, white)
-            if (start - 1)/n < pos < start/n:
-                dot.move(start*100 + 10)
+            font.render_to(display, (item_x, item_y), item, white)
+            if item_number/len(menu_items) < pos <= (item_number+1)/len(menu_items):
+
+                dot.move(item_y + 10)
                 if read_paddle.switch_is_pressed():
                     time.sleep(0.5)
-                    return menu_items[start - 1]
-            start += 1
+                    return menu_items[item_number]
+            item_y += 100
+            item_number += 1
+
         dot.show_dot()
-        pygame.display.update()
+        pygame.display.flip()
         clock.tick(30)
 
 
