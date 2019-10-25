@@ -141,10 +141,10 @@ class Breakout:
 
     def paddleUpdate(self):
 
-        self.moving_avg.append((read_left.position(20) * 1000))
-        pos = int(sum(self.moving_avg)/len(self.moving_avg))
-
-        # pos = pygame.mouse.get_pos()
+        # self.moving_avg.append((read_left.position(20) * 1000))
+        # pos = int(sum(self.moving_avg)/len(self.moving_avg))
+        pos = read_left.position(20) * 1000
+        # pos = pygame.mouse.get_pos()[0]  # 0 - 1000
         on = 0
         for p in self.paddle:
             p[0].x = pos + 20 * on
@@ -156,10 +156,9 @@ class Breakout:
         self.createBlocks()
         global read_left
         read_left = read_paddle.PaddleMove('l')
-        speed = 60
         cont = True
         while cont:
-            clock.tick(speed)
+            clock.tick(30)
             for event in pygame.event.get():
                 if event.type == QUIT:
                     sys.exit()
