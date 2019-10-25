@@ -10,7 +10,7 @@ import pygame.freetype
 import sys
 import time
 import os
-# import read_paddle as read_paddle
+import read_paddle as read_paddle
 
 pygame.mixer.init(22100, -16, 2, 2**7)
 pygame.init()
@@ -45,7 +45,7 @@ class Dot:
 
 
 def menu(menu_items):
-    # read_left = read_paddle.PaddleMove('l')
+    read_left = read_paddle.PaddleMove('l')
     n = len(menu_items)
     background = pygame.image.load('background_image.png')
 
@@ -58,15 +58,15 @@ def menu(menu_items):
         display.blit(background, [0, 0])
 
         dot = Dot(110)
-        # pos = read_left.position()
+        pos = read_left.position()
         start = 1
         for item in menu_items:
             font.render_to(display, (width / 2, start*100), item, white)
-            # if (start - 1)/n < pos < start/n:
-            #     dot.move(start*100 + 10)
-            #     if read_paddle.switch_is_pressed():
-            #         time.sleep(0.5)
-            #         return menu_items[start - 1]
+            if (start - 1)/n < pos < start/n:
+                dot.move(start*100 + 10)
+                if read_paddle.switch_is_pressed():
+                    time.sleep(0.5)
+                    return menu_items[start - 1]
             start += 1
         dot.show_dot()
         pygame.display.flip()
