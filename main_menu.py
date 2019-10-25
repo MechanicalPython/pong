@@ -48,12 +48,14 @@ def menu(menu_items):
     read_left = read_paddle.PaddleMove('l')
     n = len(menu_items)
     background = pygame.image.load(f'{d}/background_image.png')
-
+    pressed = False
     while True:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     pygame.quit()
+        if read_paddle.switch_is_pressed():
+            pressed = True
 
         display.blit(background, [0, 0])
 
@@ -67,7 +69,7 @@ def menu(menu_items):
             if item_number/len(menu_items) < pos <= (item_number+1)/len(menu_items):
 
                 dot.move(item_y + 10)
-                if read_paddle.switch_is_pressed():
+                if pressed:
                     time.sleep(0.5)
                     return menu_items[item_number]
             item_y += 100
