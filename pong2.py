@@ -102,7 +102,7 @@ class Paddle:
         #self.last_minute.append(ydir)
         ydir = int(sum(self.moving_avg)/len(self.moving_avg))
         self.y = ydir
-        if len(self.moving_avg) > 15:  # 1/2 of a second. 
+        if len(self.moving_avg) > 5:  # 1/2 of a second.
             self.moving_avg.pop(0)
         #if len(self.last_minute) > 30*60:
         #    self.last_minute.pop(0)
