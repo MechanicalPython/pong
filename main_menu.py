@@ -31,8 +31,8 @@ font = pygame.freetype.Font(f'{d}/SF Atarian System Extended Bold.ttf', 60)
 
 
 class Dot:
-    def __init__(self, y):
-        self.x = 200
+    def __init__(self, x, y):
+        self.x = x
         self.y = y
         self.w = 20
         self.h = 20
@@ -57,17 +57,19 @@ def menu(menu_items):
 
         display.blit(background, [0, 0])
 
-        dot = Dot(110)
+        dot = Dot(100, 260)
         pos = read_left.position()
+        item_x = 150
+        item_y = 250
         start = 1
         for item in menu_items:
-            font.render_to(display, (width / 2, start*100), item, white)
+            font.render_to(display, (item_x, item_y), item, white)
             if (start - 1)/n < pos < start/n:
                 dot.move(start*100 + 10)
                 if read_paddle.switch_is_pressed():
                     time.sleep(0.5)
                     return menu_items[start - 1]
-            start += 1
+            item_y += 100
         dot.show_dot()
         pygame.display.flip()
         clock.tick(30)
@@ -83,6 +85,9 @@ def main():
         import updater
         updater.update()
         updater.reboot()
+    elif event == 'Breakout':
+        import breakout
+        breakout.Breakout().main()
 
     elif event == 'Quit':
         sys.exit()
