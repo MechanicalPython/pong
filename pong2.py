@@ -122,8 +122,8 @@ rightPaddle = Paddle(1)
 class Ball:
     def __init__(self, color):
         self.r = 20
-        self.x = width / 2 - self.r / 2
-        self.y = height / 2 - self.r / 2
+        self.x = width / 2 - self.r / 2  # Left side of the ball
+        self.y = height / 2 - self.r / 2  # Top of the ball
         self.color = color
         self.angle = random.randint(-75, 75)
         if random.randint(0, 1):
@@ -141,23 +141,27 @@ class Ball:
         self.x += self.speed * cos(radians(self.angle))
         self.y += self.speed * sin(radians(self.angle))
 
-        if self.x + self.r > width - margin:
+        # Check point left. Hit right side.
+        if self.x + self.r >= width:  # right side of ball is more than the width.
             beep.play()
             self.angle = 180 - self.angle
-            if not leftPaddle.y < ball.x < leftPaddle.y + leftPaddle.h:  # Point left, so hit right side. 
+            if not leftPaddle.y < ball.x < leftPaddle.y + leftPaddle.h:  # Point left, so hit right side.
+                self.show_ball()
                 scoreLeft += 1
-                time.sleep(2.5)
+                time.sleep(1)
                 ball.x = width / 2 - self.r / 2
                 ball.y = random.randint(0, height)
                 ball.angle = random.randint(-75, 75)
                 ball.angle += 180
 
-        if self.x < margin:  # Point right
+        # Check point right. Hit left side.
+        if self.x <= margin:  # If left side of the ball is
             beep.play()
             self.angle = 180 - self.angle
             if not rightPaddle.y < ball.x < rightPaddle.y + rightPaddle.h:
+                self.show_ball()
                 scoreRight += 1
-                time.sleep(2.5)
+                time.sleep(1)
                 ball.x = width / 2 - self.r / 2
                 ball.y = random.randint(0, height)
                 ball.angle = random.randint(-75, 75)
@@ -263,7 +267,7 @@ def auto_paddle(paddle, side):
     elif side == 'right' and ball_angle < 90:
         move = True
     pc = paddle.y + (paddle.h/2)
-    move_distance = ball.speed * 10 * iters
+    move_distance = ball.speed * 1 * iters
     if move is True:
         if abs(pc - ball.y) < 10:
             move_distance = int(abs(pc - ball.y)/2)
