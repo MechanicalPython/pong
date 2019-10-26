@@ -7,6 +7,7 @@ from pygame import *
 from pygame.locals import *
 import read_paddle as read_paddle
 import time
+import os
 
 white = (236, 240, 241)
 background = (0, 0, 0)
@@ -15,10 +16,12 @@ clock = pygame.time.Clock()
 width = 1000
 height = 600
 
+d = os.path.dirname(__file__)
+
 
 class Dot:
-    def __init__(self, y):
-        self.x = 200
+    def __init__(self, x, y):
+        self.x = x
         self.y = y
         self.w = 20
         self.h = 20
@@ -33,29 +36,46 @@ class Dot:
 def menu(menu_items):
     read_left = read_paddle.PaddleMove('l')
     n = len(menu_items)
+    background = pygame.image.load(f'{d}/background_image.png')
+    pressed = False
+    pos = 0.2
     while True:
-        # p = False
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     pygame.quit()
-                    sys.exit()
+                if event.key == pygame.K_0:
+                    pressed = True
+                if event.key == pygame.K_1:
+                    pos = 0.2
+                if event.key == pygame.K_2:
+                    pos = 0.7
 
-        display.fill(background)
+        if read_paddle.auto is False:
+            if read_paddle.switch_is_pressed():
+                pressed = True
 
-        dot = Dot(110)
-        pos = read_left.position()
-        start = 1
+        display.blit(background, [0, 0])
+
+        dot = Dot(100, 250)
+        if read_paddle.auto is False:
+            pos = read_left.position()
+
+        item_x = 150
+        item_y = 250
+        item_number = 0
         for item in menu_items:
-            font.render_to(display, (width / 2, start*100), item, white)
-            if (start - 1)/n < pos < start/n:
-                dot.move(start*100 + 10)
-                if read_paddle.switch_is_pressed():
+            font.render_to(display, (item_x, item_y), item, white)
+            if item_number/len(menu_items) < pos <= (item_number+1)/len(menu_items):
+                dot.move(item_y + 10)
+                if pressed:
                     time.sleep(0.5)
-                    return menu_items[start - 1]
-            start += 1
+                    return menu_items[item_number]
+            item_y += 100
+            item_number += 1
+
         dot.show_dot()
-        pygame.display.update()
+        pygame.display.flip()
         clock.tick(30)
 
 
@@ -141,10 +161,13 @@ class Breakout:
 
     def paddleUpdate(self):
 
-        # self.moving_avg.append((read_left.position(20) * 1000))
-        # pos = int(sum(self.moving_avg)/len(self.moving_avg))
-        pos = read_left.position(20) * 1000
-        # pos = pygame.mouse.get_pos()[0]  # 0 - 1000
+
+        if read_paddle.auto is True:
+            pos = pygame.mouse.get_pos()[0]  # 0 - 1000
+        else:
+            # self.moving_avg.append((read_left.position(20) * 1000))
+            # pos = int(sum(self.moving_avg)/len(self.moving_avg))
+            pos = round(read_left.position(20), 2) * 1000
         on = 0
         for p in self.paddle:
             p[0].x = pos + 20 * on
@@ -157,22 +180,25 @@ class Breakout:
         global read_left
         read_left = read_paddle.PaddleMove('l')
         cont = True
+        pressed = False
         while cont:
-            clock.tick(30)
             for event in pygame.event.get():
-                if event.type == QUIT:
-                    sys.exit()
-            if read_paddle.switch_is_pressed() is True:
-                while read_paddle.switch_is_pressed() is True:
-                    time.sleep(0.1)
-                time.sleep(0.1)
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_q:
+                        a = False
+                    if event.key == pygame.K_0:
+                        pressed = True
+
+            if read_paddle.auto is False:
+                if read_paddle.switch_is_pressed() is True:
+                    pressed = True
+            if pressed is True:
                 menu_items = ['Quit', 'Continue']
                 event = menu(menu_items)
                 if event == 'Quit':
                     cont = False
                 elif event == 'Continue':
                     pass
-
 
             self.screen.fill((0, 0, 0))
             self.paddleUpdate()
@@ -185,6 +211,7 @@ class Breakout:
             pygame.draw.rect(self.screen, (255, 255, 255), self.ball)
             self.screen.blit(self.font.render(str(self.score), -1, (255, 255, 255)), (400, 550))
             pygame.display.update()
+            clock.tick(30)
 
 
 if __name__ == "__main__":

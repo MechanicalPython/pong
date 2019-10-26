@@ -293,17 +293,32 @@ def menu(menu_items):
     n = len(menu_items)
     background = pygame.image.load(f'{d}/background_image.png')
     pressed = False
+    pos = 0.2
     while True:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     pygame.quit()
-        if read_paddle.switch_is_pressed():
-            pressed = True
+                if event.key == pygame.K_0:
+                    pressed = True
+                if event.key == pygame.K_1:
+                    pos = 0.1
+                if event.key == pygame.K_2:
+                    pos = 0.3
+                if event.key == pygame.K_3:
+                    pos = 0.7
+                if event.key == pygame.K_4:
+                    pos = 0.9
+        if read_paddle.auto is False:
+            if read_paddle.switch_is_pressed():
+                pressed = True
+
         display.blit(background, [0, 0])
 
         dot = Dot(100, 250)
-        pos = read_left.position()
+        if read_paddle.auto is False:
+            pos = read_left.position()
+
         item_x = 150
         item_y = 250
         item_number = 0
@@ -335,28 +350,36 @@ def board():
     read_left = read_paddle.PaddleMove('l')
     read_right = read_paddle.PaddleMove('r')
     a = True
+    pressed = False
     while a:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     a = False
+                if event.key == pygame.K_0:
+                    pressed = True
+
         if read_paddle.auto is False:
             if read_paddle.switch_is_pressed() is True:
-                while read_paddle.switch_is_pressed() is True:
-                    time.sleep(0.1)
-                time.sleep(0.1)
-                menu_items = ['Quit', 'Reset', 'Continue', 'Ball Speed']
-                event = menu(menu_items)
-                if event == 'Quit':
-                    a = False
-                elif event == 'Reset':
-                    reset()
-                elif event == 'Continue':
-                    pass
-                elif event == 'Ball Speed':
-                    options = {'Slow': 2, 'Medium (Recommended)': 4, 'High': 6, 'Very High': 8, 'Insane': 10}
-                    event = menu(list(options.keys()))
-                    iters = options[event]
+                pressed = True
+        if pressed is True:
+            time.sleep(0.2)
+            menu_items = ['Quit', 'Reset', 'Continue', 'Ball Speed']
+            event = menu(menu_items)
+            if event == 'Quit':
+                a = False
+            elif event == 'Reset':
+                time.sleep(0.2)
+                reset()
+            elif event == 'Continue':
+                pressed = False
+                time.sleep(0.2)
+                pass
+            elif event == 'Ball Speed':
+                pressed = False
+                options = {'Slow': 2, 'Medium (Recommended)': 4, 'High': 6, 'Very High': 8, 'Insane': 10}
+                event = menu(list(options.keys()))
+                iters = options[event]
 
         if read_paddle.auto is True:
             left_event = auto_paddle(leftPaddle, 'left')

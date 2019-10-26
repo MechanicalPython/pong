@@ -25,17 +25,6 @@ left = 4  # Pin1
 right = 24  # Pin1
 
 
-# Time constant = resistance * capacitor
-def timer(func):
-    def f(*args, **kwargs):
-        start = time.time()
-        rv = func(*args, **kwargs)
-        end = time.time()
-        print('Time taken', end - start, ' for ', func.__name__)
-        return rv
-    return f
-
-
 def switch_is_pressed(input_pin=7, power_pin=8):
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(input_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)

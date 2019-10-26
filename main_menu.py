@@ -49,20 +49,32 @@ def menu(menu_items):
     n = len(menu_items)
     background = pygame.image.load(f'{d}/background_image.png')
     pressed = False
+    pos = 0.2
     while True:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     pygame.quit()
-                # if event.key == pygame.K_0:
-                #     pressed = True
-        if read_paddle.switch_is_pressed():
-            pressed = True
+                if event.key == pygame.K_0:
+                    pressed = True
+                if event.key == pygame.K_1:
+                    pos = 0.2
+                if event.key == pygame.K_2:
+                    pos = 0.4
+                if event.key == pygame.K_3:
+                    pos = 0.6
+                if event.key == pygame.K_4:
+                    pos = 0.9
+        if read_paddle.auto is False:
+            if read_paddle.switch_is_pressed():
+                pressed = True
 
         display.blit(background, [0, 0])
 
         dot = Dot(100, 250)
-        pos = read_left.position()
+        if read_paddle.auto is False:
+            pos = read_left.position()
+
         item_x = 150
         item_y = 250
         item_number = 0
@@ -82,21 +94,23 @@ def menu(menu_items):
 
 
 def main():
-    menu_items = ['Pong', 'Breakout', 'Update', 'Quit']
-    event = menu(menu_items)
-    if event == 'Pong':
-        import pong2
-        pong2.board()
-    elif event == 'Update':
-        import updater
-        updater.update()
-        updater.reboot()
-    elif event == 'Breakout':
-        import breakout
-        breakout.Breakout().main()
+    while True:
+        pygame.display.set_mode((width, height))
+        menu_items = ['Pong', 'Update', 'Quit']
+        event = menu(menu_items)
+        if event == 'Pong':
+            import pong2
+            pong2.board()
+        elif event == 'Update':
+            import updater
+            updater.update()
+            updater.reboot()
+        elif event == 'Breakout':
+            import breakout
+            breakout.Breakout().main()
 
-    elif event == 'Quit':
-        sys.exit()
+        elif event == 'Quit':
+            sys.exit()
 
 
 if __name__ == '__main__':
