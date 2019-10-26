@@ -13,36 +13,7 @@ import time
 import os
 import read_paddle as read_paddle
 
-pygame.mixer.init(22100, -16, 2, 2**7)
-pygame.init()
 
-width = 900
-height = 1000
-
-display = pygame.display.set_mode((width, height))
-pygame.display.set_caption("Pong!")
-clock = pygame.time.Clock()
-
-background = (0, 0, 0)
-white = (236, 240, 241)
-gray = (128, 128, 128)
-
-top = white
-bottom = white
-left = white
-right = white
-
-margin = 4
-
-scoreLeft = 0
-scoreRight = 0
-maxScore = 11
-
-d = os.path.dirname(__file__)
-font = pygame.freetype.Font(f'{d}/SF Atarian System Extended Bold.ttf', 60)
-
-beep = pygame.mixer.Sound(f"{d}/beep.wav")
-boop = pygame.mixer.Sound(f"{d}/boop.wav")
 
 
 def timer(func):
@@ -110,8 +81,7 @@ class Paddle:
             self.y = height - self.h
 
 
-leftPaddle = Paddle(-1)
-rightPaddle = Paddle(1)
+
 
 
 # Ball Class
@@ -339,6 +309,42 @@ def menu(menu_items):
 
 
 def board():
+    pygame.mixer.init(22100, -16, 2, 2 ** 7)
+    pygame.init()
+    global width, height, display, clock, background, white, gray, top, bottom, left, right, margin, scoreLeft
+    global scoreRight, maxScore, font, beep, boop, d
+    width = 900
+    height = 1000
+
+    display = pygame.display.set_mode((width, height))
+    pygame.display.set_caption("Pong!")
+    clock = pygame.time.Clock()
+
+    background = (0, 0, 0)
+    white = (236, 240, 241)
+    gray = (128, 128, 128)
+
+    top = white
+    bottom = white
+    left = white
+    right = white
+
+    margin = 4
+
+    scoreLeft = 0
+    scoreRight = 0
+    maxScore = 11
+
+    d = os.path.dirname(__file__)
+    font = pygame.freetype.Font(f'{d}/SF Atarian System Extended Bold.ttf', 60)
+
+    beep = pygame.mixer.Sound(f"{d}/beep.wav")
+    boop = pygame.mixer.Sound(f"{d}/boop.wav")
+
+    global leftPaddle, rightPaddle
+    leftPaddle = Paddle(-1)
+    rightPaddle = Paddle(1)
+
     pygame.event.set_allowed([pygame.KEYDOWN])
     pygame.mouse.set_visible(False)
     display.set_alpha(None)
@@ -415,5 +421,3 @@ def board():
 
 if __name__ == '__main__':
     board()
-
-# todo sound delay still there.
