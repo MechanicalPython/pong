@@ -102,9 +102,13 @@ def main():
             import pong2
             pong2.board()
         elif event == 'Update':
-            import updater
-            updater.update()
-            updater.reboot()
+            if read_paddle.auto is True:
+                print('Well done')
+                sys.exit()
+            else:
+                import updater
+                updater.update()
+                updater.reboot()
         elif event == 'Breakout':
             import breakout
             breakout.Breakout().main()
