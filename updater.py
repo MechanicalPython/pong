@@ -11,3 +11,8 @@ def update():
 
 def reboot():
     process = subprocess.Popen(["sudo", "reboot"], stdout=subprocess.PIPE)
+
+
+if __name__ == '__main__':
+    update()
+    reboot()
