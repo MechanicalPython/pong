@@ -50,7 +50,11 @@ def menu(menu_items):
     background = pygame.image.load(f'{d}/background_image.png')
     pressed = False
     pos = 0.2
+    start_time = time.time()
     while True:
+        if time.time() > start_time + 5*60:
+            import screen_saver
+
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:

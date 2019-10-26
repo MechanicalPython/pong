@@ -14,18 +14,6 @@ import os
 import read_paddle as read_paddle
 
 
-
-
-def timer(func):
-    def f(*args, **kwargs):
-        start = time.time()
-        rv = func(*args, **kwargs)
-        end = time.time()
-        print('Time taken', end - start, ' for ', func.__name__)
-        return rv
-    return f
-
-
 # Draw the Boundary of Board
 def boundary():
     global top, bottom, left, right

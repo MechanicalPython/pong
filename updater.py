@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import subprocess
-import read_paddle
+
 
 def update():
     process = subprocess.Popen(["git", "pull", "github", "master"], stdout=subprocess.PIPE)
