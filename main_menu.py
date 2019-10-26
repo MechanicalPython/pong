@@ -54,6 +54,8 @@ def menu(menu_items):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     pygame.quit()
+                # if event.key == pygame.K_0:
+                #     pressed = True
         if read_paddle.switch_is_pressed():
             pressed = True
 
@@ -67,7 +69,6 @@ def menu(menu_items):
         for item in menu_items:
             font.render_to(display, (item_x, item_y), item, white)
             if item_number/len(menu_items) < pos <= (item_number+1)/len(menu_items):
-
                 dot.move(item_y + 10)
                 if pressed:
                     time.sleep(0.5)
@@ -83,8 +84,6 @@ def menu(menu_items):
 def main():
     menu_items = ['Pong', 'Breakout', 'Update', 'Quit']
     event = menu(menu_items)
-    print(event)
-    quit()
     if event == 'Pong':
         import pong2
         pong2.board()
