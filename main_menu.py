@@ -14,6 +14,7 @@ import read_paddle as read_paddle
 
 pygame.mixer.init(22100, -16, 2, 2**7)
 pygame.init()
+pygame.mouse.set_visible(False)
 
 width = 1920
 height = 1080
@@ -54,6 +55,9 @@ def menu(menu_items):
     while True:
         if time.time() > start_time + 5*60:
             import screen_saver
+            screen_saver.screensaver()
+            start_time = time.time()
+            time.sleep(0.2)
 
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:

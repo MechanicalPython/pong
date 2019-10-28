@@ -69,10 +69,6 @@ class Paddle:
             self.y = height - self.h
 
 
-
-
-
-# Ball Class
 class Ball:
     def __init__(self, color):
         self.r = 20
@@ -308,7 +304,7 @@ def board():
     pygame.display.set_caption("Pong!")
     clock = pygame.time.Clock()
 
-    background = (0, 0, 0)
+    black = (0, 0, 0)
     white = (236, 240, 241)
     gray = (128, 128, 128)
 
@@ -343,13 +339,13 @@ def board():
     iters = 4
     read_left = read_paddle.PaddleMove('l')
     read_right = read_paddle.PaddleMove('r')
-    a = True
+    cont = True
     pressed = False
-    while a:
+    while cont:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
-                    a = False
+                    cont = False
                 if event.key == pygame.K_0:
                     pressed = True
 
@@ -361,7 +357,7 @@ def board():
             menu_items = ['Quit', 'Reset', 'Continue', 'Ball Speed']
             event = menu(menu_items)
             if event == 'Quit':
-                a = False
+                cont = False
             elif event == 'Reset':
                 time.sleep(0.2)
                 reset()
@@ -391,7 +387,7 @@ def board():
             ball.move_ball()
             ball.checkForPaddle()
 
-        display.fill(background)
+        display.fill(black)
         showScore()
 
         ball.show_ball()
