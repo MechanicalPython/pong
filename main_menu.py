@@ -105,7 +105,7 @@ def menu(menu_items):
 def main():
     while True:
         pygame.display.set_mode((width, height))
-        menu_items = ['Pong', 'Reboot', 'Quit']
+        menu_items = ['Pong', 'Reboot', 'Shutdown']
         event = menu(menu_items)
         if event == 'Pong':
             import pong2
@@ -119,7 +119,9 @@ def main():
             os.system('sudo reboot')
             sys.exit()
 
-        elif event == 'Quit':
+        elif event == 'Shutdown':
+            pygame.quit()
+            os.system('sudo shutdown now')
             sys.exit()
 
 
