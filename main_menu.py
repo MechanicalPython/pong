@@ -110,17 +110,14 @@ def main():
         if event == 'Pong':
             import pong2
             pong2.board()
-        elif event == 'Update':
-            if read_paddle.auto is True:
-                print('Well done')
-                sys.exit()
-            else:
-                pygame.quit()
-                os.system('sudo reboot')
-                sys.exit()
+
         elif event == 'Breakout':
             import breakout
             breakout.Breakout().main()
+        elif event == 'Reboot':
+            pygame.quit()
+            os.system('sudo reboot')
+            sys.exit()
 
         elif event == 'Quit':
             sys.exit()
