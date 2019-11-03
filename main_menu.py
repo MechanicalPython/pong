@@ -114,6 +114,7 @@ def main():
                 print('Well done')
                 sys.exit()
             else:
+                pygame.quit()
                 os.system('sudo reboot')
                 sys.exit()
         elif event == 'Breakout':
