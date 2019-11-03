@@ -114,9 +114,8 @@ def main():
                 print('Well done')
                 sys.exit()
             else:
-                import updater
-                # updater.update()
-                updater.reboot()
+                os.system('sudo reboot')
+                sys.exit()
         elif event == 'Breakout':
             import breakout
             breakout.Breakout().main()
