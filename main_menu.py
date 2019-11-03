@@ -4,7 +4,8 @@
 # Language - Python
 # Modules - pygame, sys, random, math
 # Splash screen at /usr/share/plymouth/themes/pix/splash.png
-# Test commit
+# run from /etc/rc.local
+
 import pygame
 import pygame.freetype
 import sys
