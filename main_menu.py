@@ -104,7 +104,7 @@ def menu(menu_items):
 def main():
     while True:
         pygame.display.set_mode((width, height))
-        menu_items = ['Pong', 'Update', 'Quit']
+        menu_items = ['Pong', 'Reboot', 'Quit']
         event = menu(menu_items)
         if event == 'Pong':
             import pong2
@@ -115,7 +115,7 @@ def main():
                 sys.exit()
             else:
                 import updater
-                updater.update()
+                # updater.update()
                 updater.reboot()
         elif event == 'Breakout':
             import breakout
