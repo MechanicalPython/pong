@@ -341,6 +341,7 @@ def board():
     read_right = read_paddle.PaddleMove('r')
     cont = True
     pressed = False
+    time.sleep(2)
     while cont:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
