@@ -1,10 +1,8 @@
 #! /usr/bin/env python3
 
 
-import sys
 import pygame
 from pygame import *
-from pygame.locals import *
 import read_paddle as read_paddle
 import time
 import os
@@ -13,7 +11,7 @@ white = (236, 240, 241)
 background = (0, 0, 0)
 clock = pygame.time.Clock()
 
-width = 1000
+width = 300
 height = 600
 
 d = os.path.dirname(__file__)
@@ -114,7 +112,7 @@ class Breakout:
         y = 50
         for __ in range(20):
             x = 50
-            for _ in range(33):
+            for _ in range(30):
                 block = pygame.Rect(x, y, 25, 10)
                 self.blocks.append(block)
                 x += 27
@@ -161,7 +159,6 @@ class Breakout:
 
     def paddleUpdate(self):
 
-
         if read_paddle.auto is True:
             pos = pygame.mouse.get_pos()[0]  # 0 - 1000
         else:
@@ -185,7 +182,7 @@ class Breakout:
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
-                        a = False
+                        cont = False
                     if event.key == pygame.K_0:
                         pressed = True
 
